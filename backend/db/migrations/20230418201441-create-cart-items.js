@@ -16,6 +16,7 @@ module.exports = {
       },
       cartId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: { 
           model: 'Carts',
           key: 'id'
@@ -23,18 +24,25 @@ module.exports = {
       },
       itemId: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         references: { 
           model: 'Items',
           key: 'id'
         }
       },
+      quantity: {
+        type: Sequelize.INTEGER,
+        defaultValue: 1
+      },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
     });
   },

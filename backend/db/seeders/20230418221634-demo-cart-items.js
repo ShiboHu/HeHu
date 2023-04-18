@@ -8,19 +8,31 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    options.tableName = 'Carts';
+    options.tableName = 'Cart_Items';
     return queryInterface.bulkInsert(options, [
       { 
-        userId: 1,
+        cartId: 1,
+        itemId: 1,
+        quantity: 2
       },
       { 
-        userId: 2,
+        cartId: 1,
+        itemId: 2,
+      },
+      { 
+        cartId: 1,
+        itemId: 3,
+        quantity: 2
+      },
+      { 
+        cartId: 2,
+        itemId: 1,
       },
     ], {});
   },
 
   down: async (queryInterface, Sequelize) => {
-    options.tableName = 'Carts';
+    options.tableName = 'Cart_Items';
     return queryInterface.bulkDelete(options);
   }
 };

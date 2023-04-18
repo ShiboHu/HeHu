@@ -14,7 +14,7 @@ module.exports = {
         name: faker.lorem.word(),
         description: faker.lorem.sentences(2),
         price: faker.random.numeric(2), 
-        image: faker.image.food(),
+        image: 'https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=',
         stocks: faker.random.numeric(3),
         sellerId: 1,
         subcategoryId: 1
@@ -23,7 +23,7 @@ module.exports = {
         name: faker.lorem.word(),
         description: faker.lorem.sentences(2),
         price: faker.random.numeric(2), 
-        image: faker.image.food(),
+        image: 'https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=',
         stocks: faker.random.numeric(3),
         sellerId: 3,
         subcategoryId: 1
@@ -32,7 +32,7 @@ module.exports = {
         name: faker.lorem.word(),
         description: faker.lorem.sentences(2),
         price: faker.random.numeric(2), 
-        image: faker.image.food(),
+        image: 'https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=',
         stocks: faker.random.numeric(3),
         sellerId: 2,
         subcategoryId: 2
@@ -41,7 +41,7 @@ module.exports = {
         name: faker.lorem.word(),
         description: faker.lorem.sentences(2),
         price: faker.random.numeric(2), 
-        image: faker.image.food(),
+        image: 'https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=',
         stocks: faker.random.numeric(3),
         sellerId: 1,
         subcategoryId: 3
@@ -50,7 +50,7 @@ module.exports = {
         name: faker.lorem.word(),
         description: faker.lorem.sentences(2),
         price: faker.random.numeric(2), 
-        image: faker.image.food(),
+        image: 'https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=',
         stocks: faker.random.numeric(3),
         sellerId: 3,
         subcategoryId: 1
@@ -59,7 +59,7 @@ module.exports = {
         name: faker.lorem.word(),
         description: faker.lorem.sentences(2),
         price: faker.random.numeric(2), 
-        image: faker.image.food(),
+        image: 'https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=',
         stocks: faker.random.numeric(3),
         sellerId: 2,
         subcategoryId: 2

@@ -22,19 +22,19 @@ module.exports = {
           key: 'id'
         }
       },
-      itemId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { 
-          model: 'Items',
-          key: 'id'
-        }
-      },
-      quantity: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        defaultValue: 1
-      },
+      // itemId: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   references: { 
+      //     model: 'Items',
+      //     key: 'id'
+      //   }
+      // },
+      // quantity: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   defaultValue: 1
+      // },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

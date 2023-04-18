@@ -1,3 +1,25 @@
 .hidden { 
     display: none;
 }
+
+.hehu-logo { 
+    width: 100px;
+    height: 80px;
+    border-radius: 30%;
+}
+
+ul { 
+    list-style-type: none;
+}
+
+
+.navbar-container { 
+    display: flex;
+    align-items: center;
+}
+
+.user-circle-button { 
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}

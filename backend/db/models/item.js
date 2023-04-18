@@ -16,7 +16,6 @@ module.exports = (sequelize, DataTypes) => {
       Item.hasMany(models.Like, {foreignKey: 'itemId', onDelete: 'CASCADE',  hooks: true})
       Item.belongsToMany(models.Cart, {through: models.Cart_Item})
       Item.belongsTo(models.Sub_Category, {foreignKey: 'subcategoryId'})
-      Item.hasMany(models.Cart_Item, {foreignKey: 'itemId'})
     }
   }
   Item.init({

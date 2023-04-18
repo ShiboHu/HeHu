@@ -1,0 +1,35 @@
+.items-container{ 
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+
+.landingpage-item-image { 
+    width: 290px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.landingpage-addtocart-button { 
+    width: 45px;
+    height: 35px;
+    border-radius: 30%;
+}
+
+.landingpage-price { 
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.landingpage-item-name {
+    color: rgb(85, 85, 85);
+    opacity: 1;
+}
+
+.items-card { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
