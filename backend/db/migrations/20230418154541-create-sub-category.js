@@ -20,7 +20,11 @@ module.exports = {
       },
       maincategory_id: {
         type: Sequelize.INTEGER, 
-        allowNull: false
+        allowNull: false,
+        references: { 
+          model: 'Main_Categories',
+          key: 'id',
+        }
       },
       createdAt: {
         allowNull: false,

@@ -44,6 +44,10 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       // define association here
+      User.hasMany(models.Comment, {foreignKey: 'user_id'})
+      User.hasMany(models.Cart, {foreignKey: 'user_id'})
+      User.hasMany(models.Like, {foreignKey: 'user_id'})
+      User.hasMany(models.Item, {foreignKey: 'seller_id'})
     }
   };
 
@@ -78,6 +82,18 @@ module.exports = (sequelize, DataTypes) => {
       },
       address: {
         type: DataTypes.STRING,
+        allowNull: true,
+      },
+      state: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      city: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      zipCode: {
+        type: DataTypes.INTEGER,
         allowNull: true,
       },
       bio: {

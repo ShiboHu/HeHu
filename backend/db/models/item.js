@@ -11,10 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Item.belongsTo(models.User, {foreignKey: 'seller_id'})
+      Item.hasMany(models.Comment, {foreignKey: 'item_id', onDelete: 'CASACDE'})
+      Item.hasMany(models.Like, {foreignKey: 'item_id', onDelete: 'CASACDE'})
+      Item.belongsTo(models.Cart, {foreignKey: 'item_id'})
+      Item.belongsTo(models.Sub_Category, {foreignKey: 'subcategory_id'})
     }
   }
   Item.init({
     name: { 
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    seller_id : { 
       type: DataTypes.STRING,
       allowNull: false
     },
@@ -25,10 +34,6 @@ module.exports = (sequelize, DataTypes) => {
     price: { 
      type: DataTypes.INTEGER,
      allowNull: false
-    },
-    size: { 
-      type: DataTypes.STRING,
-      allowNull: true
     },
     image: {
       type: DataTypes.STRING,

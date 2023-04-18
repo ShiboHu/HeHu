@@ -14,6 +14,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      seller_id : { 
+        type: Sequelize.INTEGER,
+        references: { 
+          model: 'Users',
+          key: 'id'
+        }
+      },
       name: {
         type: Sequelize.STRING(80),
         allowNull: false
@@ -26,10 +33,6 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      size: {
-        type: Sequelize.STRING,
-        allowNull: true
-      },
       image: {
         type: Sequelize.STRING,
         allowNull: false 
@@ -38,7 +41,11 @@ module.exports = {
         type: Sequelize.INTEGER, 
       },
       subcategory_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references:{ 
+          model: 'Sub_Categories',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,

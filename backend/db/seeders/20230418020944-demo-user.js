@@ -1,5 +1,6 @@
 'use strict';
 const bcrypt = require("bcryptjs");
+const { faker } = require('@faker-js/faker');
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {
@@ -13,17 +14,29 @@ module.exports = {
       {
         email: 'demo@user.io',
         username: 'Demo-lition',
-        hashedPassword: bcrypt.hashSync('password')
+        hashedPassword: bcrypt.hashSync('password'),
+        address: faker.address.streetAddress(),
+        state: faker.address.state(),
+        city: faker.address.city(),
+        zipCode: faker.address.zipCode()
       },
       {
         email: 'user1@user.io',
         username: 'FakeUser1',
-        hashedPassword: bcrypt.hashSync('password2')
+        hashedPassword: bcrypt.hashSync('password2'),
+        address: faker.address.streetAddress(),
+        state: faker.address.state(),
+        city: faker.address.city(),
+        zipCode: faker.address.zipCode()
       },
       {
         email: 'user2@user.io',
         username: 'FakeUser2',
-        hashedPassword: bcrypt.hashSync('password3')
+        hashedPassword: bcrypt.hashSync('password3'),
+        address: faker.address.streetAddress(),
+        state: faker.address.state(),
+        city: faker.address.city(),
+        zipCode: faker.address.zipCode()
       }
     ], {});
   },

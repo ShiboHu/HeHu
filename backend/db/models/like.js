@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Like.belongsTo(models.User, {foreignKey: 'user_id'})
+      Like.belongsTo(models.Item, {foreignKey: 'item_id'})
     }
   }
   Like.init({

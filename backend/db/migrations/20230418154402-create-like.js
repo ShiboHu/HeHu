@@ -17,10 +17,19 @@ module.exports = {
       item_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: { 
+          model: 'Items',
+          key: 'id',
+          onDelete: 'CASACDE'
+        }
       },
       user_id: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: { 
+          model: 'Users',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
