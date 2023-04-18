@@ -18,12 +18,12 @@ module.exports = {
         type:Sequelize.STRING,
         allowNull: false
       },
-      maincategory_id: {
+      maincategoryId: {
         type: Sequelize.INTEGER, 
         allowNull: false,
         references: { 
           model: 'Main_Categories',
-          key: 'id',
+          key: 'id'
         }
       },
       createdAt: {

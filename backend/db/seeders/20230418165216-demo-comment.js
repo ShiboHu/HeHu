@@ -11,30 +11,30 @@ module.exports = {
     options.tableName = 'Comments';
     return queryInterface.bulkInsert(options, [
       { 
-        user_id: 1,
+        userId: 1,
         image: faker.image.food(),
-        item_id: 1,
+        itemId: 1,
         comment: faker.lorem.sentence(),
         rating: 2
       },
       { 
-        user_id: 2,
+        userId: 2,
         image: faker.image.food(),
-        item_id: 1,
+        itemId: 1,
         comment: faker.lorem.sentence(),
         rating: 2
       },
       { 
-        user_id: 1,
+        userId: 1,
         image: faker.image.food(),
-        item_id: 2,
+        itemId: 2,
         comment: faker.lorem.sentence(),
         rating: 4
       },
       { 
-        user_id: 1,
+        userId: 1,
         image: faker.image.food(),
-        item_id: 2,
+        itemId: 2,
         comment: faker.lorem.sentence(),
         rating: 4
       },

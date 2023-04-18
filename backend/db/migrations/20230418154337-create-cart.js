@@ -14,20 +14,20 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { 
           model: 'Users',
-          key: 'id',
+          key: 'id'
         }
       },
-      item_id: {
+      itemId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { 
           model: 'Items',
-          key: 'id',
+          key: 'id'
         }
       },
       quantity: {

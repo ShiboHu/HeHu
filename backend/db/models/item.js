@@ -11,11 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Item.belongsTo(models.User, {foreignKey: 'seller_id'})
-      Item.hasMany(models.Comment, {foreignKey: 'item_id', onDelete: 'CASACDE'})
-      Item.hasMany(models.Like, {foreignKey: 'item_id', onDelete: 'CASACDE'})
-      Item.belongsTo(models.Cart, {foreignKey: 'item_id'})
-      Item.belongsTo(models.Sub_Category, {foreignKey: 'subcategory_id'})
+      Item.belongsTo(models.User, {foreignKey: 'sellerId'})
+      Item.hasMany(models.Comment, {foreignKey: 'itemId', onDelete: 'CASCADE',  hooks: true})
+      Item.hasMany(models.Like, {foreignKey: 'itemId', onDelete: 'CASCADE',  hooks: true})
+      Item.belongsToMany(models.Cart, {through: models.Cart_Item})
+      Item.belongsTo(models.Sub_Category, {foreignKey: 'subcategoryId'})
+      Item.hasMany(models.Cart_Item, {foreignKey: 'itemId'})
     }
   }
   Item.init({
@@ -23,8 +24,8 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    seller_id : { 
-      type: DataTypes.STRING,
+    sellerId : { 
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     description: {
@@ -43,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
      type: DataTypes.INTEGER,
      allowNull: false 
     },
-    subcategory_id:{ 
+    subcategoryId:{ 
       type: DataTypes.INTEGER,
       allowNull: false
     },

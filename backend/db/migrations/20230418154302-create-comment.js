@@ -22,21 +22,22 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: true
       },
-      item_id: {
+      itemId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { 
           model: 'Items',
-          key: 'id',
-          onDelete: 'CASACDE'
-        }
+          key: 'id'
+
+        },
+        onDelete: 'CASCADE'
       },
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { 
           model: 'Users',
-          key: 'id',
+          key: 'id'
         }
       },
       rating: { 

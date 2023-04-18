@@ -11,16 +11,16 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Like.belongsTo(models.User, {foreignKey: 'user_id'})
-      Like.belongsTo(models.Item, {foreignKey: 'item_id'})
+      Like.belongsTo(models.User, {foreignKey: 'userId'})
+      Like.belongsTo(models.Item, {foreignKey: 'itemId'})
     }
   }
   Like.init({
-    item_id: { 
+    itemId: { 
       type:DataTypes.INTEGER,
       allowNull: false 
     },
-    user_id: { 
+    userId: { 
       type: DataTypes.INTEGER,
       allowNull: false 
     }

@@ -16,7 +16,8 @@ module.exports = {
         price: faker.random.numeric(2), 
         image: faker.image.food(),
         stocks: faker.random.numeric(3),
-        seller_id: 1
+        sellerId: 1,
+        subcategoryId: 1
       },
       { 
         name: faker.lorem.word(),
@@ -24,7 +25,8 @@ module.exports = {
         price: faker.random.numeric(2), 
         image: faker.image.food(),
         stocks: faker.random.numeric(3),
-        seller_id: 3
+        sellerId: 3,
+        subcategoryId: 1
       },
       { 
         name: faker.lorem.word(),
@@ -32,7 +34,8 @@ module.exports = {
         price: faker.random.numeric(2), 
         image: faker.image.food(),
         stocks: faker.random.numeric(3),
-        seller_id: 2
+        sellerId: 2,
+        subcategoryId: 2
       },
       { 
         name: faker.lorem.word(),
@@ -40,7 +43,8 @@ module.exports = {
         price: faker.random.numeric(2), 
         image: faker.image.food(),
         stocks: faker.random.numeric(3),
-        seller_id: 1
+        sellerId: 1,
+        subcategoryId: 3
       },
       { 
         name: faker.lorem.word(),
@@ -48,7 +52,8 @@ module.exports = {
         price: faker.random.numeric(2), 
         image: faker.image.food(),
         stocks: faker.random.numeric(3),
-        seller_id: 3
+        sellerId: 3,
+        subcategoryId: 1
       },
       { 
         name: faker.lorem.word(),
@@ -56,7 +61,8 @@ module.exports = {
         price: faker.random.numeric(2), 
         image: faker.image.food(),
         stocks: faker.random.numeric(3),
-        seller_id: 2
+        sellerId: 2,
+        subcategoryId: 2
       },
     ], {});
   },

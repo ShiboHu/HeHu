@@ -12,23 +12,23 @@ module.exports = {
     return queryInterface.bulkInsert(options, [
       { 
         name: faker.lorem.word(),
-        maincategory_id: 1
+        maincategoryId: 1
       },
       { 
         name: faker.lorem.word(),
-        maincategory_id: 1
+        maincategoryId: 1
       },
       { 
         name: faker.lorem.word(),
-        maincategory_id: 2
+        maincategoryId: 2
       },
       { 
         name: faker.lorem.word(),
-        maincategory_id: 1
+        maincategoryId: 1
       },
       { 
         name: faker.lorem.word(),
-        maincategory_id: 3
+        maincategoryId: 3
       },
      
     ], {});

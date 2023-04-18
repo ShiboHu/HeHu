@@ -14,11 +14,11 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      seller_id : { 
+      sellerId : { 
         type: Sequelize.INTEGER,
         references: { 
           model: 'Users',
-          key: 'id'
+          key:'id'
         }
       },
       name: {
@@ -40,7 +40,7 @@ module.exports = {
       stocks: {
         type: Sequelize.INTEGER, 
       },
-      subcategory_id: {
+      subcategoryId: {
         type: Sequelize.INTEGER,
         references:{ 
           model: 'Sub_Categories',

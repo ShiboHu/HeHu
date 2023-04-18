@@ -11,20 +11,20 @@ module.exports = {
     options.tableName = 'Likes';
     return queryInterface.bulkInsert(options, [
       { 
-        user_id: 1,
-        item_id: 1,
+        userId: 1,
+        itemId: 1,
       },
       { 
-        user_id: 1,
-        item_id: 2,
+        userId: 1,
+        itemId: 2,
       },
       { 
-        user_id: 2,
-        item_id: 1,
+        userId: 2,
+        itemId: 1,
       },
       { 
-        user_id: 3,
-        item_id: 1,
+        userId: 3,
+        itemId: 1,
       },
     ], {});
   },

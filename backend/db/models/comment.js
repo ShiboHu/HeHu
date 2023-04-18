@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Comment.belongsTo(models.User, {foreignKey: 'user_id'})
-      Comment.belongsTo(models.Item, {foreignKey: 'item_id'})
+      Comment.belongsTo(models.User, {foreignKey: 'userId'})
+      Comment.belongsTo(models.Item, {foreignKey: 'itemId'})
     }
   }
   Comment.init({
@@ -27,11 +27,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: true
     },
-    item_id: { 
+    itemId: { 
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    user_id: { 
+    userId: { 
       type: DataTypes.INTEGER,
       allowNull: false
     },
