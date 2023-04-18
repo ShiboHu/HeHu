@@ -6,39 +6,29 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Users", {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('Comments', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
-        type: Sequelize.STRING(30),
-        allowNull: false,
-        unique: true
-      },
-      email: {
-        type: Sequelize.STRING(256),
-        allowNull: false,
-        unique: true
-      },
-      hashedPassword: {
-        type: Sequelize.STRING.BINARY,
-        allowNull: false
-      },
-      address: { 
+      comment: {
         type: Sequelize.STRING(255),
         allowNull: false
       },
-      bio: { 
-        type: Sequelize.STRING(500),
+      image: {
+        type: Sequelize.STRING,
         allowNull: true
       },
-      icon: { 
-        type: Sequelize.STRING(500),
-        allowNull: true
+      item_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      user_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,
@@ -50,10 +40,10 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
-    }, options);
+    });
   },
-  down: async (queryInterface, Sequelize) => {
-    options.tableName = "Users";
-    return queryInterface.dropTable(options);
+  async down(queryInterface, Sequelize) {
+    options.tableName = 'Comments'
+    await queryInterface.dropTable(options);
   }
 };

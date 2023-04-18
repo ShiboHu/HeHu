@@ -6,39 +6,39 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 module.exports = {
-  up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable("Users", {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('Items', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      username: {
-        type: Sequelize.STRING(30),
-        allowNull: false,
-        unique: true
-      },
-      email: {
-        type: Sequelize.STRING(256),
-        allowNull: false,
-        unique: true
-      },
-      hashedPassword: {
-        type: Sequelize.STRING.BINARY,
+      name: {
+        type: Sequelize.STRING(80),
         allowNull: false
       },
-      address: { 
+      description: {
         type: Sequelize.STRING(255),
         allowNull: false
       },
-      bio: { 
-        type: Sequelize.STRING(500),
+      price: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      size: {
+        type: Sequelize.STRING,
         allowNull: true
       },
-      icon: { 
-        type: Sequelize.STRING(500),
-        allowNull: true
+      image: {
+        type: Sequelize.STRING,
+        allowNull: false 
+      },
+      stocks: {
+        type: Sequelize.INTEGER, 
+      },
+      subcategory_id: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -50,10 +50,10 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
       }
-    }, options);
+    });
   },
-  down: async (queryInterface, Sequelize) => {
-    options.tableName = "Users";
-    return queryInterface.dropTable(options);
+  async down(queryInterface, Sequelize) {
+    options.tableName = 'Items'
+    await queryInterface.dropTable(options);
   }
 };

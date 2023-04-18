@@ -70,12 +70,24 @@ module.exports = (sequelize, DataTypes) => {
         }
       },
       hashedPassword: {
-        type: DataTypes.STRING.BINARY,
+        type: DataTypes.STRING,
         allowNull: false,
         validate: {
           len: [60, 60]
         }
-      }
+      },
+      address: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      bio: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      icon: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
     },
     {
       sequelize,
