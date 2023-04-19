@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Main_Category.hasMany(models.Sub_Category, {foreignKey: 'maincategoryId'})
+      Main_Category.hasMany(models.Sub_Category, {foreignKey: 'maincategoryId',onDelete: 'CASCADE',  hooks: true})
     }
   }
   Main_Category.init({
