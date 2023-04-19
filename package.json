@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/ShiboHu/HeHu/issues"
   },
-  "homepage": "https://github.com/ShiboHu/HeHu#readme"
+  "homepage": "https://github.com/ShiboHu/HeHu#readme",
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0"
+  }
 }
