@@ -11,23 +11,23 @@ module.exports = {
     options.tableName = 'Sub_Categories';
     return queryInterface.bulkInsert(options, [
       { 
-        name: faker.lorem.word(),
+        name: 'Hoodies',
         maincategoryId: 1
       },
       { 
-        name: faker.lorem.word(),
+        name: 'Sweat Shirt',
         maincategoryId: 1
       },
       { 
-        name: faker.lorem.word(),
+        name: 'Phone',
         maincategoryId: 2
       },
       { 
-        name: faker.lorem.word(),
+        name: 'Tees',
         maincategoryId: 1
       },
       { 
-        name: faker.lorem.word(),
+        name: 'Lawn Care',
         maincategoryId: 3
       },
      

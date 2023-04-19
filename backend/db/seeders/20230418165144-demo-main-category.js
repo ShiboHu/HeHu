@@ -1,5 +1,4 @@
 'use strict';
-const { faker } = require('@faker-js/faker');
 
 let options = {};
 if (process.env.NODE_ENV === 'production') {
@@ -11,19 +10,19 @@ module.exports = {
     options.tableName = 'Main_Categories';
     return queryInterface.bulkInsert(options, [
       { 
-        name: faker.lorem.word()
+        name: 'Clothing'
       },
       { 
-        name: faker.lorem.word()
+        name: 'Electronics'
       },
       { 
-        name: faker.lorem.word()
+        name: 'Home & Goods'
       },
       { 
-        name: faker.lorem.word()
+        name: 'Kitchen'
       },
       { 
-        name: faker.lorem.word()
+        name: 'Sporting Goods'
       },
      
     ], {});
