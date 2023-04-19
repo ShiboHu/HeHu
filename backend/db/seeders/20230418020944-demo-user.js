@@ -18,7 +18,7 @@ module.exports = {
         address: faker.address.streetAddress(),
         state: faker.address.state(),
         city: faker.address.city(),
-        zipCode: faker.address.zipCode()
+        zipCode: 34212
       },
       {
         email: 'user1@user.io',
@@ -27,7 +27,7 @@ module.exports = {
         address: faker.address.streetAddress(),
         state: faker.address.state(),
         city: faker.address.city(),
-        zipCode: faker.address.zipCode()
+        zipCode: 34212
       },
       {
         email: 'user2@user.io',
@@ -36,7 +36,7 @@ module.exports = {
         address: faker.address.streetAddress(),
         state: faker.address.state(),
         city: faker.address.city(),
-        zipCode: faker.address.zipCode()
+        zipCode: 34212
       }
     ], {});
   },
