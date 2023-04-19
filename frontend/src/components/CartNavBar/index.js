@@ -1,10 +1,31 @@
+import { getAllCartItem } from '../../store/cart';
 import './cartnavbar.css'
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function CartNavBar(){ 
+    const dispatch = useDispatch();
+    const allItemInCart = useSelector(state => state.carts.carts);
+    console.log(allItemInCart)
 
+
+
+    useEffect(() => { 
+        dispatch(getAllCartItem())
+    }, [dispatch])
+    
     return(
-        <div className="cartnavbar-container">
-
+        <div className="main-navbar-container">
+            <ul className="cartnavbar-container">
+                <div className='cartnavbar-buttons'>
+                <h2 >${allItemInCart?.totalPrice}</h2>
+                <button className='button-65'>Checkout</button>
+                <button className='button-65'>Go to cart</button>
+                </div>
+                {allItemInCart?.Items?.map(item =>( 
+                    <img className='cartnavbar-image'src={item.image}></img>
+                ))}
+            </ul>
         </div>
     )
 }

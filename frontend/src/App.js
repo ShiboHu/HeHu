@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
+import CartNavBar from "./components/CartNavBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function App() {
 
   return (
     <>
+    <CartNavBar />
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>

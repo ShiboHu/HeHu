@@ -25,10 +25,16 @@ router.get('/', async (req, res) => {
        totalPrice += item.price
      })
 
-     return res.json({ 
-       cart: cart,
-       totalPrice: totalPrice, 
-     });
+    cart.totalPrice = totalPrice;
+     
+    return res.json({
+      id: cart.id,
+      userId: cart.userId,
+      createdAt: cart.createdAt,
+      updatedAt: cart.updatedAt,
+      Items: cart.Items,
+      totalPrice: cart.totalPrice // Add totalPrice field here
+    });
 });
 
   
