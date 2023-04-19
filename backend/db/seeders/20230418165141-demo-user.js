@@ -12,7 +12,7 @@ module.exports = {
     options.tableName = 'Users';
     return queryInterface.bulkInsert(options, [
       {
-        email: 'demo@user.io',
+        email: 'FakeUser40@user.io',
         username: 'FakeUser40',
         hashedPassword: bcrypt.hashSync('password'),
         address: faker.address.streetAddress(),
@@ -21,8 +21,8 @@ module.exports = {
         zipCode: 34212
       },
       {
-        email: 'user1@user.io',
-        username: 'FakeUser4',
+        email: 'FakeUser42@user.io',
+        username: 'FakeUser42',
         hashedPassword: bcrypt.hashSync('password2'),
         address: faker.address.streetAddress(),
         state: faker.address.state(),
@@ -30,8 +30,8 @@ module.exports = {
         zipCode: 34212
       },
       {
-        email: 'user2@user.io',
-        username: 'FakeUser5',
+        email: 'FakeUser43@user.io',
+        username: 'FakeUser53',
         hashedPassword: bcrypt.hashSync('password3'),
         address: faker.address.streetAddress(),
         state: faker.address.state(),
