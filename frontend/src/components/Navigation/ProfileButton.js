@@ -51,6 +51,7 @@ function ProfileButton({ user }) {
           <>
             <li>{user.username}</li>
             <li>{user.firstName} {user.lastName}</li>
+            <button onClick={() => history.push('/profile')}>Profile</button>
             <button onClick={() => history.push('/item/new')}>New Item</button>
             <li>
               <button onClick={logout}>Log Out</button>

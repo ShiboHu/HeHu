@@ -3,7 +3,9 @@ import { csrfFetch } from "./csrf"
 const ALL_ITEMS = 'items/ALL'
 const CREATE_ITEM = 'items/CREATE'
 const GET_SINGLEITEM = 'items/SINGLE'
-
+const GET_CURRENTUSERITEMS = 'items/CURRENTUSER'
+const UPDATE_ITEM = 'items/UPDATE'
+const DELETE_ITEM = 'items/DELETE'
 
 const allItems = (payload) => { 
     return { 
@@ -26,6 +28,26 @@ const singleitem = (payload) => {
     }
 }
 
+const currentuserItem = (payload) => {
+    return { 
+        type: GET_CURRENTUSERITEMS,
+        payload
+    }
+}
+
+const updateItem = (payload) => { 
+    return { 
+        type: UPDATE_ITEM,
+        payload
+    }
+}
+
+const deleteItem = (itemId) => {
+    return {
+      type: DELETE_ITEM,
+      payload: itemId,
+    };
+  };
 
 export const getAllItems = () => async dispatch => { 
     const res = await csrfFetch('/api/items')
@@ -62,6 +84,43 @@ export const getSingleItem = (itemId) => async dispatch => {
     return res
 }
 
+export const deleteSingleItem = (itemId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/items/${itemId}`, {
+      method: "DELETE",
+    });
+  
+    if (res.ok) {
+      const data = await res.json();
+      dispatch(deleteItem(itemId));
+    }
+    return res;
+  };
+
+export const getCurrentUserItems = () => async dispatch => { 
+    const res = await csrfFetch(`/api/items/item/current`)
+
+    if(res.ok){ 
+        const data = await res.json()
+        dispatch(currentuserItem(data))
+    }
+    return res 
+}
+
+export const updateUserItem = (payload, itemId) => async dispatch => { 
+    const res = await csrfFetch(`/api/items/${itemId}`, { 
+        method: 'PUT',
+        headers: {'Content-Type' : 'application/json'},
+        body: JSON.stringify(payload)
+    })
+
+    if(res.ok){ 
+        const data = await res.json();
+        dispatch(updateItem(data))
+    }
+    return res
+}
+
+
 const initialState = {items: []}
 const itemReducer = (state = initialState, action) => { 
     switch(action.type){ 
@@ -80,6 +139,27 @@ const itemReducer = (state = initialState, action) => {
                 ...state,
                 items: action.payload
             }
+        case GET_CURRENTUSERITEMS:
+            return { 
+                ...state, 
+                items: action.payload
+            }
+        case UPDATE_ITEM:
+            return {
+                ...state,
+                items: state.items.map(item => {
+                  if (item.id === action.payload.id) {
+                    return action.payload;
+                  } else {
+                    return item;
+                  }
+                })
+              };
+        case DELETE_ITEM:
+            return {
+                ...state,
+                items: state.items.filter((item) => item.id !== action.payload),
+            };
         default: 
             return state
     }

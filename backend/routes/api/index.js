@@ -5,6 +5,7 @@ const usersRouter = require('./users.js');
 const itemsRouter = require('./items.js');
 const cartsRouter = require('./carts.js');
 const subCatRouter = require('./sub_categories.js')
+const commentRouter = require('./comment.js');
 
 const { restoreUser } = require("../../utils/auth.js");
 
@@ -15,5 +16,6 @@ router.use('/users', usersRouter);
 router.use('/items', itemsRouter);
 router.use('/carts', cartsRouter);
 router.use('/subcategories', subCatRouter);
+router.use('/comments', commentRouter)
 
 module.exports = router;

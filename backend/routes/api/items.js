@@ -69,7 +69,83 @@ router.post('/', async (req, res) => {
 
     res.status(201);
     return res.json(newItem);
-
 })
+
+
+//update item
+router.put('/:itemId', async(req, res) => { 
+    const {
+        name, 
+        description, 
+        price, 
+        image, 
+        stocks, 
+        subcategoryId
+       } = req.body;
+
+    const item = await Item.findByPk(req.params.itemId)
+
+    if(!item){ 
+        res.status(404)
+        return res.json({ 
+            message: 'Item not found',
+            statusCode: 404
+        })
+    }
+
+    const updatedItem = await item.update({ 
+        name, 
+        description,
+        price,
+        image,
+        stocks,
+        subcategoryId
+    }) 
+
+    return res.json(updatedItem)
+})
+
+
+//Delete item
+router.delete('/:itemId', async (req, res) => { 
+    const item = await Item.findByPk(req.params.itemId);
+
+    if(!item){
+        res.status(404)
+        return res.json({ 
+            message: 'Item not found',
+            statusCode: 404
+        })
+    }
+
+    await item.destroy();
+
+    res.json({ 
+        message: 'Successfully deleted',
+        statusCode: 200
+    })
+})
+
+
+//get item of the current user
+router.get('/item/current', async (req, res) => { 
+    const item = await Item.findAll({ 
+        where: { 
+            sellerId: req.user.id
+        }
+    })
+
+    if(!item){ 
+        res.status(400)
+        return res.json({
+            message: 'You dont have any items',
+            statusCode: 400
+        })
+    }
+
+    return res.json(item)
+})
+
+
 module.exports = router;
  

@@ -14,7 +14,7 @@ function LandingPage(){
     return ( 
         <div>
             <ul className="items-container"> 
-                {allItems.map(item => ( 
+                {allItems?.map(item => ( 
                     
                     <div className="items-card">
                     <img className='landingpage-item-image' src={item.image} alt='itemimage'></img>
@@ -28,7 +28,7 @@ function LandingPage(){
                     </button>
                     </li>
                     
-                    <li>{item.avgRating}({item.Comments.length})</li>
+                    <li>{item.avgRating}({item?.Comments?.length})</li>
 
                     </div>
                 ))}

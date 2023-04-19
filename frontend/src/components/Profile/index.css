@@ -1,0 +1,24 @@
+.profile-sidebar { 
+    display: flex;
+    flex-direction: column;
+    float: left;
+    width: 20%;
+    height: 100vh;
+    margin: 10px;
+}
+
+.profile-itemimages { 
+    width: 250px;
+    height: 200px;
+}
+
+.profile-items-container{ 
+    display: flex;
+}
+
+.profile-content-ul{ 
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    flex-wrap: wrap;
+}

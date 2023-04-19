@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import CartNavBar from "./components/CartNavBar";
-import CreateNewItem from "./components/CreateItemPage";
+import CreateNewItem from "./components/ActionItemPage/createItem";
+import Profile from "./components/Profile";
+import UpdateItem from "./components/ActionItemPage/updateItem";
 
 function App() {
+  const location = useLocation()
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
@@ -16,7 +19,7 @@ function App() {
 
   return (
     <>
-    <CartNavBar />
+    {location.pathname === "/" && <CartNavBar />}
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -29,6 +32,10 @@ function App() {
             <CreateNewItem />
           </Route>
 
+          <Route>
+          <Profile path='/profile' />
+          </Route>
+          
         </Switch>
       )}
     </>

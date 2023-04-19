@@ -5,12 +5,14 @@ import sessionReducer from './session';
 import itemReducer from './item';
 import cartReducer from './cart';
 import subCategoryReducer from './subcategory';
+import commentReducer from './comment';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   items: itemReducer,
   carts: cartReducer,
-  subCategories: subCategoryReducer
+  subCategories: subCategoryReducer,
+  comments: commentReducer
 });
 
 let enhancer;
