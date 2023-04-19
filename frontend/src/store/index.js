@@ -4,11 +4,13 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import itemReducer from './item';
 import cartReducer from './cart';
+import subCategoryReducer from './subcategory';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   items: itemReducer,
-  carts: cartReducer
+  carts: cartReducer,
+  subCategories: subCategoryReducer
 });
 
 let enhancer;

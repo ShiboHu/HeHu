@@ -5,6 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import CartNavBar from "./components/CartNavBar";
+import CreateNewItem from "./components/CreateItemPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +23,10 @@ function App() {
 
           <Route exact path='/'>
           <LandingPage />
+          </Route>
+
+          <Route path='/item/new'>
+            <CreateNewItem />
           </Route>
 
         </Switch>

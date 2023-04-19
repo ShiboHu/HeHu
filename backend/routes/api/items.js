@@ -21,5 +21,55 @@ router.get('/', async (req, res) => {
 })
 
 
+//get items by id
+router.get('/:itemId', async (req, res) => { 
+    const item = await Item.findOne({ 
+        where: { 
+            id: req.params.itemId
+        },
+        include:{ 
+            model: User,
+            attributes: ['username', 'id']
+        }
+    })
+
+    if(!item){ 
+        res.status(404);
+        return res.json({ 
+            message: 'Item not found',
+            statusCode: 404
+        })
+    }
+    
+
+    return res.json(item);
+});
+
+
+//current user create item
+router.post('/', async (req, res) => { 
+    const {
+           name, 
+           description, 
+           price, 
+           image, 
+           stocks, 
+           subcategoryId
+          } = req.body;
+
+    const newItem = await Item.create({ 
+        name,
+        sellerId: req.user.id,
+        description, 
+        price, 
+        image, 
+        stocks, 
+        subcategoryId  
+    })
+
+    res.status(201);
+    return res.json(newItem);
+
+})
 module.exports = router;
  
