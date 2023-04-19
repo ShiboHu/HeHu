@@ -68,7 +68,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    options.tableName = 'Items';
-    return queryInterface.bulkDelete(options);
+    return queryInterface.bulkDelete('Items');
   }
 };

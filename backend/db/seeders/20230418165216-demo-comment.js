@@ -43,7 +43,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    options.tableName = 'Comments';
-    return queryInterface.bulkDelete(options);
+    return queryInterface.bulkDelete('Comments');
   }
 };
