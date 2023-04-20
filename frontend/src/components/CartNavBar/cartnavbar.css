@@ -11,14 +11,23 @@
     height: 80px;
 }
 
-.main-navbar-container { 
+/* .main-navbar-container { 
     height: 100%;
-    position: relative;
+    position: static;
     height: 100vh;
     width: 210px;
     float: right;
     margin-top: 5px;
     margin-right: 5px;
+} */
+
+.main-navbar-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 210px;
+  margin-right: 7px;
 }
 
 .cartnavbar-buttons { 
@@ -27,6 +36,32 @@
     justify-content: center;
     row-gap: 20px;
 }
+
+.cartnavbar-items-container { 
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .button-71 {
   align-items: center;

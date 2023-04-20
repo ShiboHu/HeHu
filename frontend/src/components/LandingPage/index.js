@@ -3,11 +3,12 @@ import { getAllItems } from "../../store/item";
 import { useEffect } from "react";
 import './landingpage.css'
 import { NavLink } from "react-router-dom";
+import { addItemToCart, getAllCartItem } from "../../store/cart";
 
 function LandingPage(){ 
     const dispatch = useDispatch();
     const allItems = useSelector(state => state.items.items);
-
+    const currentUser = useSelector(state => state.session)
 
     useEffect(() => { 
         dispatch(getAllItems())
@@ -18,6 +19,16 @@ function LandingPage(){
             <h1>Currently No Items Listed</h1>
         )
     }
+
+    const addToCart = async (e, id) => { 
+        e.preventDefault();
+        
+        const payload = { 
+            itemId: id,
+        }
+        await dispatch(addItemToCart(payload,id))
+    }
+
     return ( 
         <div>
             <ul className="items-container"> 
@@ -30,8 +41,9 @@ function LandingPage(){
                     <li className='landingpage-item-name'>{item.name}  {item.stocks} left</li>
 
                     <li className='landingpage-price'>${item.price}
-                    <button className="landingpage-addtocart-button">
-
+                    <button className="landingpage-addtocart-button"
+                    onClick={(e) => addToCart(e,item.id)}
+                    >
                     <i class="fa-solid fa-cart-plus"></i>
                     </button>
                     </li>

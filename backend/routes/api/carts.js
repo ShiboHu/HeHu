@@ -6,67 +6,86 @@ const { Item, Sub_Category, Like, User, Main_Category, Cart, Comment, Cart_Item 
 
 
 //get the cart and all item in the cart
-router.get('/', async (req, res) => {
-    const cart = await Cart.findOne({
-       where: {
-         userId: 1,
-         },
-       include: {
-          model: Item,
-          attributes: ['image', 'price', 'id'],
-          through: { // set through option to null to exclude Cart_Item attribute
-          attributes: ['quantity'],
-           },
-          },
-    });
+router.get('/current', async (req, res) => {
+  const cart = await Cart.findOne({
+      where: {
+          userId: req.user.id
+      },
+  });
 
-     let totalPrice = 0;
-     cart.Items.forEach(item => { 
-       totalPrice += item.price
-     })
+  if(!cart){ 
+      return res.json({ 
+          message: 'Cart not found'
+      });
+  }
 
-    cart.totalPrice = totalPrice;
-     
-    return res.json({
-      id: cart.id,
-      userId: cart.userId,
-      createdAt: cart.createdAt,
-      updatedAt: cart.updatedAt,
-      Items: cart.Items,
-      totalPrice: cart.totalPrice // Add totalPrice field here
-    });
+  const cartItems = await Cart_Item.findAll({ 
+      where: { 
+          cartId: cart.id
+      },
+      include: Item
+  });
+
+  if(cartItems.length === 0){ 
+      return res.json({ 
+          message: 'Add items to cart'
+      });
+  }
+
+  const items = cartItems.map((cartItem) => {
+      const { id, name, price, image } = cartItem.Item;
+      const { quantity } = cartItem;
+      return {
+          id,
+          name,
+          price,
+          image,
+          quantity
+      };
+  });
+
+  return res.json(items);
 });
+ 
 
-  
-//add items to the cart
-router.post('/:cartId', async (req, res) => { 
+//add items to cart
+router.post('/:itemId', async (req, res) => { 
   const { itemId, quantity } = req.body
 
-     const cart = await Cart.findOne({ 
-       where: { 
-         userId: req.user.id
-       }
-     });
+  const cart = await Cart.findOne({ 
+    where: { 
+      userId: req.user.id
+    }
+  })
 
+  if(!cart){ 
+    cart = await Cart.create({ 
+      userId: req.user.id 
+    })
+  }
 
-     //if no cart create new cart
-     if(!cart){ 
-        cart = await Cart.create({ 
-         userId: req.user.id
-       })
-     }
+  const cartItem = await Cart_Item.findOne({ 
+    where: { 
+      cartId: cart.id,
+      itemId: itemId
+    }
+  })
 
-     const addItem = await Cart_Item.create({ 
-        cartId : cart.id,
-        itemId: itemId,
-        quantity: quantity
-     })
+  if(cartItem){ 
+    cartItem.dataValues.quantity += 1;
+    return res.json(cartItem)
+  } 
 
-     
-      res.status(201)
-      return res.json(addItem)
-
+  if(!cartItem){
+    const newItem = await Cart_Item.create({ 
+       cartId: cart.id,
+       itemId,
+        quantity
+      })
+      return res.json(newItem) 
+   }
 })
+
 
 
 
