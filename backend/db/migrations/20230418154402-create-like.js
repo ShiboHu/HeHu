@@ -44,7 +44,7 @@ module.exports = {
       }
     });
   },
-  async down(queryInterface, Sequelize) {
+  down: async(queryInterface, Sequelize) => {
     options.tableName = 'Likes'
     await queryInterface.dropTable(options);
   }

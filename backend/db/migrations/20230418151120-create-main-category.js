@@ -31,7 +31,7 @@ module.exports = {
       }
     });
   },
-  async down(queryInterface, Sequelize) {
+  down: async(queryInterface, Sequelize) =>{
     options.tableName = 'Main_Categories'
     await queryInterface.dropTable(options);
   }

@@ -39,7 +39,7 @@ module.exports = {
       }
     });
   },
-  async down(queryInterface, Sequelize) {
+  down: async(queryInterface, Sequelize) => {
     await queryInterface.dropTable('Sub_Categories');
   }
 };
