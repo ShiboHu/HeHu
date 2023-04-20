@@ -44,6 +44,7 @@ module.exports = {
       },
       subcategoryId: {
         type: Sequelize.INTEGER,
+         allowNull: false,
         references:{ 
           model: 'Sub_Categories',
           key: 'id'
