@@ -34,7 +34,7 @@ function LandingPage(){
                     </button>
                     </li>
                     
-                    <li>{item.avgRating}({item?.Comments?.length})</li>
+                    <li>{item.avgRating}({item?.commentLength})</li>
 
                     </div>
                 ))}

@@ -9,7 +9,7 @@ const { Item, Sub_Category, Like, User, Main_Category, Cart, Comment, Cart_Item 
 router.get('/', async (req, res) => {
     const cart = await Cart.findOne({
        where: {
-         userId: req.user.id,
+         userId: 1,
          },
        include: {
           model: Item,

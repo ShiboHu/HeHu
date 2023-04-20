@@ -1,24 +1,37 @@
 const express = require('express');
 const router = express.Router();
-const Sequelize = require('sequelize');
 
-const { Item, Sub_Category, Like, User, Main_Category, Cart, Comment, Cart_Item } = require('../../db/models');
+const { Item, Sub_Category, Like, User, Main_Category, Cart, Comment, Cart_Item, sequelize} = require('../../db/models');
 
 
 
 //get all items
-router.get('/', async (req, res) => { 
-    const allItems = await Item.findAll({ 
-        include: Comment,
-        attributes: {
-            include: [
-                [Sequelize.literal('(SELECT AVG(rating) FROM Comments WHERE Comments.itemId = Item.id)'), 'avgRating']
-              ]
-        },
-    });
+router.get('/', async (req, res) => {
+    const allItems = await Item.findAll();
+  
+    const itemData = await Promise.all(allItems.map(async (item) => {
 
-    return res.json(allItems);
-})
+      const comments = await Comment.findAll({
+         where:{ 
+            itemId: item.id 
+        } 
+    });
+      const avgRating = comments.reduce((acc, comment) => acc + comment.rating, 0) / comments.length || 0;
+  
+      return {
+        id: item.id,
+        name: item.name,
+        description: item.description,
+        image: item.image,
+        price: item.price,
+        stocks: item.stocks,
+        commentLength:comments.length,
+        avgRating,
+      };
+    }));
+  
+    return res.json(itemData);
+  });
 
 
 //get items by id
