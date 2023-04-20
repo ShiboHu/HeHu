@@ -13,7 +13,8 @@ function CartNavBar(){
     useEffect(() => { 
         dispatch(getAllCartItem())
     }, [dispatch])
-    
+
+    if(!allItemInCart)return null
     return(
         <div className="main-navbar-container">
             <ul className="cartnavbar-container">
@@ -22,7 +23,7 @@ function CartNavBar(){
                 <button className='button-65'>Checkout</button>
                 <button className='button-65'>Go to cart</button>
                 </div>
-                {allItemInCart?.Items?.map(item =>( 
+                {allItemInCart.Items && allItemInCart?.Items?.map(item =>( 
                     <img className='cartnavbar-image'src={item.image}></img>
                 ))}
             </ul>

@@ -11,10 +11,16 @@ function LandingPage(){
     useEffect(() => { 
         dispatch(getAllItems())
     }, [dispatch])
+
+    if(!allItems){ 
+        return (
+            <h1>Currently No Items Listed</h1>
+        )
+    }
     return ( 
         <div>
             <ul className="items-container"> 
-                {allItems?.map(item => ( 
+                {allItems && allItems.map(item => ( 
                     
                     <div className="items-card">
                     <img className='landingpage-item-image' src={item.image} alt='itemimage'></img>
