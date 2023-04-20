@@ -44,10 +44,10 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       // define association here
-      User.hasMany(models.Comment, {foreignKey: 'userId'})
-      User.hasMany(models.Cart, {foreignKey: 'userId'})
-      User.hasMany(models.Like, {foreignKey: 'userId'})
       User.hasMany(models.Item, {foreignKey: 'sellerId'})
+      User.hasMany(models.Cart, {foreignKey: 'userId'})
+      User.hasMany(models.Comment, {foreignKey: 'userId'})
+      User.hasMany(models.Like, {foreignKey: 'userId'})
     }
   };
 
