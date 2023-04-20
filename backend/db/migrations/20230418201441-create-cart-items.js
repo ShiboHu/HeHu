@@ -20,7 +20,6 @@ module.exports = {
         allowNull: false,
         references: { 
           model: 'Carts',
-          key: 'id'
         }
       },
       itemId: {
@@ -28,7 +27,6 @@ module.exports = {
         allowNull: false,
         references: { 
           model: 'Items',
-          key: 'id'
         }
       },
       quantity: {

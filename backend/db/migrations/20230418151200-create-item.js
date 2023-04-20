@@ -20,7 +20,6 @@ module.exports = {
         allowNull: false,
         references: { 
           model: 'Users',
-          key:'id'
         }
       },
       name: {
@@ -47,7 +46,6 @@ module.exports = {
          allowNull: false,
         references:{ 
           model: 'Sub_Categories',
-          key: 'id'
         }
       },
       createdAt: {

@@ -24,7 +24,6 @@ module.exports = {
         allowNull: false,
         references: { 
           model: 'Main_Categories',
-          key: 'id'
         }
       },
       createdAt: {
