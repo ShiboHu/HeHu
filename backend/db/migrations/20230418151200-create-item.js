@@ -61,7 +61,7 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    // options.tableName = 'Items'
-    await queryInterface.dropTable('Items',options);
+    options.tableName = 'Items'
+    await queryInterface.dropTable(options);
   }
 };
