@@ -40,9 +40,18 @@ router.post('/:itemId', async (req, res) => {
 
 //delete comment
 router.delete('/:commentId', async (req, res) => { 
-    const comment = Comment.findByPk(req.params.commentId);
+    const comment = await Comment.findByPk(req.params.commentId);
 
-    await comment.destory();
+
+    if(!comment){
+        res.status(404)
+        return res.json({ 
+            message: 'Comment not found',
+            statusCode: 404
+        })
+    }
+
+    await comment.destroy();
 
     res.status(200)
     return res.json({ 
