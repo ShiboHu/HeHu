@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllItems } from "../../store/item";
 import { useEffect } from "react";
 import './landingpage.css'
+import { NavLink } from "react-router-dom";
 
 function LandingPage(){ 
     const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function LandingPage(){
         <div>
             <ul className="items-container"> 
                 {allItems && allItems.map(item => ( 
+                  <NavLink exact to={`/items/${item.id}`} className='NavLink'>
                     
                     <div className="items-card">
                     <img className='landingpage-item-image' src={item.image} alt='itemimage'></img>
@@ -37,7 +39,7 @@ function LandingPage(){
                     <li>{item.avgRating}({item?.commentLength})</li>
 
                     </div>
-                ))}
+                    </NavLink>))}
             </ul>
         </div>
     )

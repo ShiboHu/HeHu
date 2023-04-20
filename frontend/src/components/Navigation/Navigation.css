@@ -16,6 +16,7 @@ ul {
 .navbar-container { 
     display: flex;
     align-items: center;
+    margin-left: 3%;
 }
 
 .user-circle-button { 

@@ -121,7 +121,7 @@ export const updateUserItem = (payload, itemId) => async dispatch => {
 }
 
 
-const initialState = {items: []}
+const initialState = {items: [], item: {}}
 const itemReducer = (state = initialState, action) => { 
     switch(action.type){ 
         case ALL_ITEMS: 
@@ -137,7 +137,7 @@ const itemReducer = (state = initialState, action) => {
         case GET_SINGLEITEM:
             return {
                 ...state,
-                items: action.payload
+                item: action.payload
             }
         case GET_CURRENTUSERITEMS:
             return { 

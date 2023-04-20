@@ -43,6 +43,14 @@ router.get('/:itemId', async (req, res) => {
         include:{ 
             model: User,
             attributes: ['username', 'id']
+        },
+        include: { 
+            model: Comment,
+            attributes: ['userId', 'rating', 'comment', 'image'],
+            include: { 
+                model: User,
+                attributes: ['username']
+            }
         }
     })
 
@@ -55,7 +63,15 @@ router.get('/:itemId', async (req, res) => {
     }
     
 
-    return res.json(item);
+    const sum = item.Comments.reduce((acc, comment) => acc + comment.rating, 0);
+    const avgRating = sum / item.Comments.length;
+
+    const itemWithAvgRating = {
+        ...item.toJSON(),
+        avgRating,
+    };
+
+    return res.json(itemWithAvgRating);
 });
 
 

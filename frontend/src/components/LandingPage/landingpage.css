@@ -2,6 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 50px;
+    margin-left: 3%;
 }
 
 
@@ -33,3 +34,8 @@
     flex-direction: column;
     justify-content: space-between;
 }
+
+.NavLink {
+    text-decoration: none;
+    color: inherit;
+  }

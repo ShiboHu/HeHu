@@ -1,6 +1,5 @@
 .cartnavbar-container { 
     display: flex;
-    height: 100%;
     flex-wrap: wrap;
     row-gap: 50px;
     column-gap: 10px;
@@ -15,7 +14,7 @@
 .main-navbar-container { 
     height: 100%;
     position: relative;
-    height: 200%;
+    height: 100vh;
     width: 210px;
     float: right;
     margin-top: 5px;
@@ -29,57 +28,191 @@
     row-gap: 20px;
 }
 
-
-.button-65 {
+.button-71 {
+  align-items: center;
   appearance: none;
-  backface-visibility: hidden;
-  background-color: #2f80ed;
-  border-radius: 20px;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
   border-style: none;
-  box-shadow: none;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: Inter,-apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif;
-  font-size: 15px;
-  font-weight: 500;
-  height: 45px;
-  letter-spacing: normal;
-  line-height: 1.2;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: Eina01,sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
   outline: none;
-  overflow: hidden;
-  padding: 14px 30px;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
   position: relative;
   text-align: center;
   text-decoration: none;
-  transform: translate3d(0, 0, 0);
-  transition: all .3s;
+  text-transform: none;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  vertical-align: top;
-  white-space: nowrap;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
 }
 
-.button-65:hover {
-  background-color: #1366d6;
-  box-shadow: rgba(0, 0, 0, .05) 0 5px 30px, rgba(0, 0, 0, .05) 0 1px 4px;
-  opacity: 1;
-  transform: translateY(0);
-  transition-duration: .35s;
+
+
+.button-71:before,
+.button-71:after {
+  border-radius: 80px;
 }
 
-.button-65:hover:after {
-  opacity: .5;
+.button-71:before {
+  background-color: rgba(249, 58, 19, .32);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
 }
 
-.button-65:active {
-  box-shadow: rgba(0, 0, 0, .1) 0 3px 6px 0, rgba(0, 0, 0, .1) 0 0 10px 0, rgba(0, 0, 0, .1) 0 1px 4px -1px;
-  transform: translateY(2px);
-  transition-duration: .35s;
+.button-71:after {
+  background-color: initial;
+  background-image: linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
 }
 
-.button-65:active:after {
-  opacity: 1;
+.button-71:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+}
+
+.button-71:active:not(:disabled) {
+  color: #ccc;
+}
+
+.button-71:active:not(:disabled):after {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), linear-gradient(92.83deg, #ff7426 0, #f93a13 100%);
+  bottom: 4px;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+}
+
+.button-71:disabled {
+  cursor: default;
+  opacity: .24;
+}
+
+
+.button-710 {
+  align-items: center;
+  appearance: none;
+  background-clip: padding-box;
+  background-color: initial;
+  background-image: none;
+  border-style: none;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-family: Eina01,sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  justify-content: center;
+  line-height: 24px;
+  margin: 0;
+  min-height: 64px;
+  outline: none;
+  overflow: visible;
+  padding: 19px 26px;
+  pointer-events: auto;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  width: auto;
+  word-break: keep-all;
+  z-index: 0;
+}
+
+
+
+.button-710:before,
+.button-710:after {
+  border-radius: 80px;
+}
+
+.button-710:before {
+  background-color: rgba(255, 255, 255, 0.32);
+  content: "";
+  display: block;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}
+
+.button-710:after {
+  background-color: initial;
+  background-image: linear-gradient(92.83deg, #e9b28f 0, #e7b9af 100%);
+  bottom: 4px;
+  content: "";
+  display: block;
+  left: 4px;
+  overflow: hidden;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  transition: all 100ms ease-out;
+  z-index: -1;
+}
+
+.button-710:hover:not(:disabled):after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  transition-timing-function: ease-in;
+}
+
+.button-710:active:not(:disabled) {
+  color: #ccc;
+}
+
+
+
+.button-710:disabled {
+  cursor: default;
+  opacity: .24;
 }
