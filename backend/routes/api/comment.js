@@ -65,7 +65,7 @@ router.delete('/:commentId', async (req, res) => {
 router.put('/:commentId', async (req, res) => { 
     const { comment, image, rating} = req.body
 
-    const commented = Comment.findByPk(req.params.commentId);
+    const commented = await Comment.findByPk(req.params.commentId);
 
     const updateComment = await commented.update({ 
         comment, 

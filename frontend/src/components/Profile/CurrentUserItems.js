@@ -30,6 +30,7 @@ function CurrentUserItems() {
 
   const handleSaveEdit = (e, index) => {
     e.preventDefault();
+
     const payload = {
       id: allItems[index].id,
       name: e.target.name.value,
@@ -38,8 +39,10 @@ function CurrentUserItems() {
       stocks: e.target.stocks.value,
       image: e.target.image.value,
     };
+
     dispatch(updateUserItem(payload, payload.id));
     setEditItemIndex(null);
+    
   };
 
   const handleCancelEdit = () => {

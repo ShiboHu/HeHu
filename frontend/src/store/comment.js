@@ -2,7 +2,7 @@ import { csrfFetch } from "./csrf"
 
 const CURRENT_COMMENTS = 'comments/CURRENT'
 const DELETE_COMMENTS = 'comments/DELETE'
-
+const UPDATE_COMMENTS = 'comments/UPDATE'
 
 const currentComment = (payload) => { 
     return { 
@@ -15,6 +15,13 @@ const deleteComment = (commentId) => {
     return { 
         type: DELETE_COMMENTS,
         payload: commentId
+    }
+}
+
+const updateComment = (payload) => { 
+    return { 
+        type: UPDATE_COMMENTS,
+        payload
     }
 }
 
@@ -40,6 +47,20 @@ export const deleteAcomment = (commentId) => async dispatch => {
     return res 
 }
 
+export const updateAComment = (payload,commentId) => async dispatch => { 
+    const res =await csrfFetch(`/api/comments/${commentId}`, { 
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+    })
+
+    if(res.ok){ 
+        const data = await res.json();
+        dispatch(updateComment(data))
+    }
+    return res
+}
+
 const initialState = {comments: []}
 const commentReducer = (state = initialState, action) => {
     switch(action.type){ 
@@ -52,6 +73,17 @@ const commentReducer = (state = initialState, action) => {
             return { 
                 ...state, 
                 comments: state.comments.filter((comment) => comment.id !== action.payload)
+            }
+        case UPDATE_COMMENTS:
+            return { 
+                ...state,
+                comments: state.comments.map(comment => { 
+                    if(comment.id === action.payload.id){ 
+                        return action.payload
+                    }else { 
+                        return comment
+                    }
+                })
             }
         default:
             return state;
