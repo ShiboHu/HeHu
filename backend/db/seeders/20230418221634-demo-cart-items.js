@@ -18,7 +18,7 @@ module.exports = {
       { 
         cartId: 1,
         itemId: 2,
-        quantity: 5
+        quantity: 2
       },
       { 
         cartId: 1,
@@ -28,7 +28,7 @@ module.exports = {
       { 
         cartId: 2,
         itemId: 1,
-        quantity: undefined
+        quantity: 2
       },
     ], {});
   },

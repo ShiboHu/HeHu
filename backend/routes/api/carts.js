@@ -44,49 +44,41 @@ router.get('/current', async (req, res) => {
       };
   });
 
-  return res.json(items);
+  const totalPrice = cartItems.reduce((acc, curr) => acc + curr.Item.price * curr.quantity, 0);
+
+  return res.json({ items, totalPrice });
 });
  
 
 //add items to cart
-router.post('/:itemId', async (req, res) => { 
-  const { itemId, quantity } = req.body
+router.post('/:itemId', async (req, res) => {
+  const {itemId, quantity } = req.body
 
-  const cart = await Cart.findOne({ 
-    where: { 
-      userId: req.user.id
-    }
-  })
+    let cart = await Cart.findOne({
+      where: {
+        userId: req.user.id
+      }
+    });
 
-  if(!cart){ 
-    cart = await Cart.create({ 
-      userId: req.user.id 
-    })
-  }
-
-  const cartItem = await Cart_Item.findOne({ 
-    where: { 
-      cartId: cart.id,
-      itemId: itemId
-    }
-  })
-
-  if(cartItem){ 
-    cartItem.dataValues.quantity += 1;
-    return res.json(cartItem)
-  } 
-
-  if(!cartItem){
-    const newItem = await Cart_Item.create({ 
-       cartId: cart.id,
-       itemId,
-        quantity
+    if(!cart){ 
+      cart = await Cart.create({ 
+        userId: req.user.id
       })
-      return res.json(newItem) 
-   }
-})
+    }
 
+    const cartItem = await Cart_Item.create({ 
+      itemId,
+      cartId: cart.id,
+      quantity
+    })
 
+    return res.json(cartItem)
+});
 
-
-module.exports = router
+  
+  
+  
+  
+  
+  module.exports = router
+  

@@ -35,10 +35,6 @@ router.post(
       const { email, password, username } = req.body;
       const user = await User.signup({ email, username, password });
       
-      //create new cart for user on signup
-      await Cart.create({ 
-        userId: user.id
-      })
 
       await setTokenCookie(res, user);
       
