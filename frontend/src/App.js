@@ -9,6 +9,7 @@ import CreateNewItem from "./components/ActionItemPage/createItem";
 import Profile from "./components/Profile";
 import UpdateItem from "./components/ActionItemPage/updateItem";
 import SingleItem from "./components/SingleItemPage";
+import CartPage from "./components/CartPage";
 
 function App() {
   const location = useLocation()
@@ -22,9 +23,11 @@ function App() {
 
   return (
     <>
+
     {currentUser && 
     (location.pathname === "/" || location.pathname.startsWith('/items/')) 
     && <CartNavBar />}
+
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
         <Switch>
@@ -45,6 +48,9 @@ function App() {
             <SingleItem />
           </Route>
           
+          <Route path='/carts'>
+            <CartPage />
+          </Route>
         </Switch>
       )}
     </>

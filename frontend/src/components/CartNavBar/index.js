@@ -2,8 +2,10 @@ import { getAllCartItem } from '../../store/cart';
 import './cartnavbar.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import { useHistory } from 'react-router-dom';
 
 function CartNavBar(){ 
+    const history = useHistory()
     const dispatch = useDispatch();
     const allItemInCart = useSelector(state => state.carts.carts);
     const [itemQuantities, setItemQuantities] = useState({});
@@ -33,7 +35,9 @@ function CartNavBar(){
                 <div className='cartnavbar-buttons'>
                 <h2 >${allItemInCart.totalPrice}</h2>
                 <button className='button-71'>Checkout</button>
-                <button className='button-710'>Go to cart</button>
+                <button className='button-710'
+                onClick={() => history.push('/carts')}
+                >Go to cart</button>
                 </div>
                 {allItemInCart && allItemInCart?.items?.map(item =>( 
                     <div className='cartnavbar-items-container'>
