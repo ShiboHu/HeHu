@@ -1,9 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Sequelize = require('sequelize');
 
-const { Item, Sub_Category, Like, User, Main_Category, Cart, Comment, Cart_Item } = require('../../db/models');
-
+const { Item, Cart, Cart_Item } = require('../../db/models');
+ 
 
 //get the cart and all item in the cart
 router.get('/current', async (req, res) => {
@@ -51,29 +50,6 @@ router.get('/current', async (req, res) => {
  
 
 //add items to cart
-router.post('/:itemId', async (req, res) => {
-  const {itemId, quantity } = req.body
-
-    let cart = await Cart.findOne({
-      where: {
-        userId: req.user.id
-      }
-    });
-
-    if(!cart){ 
-      cart = await Cart.create({ 
-        userId: req.user.id
-      })
-    }
-
-    const cartItem = await Cart_Item.create({ 
-      itemId,
-      cartId: cart.id,
-      quantity
-    })
-
-    return res.json(cartItem)
-});
 
   
   

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { Item, Sub_Category, Like, User, Main_Category, Cart, Comment, Cart_Item, sequelize} = require('../../db/models');
+const { Item, User, Comment,} = require('../../db/models');
 
 
 

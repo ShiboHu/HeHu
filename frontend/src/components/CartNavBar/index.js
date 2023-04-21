@@ -1,39 +1,35 @@
-import { getAllCartItem } from '../../store/cart';
 import './cartnavbar.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
+import { allCartItem, deleteCartItem } from '../../store/cart_item';
 
 function CartNavBar(){ 
     const history = useHistory()
     const dispatch = useDispatch();
-    const allItemInCart = useSelector(state => state.carts.carts);
-    const [itemQuantities, setItemQuantities] = useState({});
+    const allItemInCart = useSelector(state => state.cartItems.cart_items);
 
 
     useEffect(() => { 
-        dispatch(getAllCartItem())
-    }, [dispatch])
+        dispatch(allCartItem())
+
+    }, [dispatch, ])
 
 
     console.log(allItemInCart.items)
     
-    const handleQuantityChange = (itemId, quantity) => {
-        setItemQuantities(prevState => ({ ...prevState, [itemId]: quantity }));
-    };
+   const submit = async (id) => { 
+        await dispatch(deleteCartItem(id))
+        .then(dispatch(allCartItem()))
+   }
     
-    const numberOptions = []; 
-    for(let i = 1; i < 99; i++){ 
-        numberOptions.push(<option value={i}>{i}</option>)
-    }
-    
-    if(!Object.values(allItemInCart).length)return null;
+   if(!allItemInCart.items) return null
 
     return(
         <div className="main-navbar-container">
             <ul className="cartnavbar-container">
                 <div className='cartnavbar-buttons'>
-                <h2 >${allItemInCart.totalPrice}</h2>
+                <h2 >${allItemInCart.totalPrice === 0? '0.00' : allItemInCart.totalPrice}</h2>
                 <button className='button-71'>Checkout</button>
                 <button className='button-710'
                 onClick={() => history.push('/carts')}
@@ -42,12 +38,11 @@ function CartNavBar(){
                 {allItemInCart && allItemInCart?.items?.map(item =>( 
                     <div className='cartnavbar-items-container'>
                     <img className='cartnavbar-image'src={item.image}></img>
-                    <select 
-                     value={itemQuantities[item.id] || 1}
-                     onChange={e => handleQuantityChange(item.id, e.target.value)}
-                     >
-                     {numberOptions}
-                     </select>
+                    <button className='cartnavbar-delete-button'
+                    onClick={() => submit(item.id)}
+                    >
+                    <i class="fa-sharp fa-solid fa-circle-minus"></i>
+                    </button>
                     </div>
                 ))}
             </ul>

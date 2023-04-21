@@ -6,13 +6,15 @@ import itemReducer from './item';
 import cartReducer from './cart';
 import subCategoryReducer from './subcategory';
 import commentReducer from './comment';
+import cartItemReducer from './cart_item';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   items: itemReducer,
   carts: cartReducer,
   subCategories: subCategoryReducer,
-  comments: commentReducer
+  comments: commentReducer,
+  cartItems: cartItemReducer
 });
 
 let enhancer;

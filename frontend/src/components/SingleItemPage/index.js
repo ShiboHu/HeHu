@@ -6,6 +6,7 @@ import './singleitem.css'
 import { addItemToCart } from "../../store/cart";
 import  OpenModalButton  from '../OpenModalButton'
 import CreateNewComment from "../ConfirmModals/CreateComment";
+import { addCartItem, allCartItem } from "../../store/cart_item";
 
 function SingleItem(){ 
     const { itemId } = useParams();
@@ -21,20 +22,10 @@ function SingleItem(){
 
     if(!Object.values(item).length){ 
         return (
-            <h1>Item not Found</h1>
+            <h1>Loading...</h1>
         )
     }
 
-    const submit = (e) => { 
-        e.preventDefault();
-
-        const payload = { 
-            itemId: itemId, 
-            quantity: 1
-        }
-
-        return dispatch(addItemToCart(payload, itemId))
-    }
 
     const createCommentModal = (itemId) => { 
         return <OpenModalButton
@@ -42,6 +33,11 @@ function SingleItem(){
                 modalComponent={<CreateNewComment itemId={item.id}/>}
                />
     }
+
+    const submit = async () => { 
+        await dispatch(addCartItem(item.id));
+        dispatch(allCartItem());
+      }
 
     return (
         <div className="singleitem-main-container">
@@ -62,7 +58,9 @@ function SingleItem(){
             <h3>{item.avgRating} stars</h3>
             <h2>$ {item.price}</h2>
             <h4>{item.description}</h4>
-            <button className="button-77" onClick={submit}>Add to cart</button>
+            <button className="button-77"
+            onClick={submit}
+            >Add to cart</button>
         </div>
         </div>
     )

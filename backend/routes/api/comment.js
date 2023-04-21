@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Item, Sub_Category, Like, User, Main_Category, Cart, Comment, Cart_Item } = require('../../db/models');
+const { Comment } = require('../../db/models');
 
 
 //get comment by current user

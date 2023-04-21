@@ -43,9 +43,21 @@
   row-gap: 10px;
 }
 
+.cartnavbar-delete-button { 
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: rgb(128, 111, 111);
+}
 
+.cartnavbar-items-container:hover .cartnavbar-delete-button { 
+  display: block;
+}
 
-
+.cartnavbar-delete-button:hover { 
+  cursor: pointer;
+  background-color: rgb(194, 185, 185);
+}
 
 
 
