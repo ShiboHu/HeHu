@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getAllItems } from "../../store/item";
+import { getAllItems, refreshItems } from "../../store/item";
 import { useEffect } from "react";
 import './landingpage.css'
 import { NavLink } from "react-router-dom";
@@ -11,6 +11,7 @@ function LandingPage(){
 
     useEffect(() => { 
         dispatch(getAllItems())
+        dispatch(refreshItems())
     }, [dispatch])
 
     if(!allItems){ 

@@ -14,6 +14,9 @@ function Navigation({ isLoaded }){
       <li>
         <NavLink exact to="/"><img src={hehu} className='hehu-logo' alt='hehu-logo'></img></NavLink>
       </li>
+      <li>
+        <input placeholder='serach'></input>
+      </li>
       {isLoaded && (
         <li>
           <ProfileButton user={sessionUser} />

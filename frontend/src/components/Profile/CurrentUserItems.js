@@ -6,7 +6,7 @@ import OpenModalButton from "../OpenModalButton";
 
 function CurrentUserItems() {
   const dispatch = useDispatch();
-  const allItems = useSelector((state) => state.items.items);
+  const allItems = useSelector((state) => state.items.currentItem);
   const [editItemIndex, setEditItemIndex] = useState(null);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function CurrentUserItems() {
 
   const editButton = (index) => {
     return (
-      <button onClick={() => setEditItemIndex(index)}>Edit</button>
+      <button className="button-5" onClick={() => setEditItemIndex(index)}>Edit</button>
     );
   };
 
@@ -51,11 +51,11 @@ function CurrentUserItems() {
 
   return (
     <div>
-      <h1>Products</h1>
       <ul className="profile-content-ul">
+        <h1>Products</h1>
         {allItems?.map((item, index) => (
           <div className="profile-items-container" key={item.id}>
-            <img className="profile-itemimages" src={item.image}></img>
+          <img className="profile-itemimages" src={item.image}></img>
             {editItemIndex === index ? (
               <form onSubmit={(e) => handleSaveEdit(e, index)}>
               <li>
@@ -86,20 +86,20 @@ function CurrentUserItems() {
                 Image URL:
                 <input type="text" name="image" defaultValue={item.image} />
               </li>
-              <button type="submit">Save</button>
-              <button type="button" onClick={handleCancelEdit}>
+              <button type="submit" className='button-5'>Save</button>
+              <button type="button" onClick={handleCancelEdit} className='button-5'>
                 Cancel
               </button>
             </form>
             ) : (
-              <>
+              <div className="profile-items-contents">
                 <li>Name: {item.name}</li>
-                <li>{item.description}</li>
+                <li>Description:{item.description}</li>
                 <li>Price: ${item.price}</li>
                 <li>Stocks:{item.stocks}</li>
                 {deleteButton(item.id)}
                 {editButton(index)}
-              </>
+              </div>
             )}
           </div>
         ))}

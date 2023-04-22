@@ -16,7 +16,7 @@ function OpenModalMenuItem({
   };
 
   return (
-    <li onClick={onClick}>{itemText}</li>
+    <button className="user-circle-button" onClick={onClick}>{itemText}</button>
   );
 }
 

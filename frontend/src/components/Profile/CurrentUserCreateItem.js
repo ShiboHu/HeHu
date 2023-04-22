@@ -50,7 +50,9 @@ function CreateNewItem(){
 
 
     return (
-        <form onSubmit={submit}>
+        <div className="create-item-container">
+        <form onSubmit={submit} className="create-item-form">
+            <h1>Post Item</h1>
             <label>
                 name:
                 <input 
@@ -109,8 +111,9 @@ function CreateNewItem(){
                 ))}
                 </select>
             </label>
-            <button type="submit" onClick={submit}>Create</button>
+            <button type="submit" className="button-5" onClick={submit}>Create</button>
         </form>
+        </div>
     )
 }
 

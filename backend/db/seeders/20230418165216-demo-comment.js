@@ -30,15 +30,7 @@ module.exports = {
         itemId: 2,
         comment: faker.lorem.sentence(),
         rating: 4
-      },
-      { 
-        userId: 1,
-        image: "https://media.istockphoto.com/id/1254474165/photo/tropical-leaves-abstract-green-leaves-texture-nature-background.jpg?s=612x612&w=0&k=20&c=UQ7bV5XZ5Zeg4Lj5uQlg1FOlhZfmZpJirot754UVXWU=",
-        itemId: 2,
-        comment: faker.lorem.sentence(),
-        rating: 4
-      },
-      
+      },    
     ], {});
   },
 

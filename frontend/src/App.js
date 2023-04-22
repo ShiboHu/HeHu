@@ -5,9 +5,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import LandingPage from "./components/LandingPage";
 import CartNavBar from "./components/CartNavBar";
-import CreateNewItem from "./components/ActionItemPage/createItem";
 import Profile from "./components/Profile";
-import UpdateItem from "./components/ActionItemPage/updateItem";
 import SingleItem from "./components/SingleItemPage";
 import CartPage from "./components/CartPage";
 
@@ -34,10 +32,6 @@ function App() {
 
           <Route exact path='/'>
            <LandingPage />
-          </Route>
-
-          <Route path='/item/new'>
-            <CreateNewItem />
           </Route>
 
           <Route path='/profile'>

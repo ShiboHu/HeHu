@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    options.tableName = 'Cart_Items'
+    options.tableName = 'Orders'
     return queryInterface.createTable(options, {
       id: {
         allowNull: false,
@@ -17,38 +17,23 @@ module.exports = {
       },
       cartId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: false, 
         references: { 
-          model: 'Carts',
-        },
-        onDelete: 'CASCADE'
-      },
-      itemId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: { 
-          model: 'Items',
-        },
-        onDelete: 'CASCADE'
-      },
-      quantity: {
-        type: Sequelize.INTEGER,
-        defaultValue: 1
+          model: 'Carts'
+        }
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        type: Sequelize.DATE
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        type: Sequelize.DATE
       }
     });
   },
   down: async(queryInterface, Sequelize) => {
-    options.tableName = 'Cart_Items'
+    options.tableName = 'Orders'
     await queryInterface.dropTable(options);
   }
 };

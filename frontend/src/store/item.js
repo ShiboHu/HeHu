@@ -6,6 +6,8 @@ const GET_SINGLEITEM = 'items/SINGLE'
 const GET_CURRENTUSERITEMS = 'items/CURRENTUSER'
 const UPDATE_ITEM = 'items/UPDATE'
 const DELETE_ITEM = 'items/DELETE'
+const REFRESH_ITEM = 'items/REFRESH'
+
 
 const allItems = (payload) => { 
     return { 
@@ -48,6 +50,12 @@ const deleteItem = (itemId) => {
       payload: itemId,
     };
   };
+
+ export const refreshItems = () => { 
+    return { 
+        type: REFRESH_ITEM
+    }
+ }
 
 export const getAllItems = () => async dispatch => { 
     const res = await csrfFetch('/api/items')
@@ -121,7 +129,7 @@ export const updateUserItem = (payload, itemId) => async dispatch => {
 }
 
 
-const initialState = {items: [], item: {}}
+const initialState = {items: [], item: {}, currentItem: []}
 const itemReducer = (state = initialState, action) => { 
     switch(action.type){ 
         case ALL_ITEMS: 
@@ -142,7 +150,7 @@ const itemReducer = (state = initialState, action) => {
         case GET_CURRENTUSERITEMS:
             return { 
                 ...state, 
-                items: action.payload
+                currentItem: action.payload
             }
         case UPDATE_ITEM:
             return {
@@ -160,6 +168,11 @@ const itemReducer = (state = initialState, action) => {
                 ...state,
                 items: state.items.filter((item) => item.id !== action.payload),
             };
+        case REFRESH_ITEM:
+            return { 
+                ...state, 
+                item: {}
+            }
         default: 
             return state
     }

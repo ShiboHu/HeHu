@@ -24,7 +24,7 @@ function CurrentUserComment(){
 
     const editButton = (index) => { 
         return ( 
-            <button onClick={() => setEditCommentIndex(index)}>Edit</button>
+            <button className='button-5' onClick={() => setEditCommentIndex(index)}>Edit</button>
         )
     }
 
@@ -48,8 +48,8 @@ function CurrentUserComment(){
     
     return ( 
         <div>
-            <h1>Reviews</h1>
             <ul className='profile-content-ul'>
+            <h1>Reviews</h1>
                 {comments?.map((comment, index )=> ( 
                     <div className="profile-items-container">
                     <img className="profile-itemimages" src={comment.image}></img>
@@ -67,16 +67,16 @@ function CurrentUserComment(){
                             Image:
                             <input type='text' name="image" defaultValue={comment.image}/>
                         </li>
-                        <button type='submit'>Save</button>
-                        <button onClick={handleCancelEdit}>Cancel</button>
+                        <button type='submit' className='button-5'>Save</button>
+                        <button onClick={handleCancelEdit} className='button-5'>Cancel</button>
                     </form>
                     ):(
-                    <>
+                    <div>
                     <li>Comments: {comment.comment}</li>
                     <li>Rating:{comment.rating}</li>
                     {deleteCommentModal(comment.id)}
                     {editButton(index)}
-                    </>
+                    </div>
                 )}
                     </div>
                 ))}
