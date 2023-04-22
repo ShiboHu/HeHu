@@ -1,0 +1,43 @@
+.cartpage-item-container { 
+    display: flex;
+    column-gap: 20px;
+    margin-top: 20px;
+}
+
+.cartpage-item-content { 
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+.cartpage-leftside-container { 
+    width: 50%;
+}
+
+.cartpage-item-image { 
+    width: 250px;
+    height: 200px;
+}
+
+.cartpage-main-container{ 
+    margin-left: 5%;
+    display: flex;
+}
+
+.cartpage-rightside-container { 
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-top: 3%;
+    margin-left: 10%;
+}
+
+.cartpage-action-field { 
+
+}
+
+.cartpage-notfound { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -58,6 +58,24 @@ router.post('/:itemId', async (req, res) => {
         })
     }
 
+    //if item already exists quantity++
+
+    const item = await Cart_Item.findOne({ 
+        where: { 
+            cartId: cart.id,
+            itemId: +req.params.itemId
+        }
+    })
+
+    if(item){ 
+        const quantity = item.dataValues.quantity + 1
+        const editItem = await item.update({ 
+            quantity: quantity
+        })
+        return res.json(editItem)
+    }
+
+
     const newCartItem = await Cart_Item.create({ 
         cartId: cart.id,
         itemId: +req.params.itemId,
@@ -140,7 +158,7 @@ router.put('/:itemId', async (req, res) => {
         quantity
     })
     
-    return req.json(editItem)
+    return res.json(editItem)
     
 })
 

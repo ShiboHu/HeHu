@@ -32,14 +32,15 @@ router.get('/current', async (req, res) => {
   }
 
   const items = cartItems.map((cartItem) => {
-      const { id, name, price, image } = cartItem.Item;
+      const { id, name, price, image, description } = cartItem.Item;
       const { quantity } = cartItem;
       return {
           id,
           name,
           price,
           image,
-          quantity
+          quantity,
+          description
       };
   });
 

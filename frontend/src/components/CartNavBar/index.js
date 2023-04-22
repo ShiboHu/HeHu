@@ -2,18 +2,19 @@ import './cartnavbar.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { NavLink, useHistory } from 'react-router-dom';
-import { allCartItem, deleteCartItem } from '../../store/cart_item';
+import { allCartItem, deleteCartItem, updateCartItem } from '../../store/cart_item';
 
 function CartNavBar(){ 
     const history = useHistory()
     const dispatch = useDispatch();
     const allItemInCart = useSelector(state => state.cartItems.cart_items);
-
+    
+    const [quantity, setQuantity] = useState(0);
 
     useEffect(() => { 
         dispatch(allCartItem())
 
-    }, [dispatch, ])
+    }, [dispatch])
 
 
     console.log(allItemInCart.items)
@@ -26,7 +27,12 @@ function CartNavBar(){
    if(!allItemInCart.items) return null
 
 
+   const quantityOptions = [];
+   for (let i = 1; i <= 99; i++) {
+     quantityOptions.push({ value: i, label: i });
+   }
 
+   console.log(quantity)
     return(
         <div className="main-navbar-container">
             <ul className="cartnavbar-container">
@@ -45,9 +51,21 @@ function CartNavBar(){
                     >
                     <i class="fa-sharp fa-solid fa-circle-minus"></i>
                     </button>
-                    <select defaultValue={item.quantity}>
-                        
-                    </select>
+
+                    <select
+                    value={item.quantity}
+                    
+                    onChange={(e) => {    
+                    const newQuantity = parseInt(e.target.value);
+                    dispatch(updateCartItem({ quantity: newQuantity }, item.id))}}>
+
+                    {quantityOptions.map((option) => (
+                     <option key={option.value} value={option.value}>
+                     {option.label}
+                     </option>
+                      ))}
+                      </select>
+                    
                     </div>
                 ))}
             </ul>

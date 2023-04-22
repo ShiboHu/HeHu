@@ -98,7 +98,6 @@ export const deleteSingleItem = (itemId) => async (dispatch) => {
     });
   
     if (res.ok) {
-      const data = await res.json();
       dispatch(deleteItem(itemId));
     }
     return res;

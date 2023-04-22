@@ -66,8 +66,8 @@ export const deleteCartItem = (itemId) => async dispatch => {
     })
 
     if(res.ok){ 
-        const data = await res.json();
-        dispatch(deleteItem(data))
+        dispatch(deleteItem(itemId))
+
     }
     return res
 }
@@ -82,6 +82,7 @@ export const updateCartItem = (payload, itemId) => async dispatch => {
     if(res.ok){ 
         const data = await res.json();
         dispatch(updateItem(data))
+        dispatch(allCartItem())
     }
     return res
 }
