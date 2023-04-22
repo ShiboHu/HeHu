@@ -28,7 +28,6 @@ module.exports = {
         allowNull: false,
         references: { 
           model: 'Items',
-
         },
         onDelete: 'CASCADE'
       },

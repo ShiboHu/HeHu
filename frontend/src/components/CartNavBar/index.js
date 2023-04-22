@@ -25,6 +25,8 @@ function CartNavBar(){
     
    if(!allItemInCart.items) return null
 
+
+
     return(
         <div className="main-navbar-container">
             <ul className="cartnavbar-container">
@@ -43,6 +45,9 @@ function CartNavBar(){
                     >
                     <i class="fa-sharp fa-solid fa-circle-minus"></i>
                     </button>
+                    <select defaultValue={item.quantity}>
+                        
+                    </select>
                     </div>
                 ))}
             </ul>

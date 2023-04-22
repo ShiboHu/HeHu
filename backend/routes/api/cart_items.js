@@ -88,7 +88,7 @@ router.delete('/:itemId', async (req, res) => {
         }
     })  
 
-    console.log(cartItem.cartId, cartItem.itemId, '!!!!!!!!!!')
+
     if(!cartItem){ 
         res.status(404);
         return res.json({ 
@@ -103,6 +103,49 @@ router.delete('/:itemId', async (req, res) => {
         message: 'Successfully Deleted'
     })
 })
+
+
+/*  update quantity in cart */
+router.put('/:itemId', async (req, res) => { 
+    const { quantity } = req.body;
+
+    const cart = await Cart.findOne({ 
+        where: { 
+            userId: req.user.id
+        }
+    })
+
+    if(!cart){ 
+        return res.json({ 
+            message: 'cart not found'
+        })
+    }
+
+    const cartItem = await Cart_Item.findOne({ 
+        where: { 
+            cartId: cart.id,
+            itemId: req.params.itemId
+        }
+    })
+
+    if(!cartItem){ 
+        res.status(404);
+        return res.json({ 
+            message: 'Item not in cart, not found!',
+            statusCode: 404,
+        })
+    }
+
+    const editItem = await cartItem.update({ 
+        quantity
+    })
+    
+    return req.json(editItem)
+    
+})
+
+
+
 
 
 

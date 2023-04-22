@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf"
 const GET_CARTITEMS = 'cartItems/All'
 const ADD_CARTITEMS = 'cartItems/ADD'
 const DELETE_CARTITEMS = 'cartItems/DELETE'
+const UPDATE_CARTITEMS = 'cartItems/UPDATE'
 
 
 const getItem = (payload) => { 
@@ -25,6 +26,14 @@ const deleteItem = (itemId) => {
         payload: itemId
     }
 }
+
+const updateItem = (payload) => { 
+    return { 
+        type: UPDATE_CARTITEMS,
+        payload
+    }
+}
+
 
 export const allCartItem = () => async dispatch => { 
     const res = await csrfFetch('/api/cart-items/current');
@@ -63,6 +72,20 @@ export const deleteCartItem = (itemId) => async dispatch => {
     return res
 }
 
+export const updateCartItem = (payload, itemId) => async dispatch => { 
+    const res = await csrfFetch(`/api/cart-items/${itemId}`, { 
+        method: 'PUT',
+        header: {'Content-Type': 'application/json'},
+        body: JSON.stringify(payload)
+    })
+
+    if(res.ok){ 
+        const data = await res.json();
+        dispatch(updateItem(data))
+    }
+    return res
+}
+
 
 const initialState = { cart_items: []}
 const cartItemReducer = (state = initialState, action) => { 
@@ -78,6 +101,11 @@ const cartItemReducer = (state = initialState, action) => {
                 cart_items: state.cart_items
             }
         case DELETE_CARTITEMS:
+            return { 
+                ...state, 
+                cart_items: state.cart_items
+            }
+        case UPDATE_CARTITEMS: 
             return { 
                 ...state, 
                 cart_items: state.cart_items
