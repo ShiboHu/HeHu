@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 import sessionReducer from './session';
 import itemReducer from './item';
-import cartReducer from './cart';
+// import cartReducer from './cart';
 import subCategoryReducer from './subcategory';
 import commentReducer from './comment';
 import cartItemReducer from './cart_item';
@@ -11,7 +11,7 @@ import cartItemReducer from './cart_item';
 const rootReducer = combineReducers({
   session: sessionReducer,
   items: itemReducer,
-  carts: cartReducer,
+  // carts: cartReducer,
   subCategories: subCategoryReducer,
   comments: commentReducer,
   cartItems: cartItemReducer

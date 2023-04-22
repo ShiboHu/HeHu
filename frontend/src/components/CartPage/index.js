@@ -2,16 +2,16 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCartItem } from "../../store/cart";
 import './cartpage.css'
-import { allCartItem, deleteCartItem } from "../../store/cart_item";
+import { allCartItem, deleteCartItem, updateCartItem } from "../../store/cart_item";
 
 
 function CartPage(){ 
     const dispatch = useDispatch();
-    const allItems = useSelector(state => state.carts.carts);
+    const allItems = useSelector(state => state.cartItems.cart_items);
 
 
     useEffect(()=> {
-        dispatch(getAllCartItem())
+        dispatch(allCartItem())
     }, [dispatch])
 
 
@@ -26,10 +26,22 @@ function CartPage(){
         )
     }
 
+    const countQuantity = () => { 
+        return allItems.items.reduce((accum, item) => { 
+            return accum + item.quantity;
+          }, 0);
+    }
+
 
     const submit = async (id) => { 
         await dispatch(deleteCartItem(id))
         .then(dispatch(getAllCartItem()))
+   }
+
+
+   const quantityOptions = [];
+   for (let i = 1; i <= 99; i++) {
+     quantityOptions.push({ value: i, label: i });
    }
 
     console.log(allItems)
@@ -48,7 +60,21 @@ function CartPage(){
                 <li>Price: ${item.price}</li>
                 
                 <div className="cartpage-action-field">
-                <select></select>
+
+                <select
+                    value={item.quantity}
+                    className="cartpage-select"
+                    onChange={(e) => {    
+                    const newQuantity = parseInt(e.target.value);
+                    dispatch(updateCartItem({ quantity: newQuantity }, item.id))}}>
+
+                    {quantityOptions.map((option) => (
+                     <option key={option.value} value={option.value}>
+                     {option.label}
+                     </option>
+                      ))}
+                 </select>
+
                 <button className="button-5" 
                 onClick={() => submit(item.id)}>Remove</button>
                 </div>
@@ -61,7 +87,16 @@ function CartPage(){
         
         <div className="cartpage-rightside-container">
             <h2>Item Summary</h2>
-            <h3>{allItems.items.length} Item(s)</h3>
+        
+            {allItems.items.map(item => ( 
+                <div className="cartpage-rightside-content">
+                <li>Item: {item.name}</li>
+                <li>${item.price}</li>
+                <li>qty:{item.quantity}</li>
+                </div>
+                ))}
+        
+            <h3>{allItems.items.length} Product(s) | {countQuantity()} Item(s)</h3>
             <h3>Total Price:${allItems.totalPrice}</h3>
             <button className="button-71">Check Out</button>
         </div>

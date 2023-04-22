@@ -32,6 +32,7 @@ router.get('/current', async (req, res) => {
         name: item.name,
         image: item.image, 
         quantity: item.Cart_Item.quantity,
+        description: item.description,
         price: item.price
       }));
   

@@ -4,15 +4,18 @@ import './index.css'
 import CurrentUserComment from './CurrentUserComment';
 import CurrentUserProfile from './CurrentUserProfile';
 import CreateNewItem from './CurrentUserCreateItem';
+import { useSelector } from 'react-redux';
 
 function Profile(){ 
+    const currentUser = useSelector(state => state.session.user)
+    
     const [profilepage, setprofilePage] = useState(true)
     const [itempage, setItempage] = useState(false)
     const [reviewpage, setReviewpage] = useState(false)
     const [orderPage, setOrderPage] = useState(false)
     const [createItem, setCreateItem] = useState(false)
-
-
+    
+    
     const toItemPage = () => { 
         setItempage(true)
         setReviewpage(false)
@@ -20,14 +23,14 @@ function Profile(){
         setCreateItem(false)
         setOrderPage(false)
     }
-
+    
     const toProfilePage = () => { 
         setprofilePage(true)
         setItempage(false)
         setReviewpage(false)
         setCreateItem(false)
     }
-
+    
     const toReviewPage = () => { 
         setReviewpage(true)
         setItempage(false)
@@ -35,7 +38,7 @@ function Profile(){
         setCreateItem(false)
         setOrderPage(false)
     }
-
+    
     const toCreateItemPage = () => { 
         setCreateItem(true)
         setOrderPage(false)
@@ -43,6 +46,8 @@ function Profile(){
         setprofilePage(false)
         setReviewpage(false)
     }
+    
+    if(!currentUser)return <h1>Please Login First</h1>
 
     const toOrderPage = () => { 
         setOrderPage(true)

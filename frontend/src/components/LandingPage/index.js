@@ -6,18 +6,18 @@ import { NavLink } from "react-router-dom";
 import { addCartItem, allCartItem } from "../../store/cart_item";
 
 function LandingPage(){ 
-    const dispatch = useDispatch();
-    const allItems = useSelector(state => state.items.items);
-
-    useEffect(() => { 
+  const dispatch = useDispatch();
+  const allItems = useSelector(state => state.items.items);
+  
+  useEffect(() => { 
         dispatch(getAllItems())
         dispatch(refreshItems())
-    }, [dispatch])
-
-    if(!allItems){ 
+      }, [dispatch])
+      
+      if(!allItems){ 
         return (
-            <h1>Currently No Items Listed</h1>
-        )
+          <h1>Currently No Items Listed</h1>
+          )
     }
 
     const submit = async (id) => { 
@@ -25,13 +25,12 @@ function LandingPage(){
         dispatch(allCartItem());
       }
       
-
-    return ( 
+      return ( 
         <div>
             <ul className="items-container"> 
              {allItems && allItems.map(item => ( 
-
-                  <div className="items-card">
+               
+               <div className="items-card">
                   <NavLink exact to={`/items/${item.id}`} className='NavLink'>
                     <img className='landingpage-item-image' src={item.image} alt='itemimage' />
                     <li className='landingpage-item-name'>{item.name} {item.stocks} left</li>
@@ -43,7 +42,7 @@ function LandingPage(){
                     </button>
                     </li>
 
-                  <li>{item.avgRating}({item?.commentLength})</li>
+                  <li>{renderStars(item.avgRating)}({item?.commentLength})</li>
 
                 </div>
                 
@@ -53,6 +52,23 @@ function LandingPage(){
         </div>
     )
 }
+
+
+export const renderStars = (rating) => {
+     const filledStars = Math.round(rating);
+     const emptyStars = 5 - filledStars;
+     const stars = [];
+  
+     for (let i = 1; i <= filledStars; i++) {
+        stars.push(<i key={i} className="fa fa-star"></i>);
+      }
+  
+     for (let i = 1; i <= emptyStars; i++) {
+         stars.push(<i key={filledStars + i} className="fa fa-star-o"></i>);
+      }
+  
+   return stars;
+ };
 
 
 export default LandingPage;
