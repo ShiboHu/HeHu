@@ -15,7 +15,7 @@ function CartPage(){
     }, [dispatch])
 
 
-    if(!allItems.items){ 
+    if(!allItems.items.length){ 
         return ( 
             <div className="cartpage-notfound">
                 <h1>

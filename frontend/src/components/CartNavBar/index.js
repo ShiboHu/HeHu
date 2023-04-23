@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { NavLink, useHistory } from 'react-router-dom';
 import { allCartItem, deleteCartItem, updateCartItem } from '../../store/cart_item';
+import ClearIcon from '@mui/icons-material/Clear';
 
 function CartNavBar(){ 
     const history = useHistory()
@@ -21,7 +22,6 @@ function CartNavBar(){
     
    const submit = async (id) => { 
         await dispatch(deleteCartItem(id))
-        .then(dispatch(allCartItem()))
    }
     
    if(!allItemInCart.items) return null
@@ -44,21 +44,20 @@ function CartNavBar(){
                 >Go to cart</button>
                 </div>
                 {allItemInCart && allItemInCart?.items?.map(item =>( 
-                    <div className='cartnavbar-items-container'>
+                    <div className='cartnavbar-items-container'>    
                     <img className='cartnavbar-image'src={item.image}></img>
+
                     <button className='cartnavbar-delete-button'
                     onClick={() => submit(item.id)}
                     >
-                    <i class="fa-sharp fa-solid fa-circle-minus"></i>
+                    <ClearIcon />
                     </button>
 
                     <select
                     value={item.quantity}
-                    
                     onChange={(e) => {    
                     const newQuantity = parseInt(e.target.value);
                     dispatch(updateCartItem({ quantity: newQuantity }, item.id))}}>
-
                     {quantityOptions.map((option) => (
                      <option key={option.value} value={option.value}>
                      {option.label}

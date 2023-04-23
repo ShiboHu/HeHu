@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 
 function Profile(){ 
     const currentUser = useSelector(state => state.session.user)
-    
+
     const [profilepage, setprofilePage] = useState(true)
     const [itempage, setItempage] = useState(false)
     const [reviewpage, setReviewpage] = useState(false)
@@ -29,6 +29,7 @@ function Profile(){
         setItempage(false)
         setReviewpage(false)
         setCreateItem(false)
+        setOrderPage(false)
     }
     
     const toReviewPage = () => { 
@@ -47,8 +48,6 @@ function Profile(){
         setReviewpage(false)
     }
     
-    if(!currentUser)return <h1>Please Login First</h1>
-
     const toOrderPage = () => { 
         setOrderPage(true)
         setItempage(false)
@@ -56,7 +55,8 @@ function Profile(){
         setReviewpage(false)
         setCreateItem(false)
     }
-
+    
+    if(!currentUser)return <h1>Please Login First</h1>
 
     return (
         <div>

@@ -53,12 +53,9 @@ function ProfileButton({ user }) {
           <div className="navbar-userprofiler-container">
             
             <button className="user-circle-button" onClick={() => history.push('/profile')}>
-            <i class="fa-solid fa-pen-to-square">Profile</i>
+            <i class="fa-solid fa-pen-to-square">Account</i>
             </button>
 
-            <button className="user-circle-button" onClick={() => history.push('/item/new')}>
-            <i class="fa-sharp fa-solid fa-plus">New Item</i>
-            </button>
               
             <button className="user-circle-button" onClick={logout}>
             <i class="fa-solid fa-right-from-bracket">Log Out</i>

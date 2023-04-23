@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import './landingpage.css'
 import { NavLink } from "react-router-dom";
 import { addCartItem, allCartItem } from "../../store/cart_item";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 
 function LandingPage(){ 
   const dispatch = useDispatch();
@@ -14,11 +16,19 @@ function LandingPage(){
         dispatch(refreshItems())
       }, [dispatch])
       
-      if(!allItems){ 
+      if (!allItems) { 
         return (
-          <h1>Currently No Items Listed</h1>
-          )
-    }
+          <div className="landingpage-container">
+            <ul className="items-container"> 
+              {[...Array(allItems.length)].map((_, index) => (
+                <li className="items-card" key={index}>
+                  <Skeleton height={280} />
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
 
     const submit = async (id) => { 
         await dispatch(addCartItem(id));

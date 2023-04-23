@@ -9,8 +9,7 @@
 }
 
 .singleitem-leftpage-container { 
-    margin-left: 5%;
-    width: 50%;
+    margin-left: 15%;
 }
 
 .singleitem-main-container { 
@@ -18,11 +17,12 @@
     flex-direction: row;
     gap: 30px;
     list-style-type: none;
+    width: 100%;
 }
 
 .singleitem-rightpage-container { 
     width: 100%;
-    margin-left: 4%;
+    margin-left: 3%;
     margin-right: 18%;
     position:sticky;
     height: 100%;

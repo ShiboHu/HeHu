@@ -47,7 +47,7 @@ function CurrentUserComment(){
     }
     
     return ( 
-        <div>
+        <div >
             <ul className='profile-content-ul'>
             <h1>Reviews</h1>
                 {comments?.map((comment, index )=> ( 

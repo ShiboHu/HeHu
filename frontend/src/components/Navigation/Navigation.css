@@ -12,20 +12,36 @@ ul {
     list-style-type: none;
 }
 
+body { 
+  margin: 0;
+  padding: 0;
+}
 
 .navbar-container { 
+    width: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
+    overflow: hidden;
+    justify-content: space-around;
     align-items: center;
-    margin-left: 3%;
-    justify-content: space-between;
-    width: 75%;
-    
+    border-bottom: 1px solid #333;
+
 }
+
+.navbar-container li { 
+  display: block;
+  color: white;
+  padding: 10px 10px;
+  text-decoration: none;
+  margin-left: 5%;
+}
+
 
 
 .profile-dropdown { 
     position: fixed;
-    right: 20.1%;
+    right: 9.7%;
 }
 
 .navbar-userprofiler-container { 

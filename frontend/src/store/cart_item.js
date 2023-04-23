@@ -67,7 +67,7 @@ export const deleteCartItem = (itemId) => async dispatch => {
 
     if(res.ok){ 
         dispatch(deleteItem(itemId))
-
+        dispatch(allCartItem())
     }
     return res
 }

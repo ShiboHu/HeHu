@@ -8,6 +8,9 @@ import CartNavBar from "./components/CartNavBar";
 import Profile from "./components/Profile";
 import SingleItem from "./components/SingleItemPage";
 import CartPage from "./components/CartPage";
+import CurrentUserItems from "./components/Profile/CurrentUserItems";
+import CurrentUserComment from "./components/Profile/CurrentUserComment";
+import CreateNewItem from "./components/Profile/CurrentUserCreateItem";
 
 function App() {
   const location = useLocation()
@@ -21,32 +24,47 @@ function App() {
 
   return (
     <>
-
-    {currentUser && 
-    (location.pathname === "/" || location.pathname.startsWith('/items/')) 
-    && <CartNavBar />}
-
       <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
+      <div className="page-main-container">
+        {isLoaded && (
+          <>
+            <Switch>
+              <Route exact path='/'>
+                <LandingPage />
+              </Route>
+  
+              <Route path='/items/:itemId'>
+                <SingleItem />
+              </Route>
+            </Switch>
+  
+            {currentUser && (location.pathname === "/" || location.pathname.startsWith('/items/')) && <CartNavBar />}
+          </>
+        )}
+        </div>
         <Switch>
 
-          <Route exact path='/'>
-           <LandingPage />
+          <Route exact path='/profile'>
+            <Profile />
           </Route>
 
-          <Route path='/profile'>
-            <Profile  />
+          <Route  path='/profile/items'>
+            <CurrentUserItems />
           </Route>
 
-          <Route path='/items/:itemId'>
-            <SingleItem />
+          <Route  path='/profile/comments'>
+            <CurrentUserComment />
           </Route>
-          
+
+          <Route  path='/profile/new/item'>
+            <CreateNewItem />
+          </Route>
+  
           <Route path='/carts'>
             <CartPage />
           </Route>
+
         </Switch>
-      )}
     </>
   );
 }

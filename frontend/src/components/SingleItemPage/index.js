@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from 'react-router-dom'
 import { getSingleItem } from "../../store/item";
 import './singleitem.css'
-import { addItemToCart } from "../../store/cart";
 import  OpenModalButton  from '../OpenModalButton'
 import CreateNewComment from "../ConfirmModals/CreateComment";
 import { addCartItem, allCartItem, updateCartItem } from "../../store/cart_item";
 import { renderStars } from "../LandingPage";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+
 
 function SingleItem(){ 
     const { itemId } = useParams();
@@ -23,7 +25,27 @@ function SingleItem(){
 
     if(!Object.values(item).length){ 
         return (
-            <h1>Loading...</h1>
+            <div className="singleitem-main-container">
+                <div className="singleitem-leftpage-container">
+                    <Skeleton height={500} width={500}/>
+                    <Skeleton height={30} width={300} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "50px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={40} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={30} width={100} />
+                </div>
+                <div className="singleitem-rightpage-container">
+                    <Skeleton height={30} width={300} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "50px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={40} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={50} width={150} />
+                </div>
+            </div>
         )
     }
 
@@ -50,8 +72,8 @@ function SingleItem(){
         <div className="singleitem-leftpage-container">
         <img className='singleitem-image' src={item.image} alt='itemimage'></img>
         <h2>{item?.Comments?.length} review(s) | {renderStars(item.avgRating)} stars</h2>
-        <h2>Item Review    {createCommentModal()}</h2> 
-        {item.Comments.map(comment => ( 
+        <h2>Item Review    {createCommentModal() }</h2> 
+        {item?.Comments.map(comment => ( 
             <div>
             <h3>{comment.User.username}</h3>
             <img className='singleitem-comment-image' src={comment.image}></img>
