@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const { Comment } = require('../../db/models');
+const { requireAuth } = require('../../utils/auth');
 
 
 //get comment by current user
-router.get('/current', async (req, res) => { 
+router.get('/current', requireAuth, async (req, res) => { 
     const comment = await Comment.findAll({ 
         where: { 
             userId: req.user.id
@@ -24,7 +25,7 @@ router.get('/current', async (req, res) => {
 
 
 //create comment
-router.post('/:itemId', async (req, res) => { 
+router.post('/:itemId', requireAuth, async (req, res) => { 
     const { comment, image, rating } = req.body
 
     let newComment = await Comment.create({ 
@@ -39,7 +40,7 @@ router.post('/:itemId', async (req, res) => {
 })
 
 //delete comment
-router.delete('/:commentId', async (req, res) => { 
+router.delete('/:commentId', requireAuth, async (req, res) => { 
     const comment = await Comment.findByPk(req.params.commentId);
 
 
@@ -62,7 +63,7 @@ router.delete('/:commentId', async (req, res) => {
 
 
 //edit comment
-router.put('/:commentId', async (req, res) => { 
+router.put('/:commentId', requireAuth, async (req, res) => { 
     const { comment, image, rating} = req.body
 
     const commented = await Comment.findByPk(req.params.commentId);

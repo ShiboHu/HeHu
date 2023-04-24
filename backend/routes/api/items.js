@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { requireAuth } = require('../../utils/auth');
 
 const { Item, User, Comment,} = require('../../db/models');
 
@@ -76,7 +77,7 @@ router.get('/:itemId', async (req, res) => {
 
 
 //current user create item
-router.post('/', async (req, res) => { 
+router.post('/', requireAuth, async (req, res) => { 
     const {
            name, 
            description, 
@@ -102,7 +103,7 @@ router.post('/', async (req, res) => {
 
 
 //update item
-router.put('/:itemId', async(req, res) => { 
+router.put('/:itemId', requireAuth, async(req, res) => { 
     const {
         name, 
         description, 
@@ -136,7 +137,7 @@ router.put('/:itemId', async(req, res) => {
 
 
 //Delete item
-router.delete('/:itemId', async (req, res) => { 
+router.delete('/:itemId', requireAuth, async (req, res) => { 
     const item = await Item.findByPk(req.params.itemId);
 
     if(!item){
@@ -157,7 +158,7 @@ router.delete('/:itemId', async (req, res) => {
 
 
 //get item of the current user
-router.get('/item/current', async (req, res) => { 
+router.get('/item/current',requireAuth, async (req, res) => { 
     const item = await Item.findAll({ 
         where: { 
             sellerId: req.user.id

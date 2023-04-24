@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 const { Item, Cart, Cart_Item } = require('../../db/models');
+const { requireAuth } = require('../../utils/auth');
  
 
 //get the cart and all item in the cart
-router.get('/current', async (req, res) => {
+router.get('/current', requireAuth, async (req, res) => {
   const cart = await Cart.findOne({
       where: {
           userId: req.user.id

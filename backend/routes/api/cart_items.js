@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const { requireAuth } = require('../../utils/auth');
 
 const { Cart_Item, Cart, Item } = require('../../db/models')
 
 
 //get all the cart items by the current user
-router.get('/current', async (req, res) => { 
+router.get('/current', requireAuth, async (req, res) => { 
     const cart = await Cart.findOne({ 
         where: { 
             userId: req.user.id
@@ -46,7 +47,7 @@ router.get('/current', async (req, res) => {
 
 
 //current user add newitems to cart item 
-router.post('/:itemId', async (req, res) => { 
+router.post('/:itemId', requireAuth, async (req, res) => { 
     let cart = await Cart.findOne({ 
         where: { 
             userId: req.user.id
@@ -87,7 +88,7 @@ router.post('/:itemId', async (req, res) => {
 })
 
 //delete items in the cart
-router.delete('/:itemId', async (req, res) => { 
+router.delete('/:itemId', requireAuth, async (req, res) => { 
     const cart = await Cart.findOne({ 
         where: { 
             userId: req.user.id
@@ -125,7 +126,7 @@ router.delete('/:itemId', async (req, res) => {
 
 
 /*  update quantity in cart */
-router.put('/:itemId', async (req, res) => { 
+router.put('/:itemId', requireAuth, async (req, res) => { 
     const { quantity } = req.body;
 
     const cart = await Cart.findOne({ 

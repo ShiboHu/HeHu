@@ -8,28 +8,44 @@ function CreateNewItem(){
     const history = useHistory();
     const dispatch = useDispatch();
     const allSubCat = useSelector(state => state.subCategories.subCategory);
-
-
+    
     const categoryOptions = allSubCat.map(sub => ({
         value: sub.id,
         label: sub.name
-        }))
-
-
+    }))
+    
+    
     useEffect(() => { 
         dispatch(getAllSubCategory())
     },[dispatch]);
-
-
+        
+    
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
     const [image, setImage] = useState('');
     const [stocks, setStocks] = useState('');
     const [subcategoryId, setSubcategoryId] = useState(null);
-    
+    const [errors, setError] = useState([]);
+        
+    useEffect(() => { 
+        
+        if(name.length > 15 && name.length < 3){ 
+            setError('Name must be between 3-15 characters!')
+        }
+        if(description.length < 15 && description.length > 500){ 
+            setError('Description must be between 15-500 characters!')
+        }
+        if(!parseInt(price)){ 
+            setError('Price must be a number!')
+        }
+        if(!parseInt(stocks)){ 
+            setError('Stocks must be a number!')
+        }
 
-    const submit = async (e) => { 
+    },[name, description, price, stocks])
+        
+        const submit = async (e) => { 
         e.preventDefault();
 
         const payload = { 
@@ -53,6 +69,11 @@ function CreateNewItem(){
         <div className="create-item-container">
         <form onSubmit={submit} className="create-item-form">
             <h1>Post Item</h1>
+            <ul>
+                {errors.map(error => (
+                    <li>{error}</li>
+                ))}
+            </ul>
             <label>
                 name:
                 <input 
