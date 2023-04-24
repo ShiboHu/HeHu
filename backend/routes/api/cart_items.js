@@ -17,7 +17,8 @@ router.get('/current', requireAuth, async (req, res) => {
                 model: Cart_Item,
                 attributes: ['quantity']
             }
-        }
+        },
+        order: [['createdAt', 'ASC']]
     })
 
     if(!cart){ 
@@ -41,7 +42,8 @@ router.get('/current', requireAuth, async (req, res) => {
   
       return res.json({ 
         totalPrice, 
-        items
+        items,
+        id: cart.id
       });
 })
 

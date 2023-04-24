@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllCartItem } from "../../store/cart";
 import './cartpage.css'
 import { allCartItem, deleteCartItem, updateCartItem } from "../../store/cart_item";
+import { createNewOrder } from "../../store/order";
 
 
 function CartPage(){ 
     const dispatch = useDispatch();
     const allItems = useSelector(state => state.cartItems.cart_items);
-
-
+    
     useEffect(()=> {
         dispatch(allCartItem())
     }, [dispatch])
@@ -36,6 +36,10 @@ function CartPage(){
     const submit = async (id) => { 
         await dispatch(deleteCartItem(id))
         .then(dispatch(getAllCartItem()))
+   }
+
+   const orderSubmit = async() => { 
+        await dispatch(createNewOrder(allItems.id))
    }
 
 
@@ -98,7 +102,7 @@ function CartPage(){
         
             <h3>{allItems.items.length} Product(s) | {countQuantity()} Item(s)</h3>
             <h3>Total Price:${allItems.totalPrice}</h3>
-            <button className="button-71">Check Out</button>
+            <button className="button-71" onClick={() => orderSubmit()}>Check Out</button>
         </div>
      </div>
     )

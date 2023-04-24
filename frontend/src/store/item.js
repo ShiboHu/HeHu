@@ -99,6 +99,7 @@ export const deleteSingleItem = (itemId) => async (dispatch) => {
   
     if (res.ok) {
       dispatch(deleteItem(itemId));
+      dispatch(getCurrentUserItems());
     }
     return res;
   };
@@ -123,6 +124,7 @@ export const updateUserItem = (payload, itemId) => async dispatch => {
     if(res.ok){ 
         const data = await res.json();
         dispatch(updateItem(data))
+        dispatch(getCurrentUserItems())
     }
     return res
 }

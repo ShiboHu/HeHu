@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       Item.belongsTo(models.User, {foreignKey: 'sellerId'})
       Item.hasMany(models.Comment, {foreignKey: 'itemId', onDelete: 'CASCADE',  hooks: true})
       Item.hasMany(models.Like, {foreignKey: 'itemId', onDelete: 'CASCADE',  hooks: true})
-      Item.belongsToMany(models.Cart, {through: models.Cart_Item, foreignKey:'itemId', onDelete: 'CASCADE', hooks: true})
+      Item.belongsToMany(models.Cart, {through: models.Cart_Item, foreignKey:'itemId'})
     }
   }
   Item.init({

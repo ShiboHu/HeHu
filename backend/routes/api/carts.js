@@ -51,10 +51,6 @@ router.get('/current', requireAuth, async (req, res) => {
 });
  
 
-//add items to cart
-
-  
-  
   
   
   

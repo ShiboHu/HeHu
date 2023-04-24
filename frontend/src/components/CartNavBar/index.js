@@ -9,7 +9,7 @@ function CartNavBar(){
     const history = useHistory()
     const dispatch = useDispatch();
     const allItemInCart = useSelector(state => state.cartItems.cart_items);
-    
+   
     const [quantity, setQuantity] = useState(0);
 
     useEffect(() => { 
@@ -32,7 +32,6 @@ function CartNavBar(){
      quantityOptions.push({ value: i, label: i });
    }
 
-   console.log(quantity)
     return(
         <div className="main-navbar-container">
             <ul className="cartnavbar-container">

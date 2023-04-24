@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // // define association here
       Cart.belongsTo(models.User, {foreignKey: 'userId'})
-      Cart.belongsToMany(models.Item, {through: models.Cart_Item, foreignKey: 'cartId', onDelete: 'CASACDE', hooks: true})
+      Cart.belongsToMany(models.Item, {through: models.Cart_Item, foreignKey: 'cartId'})
       Cart.hasMany(models.Order, {foreignKey: 'cartId'})
     }
   }
@@ -21,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
+    purchased: { 
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    }
     // itemId: { 
     //   type:DataTypes.INTEGER,
     //   allowNull: false,

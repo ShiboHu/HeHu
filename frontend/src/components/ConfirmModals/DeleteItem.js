@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal"
-import { deleteSingleItem } from "../../store/item";
+import { deleteSingleItem, getCurrentUserItems } from "../../store/item";
 
 function DeleteItemModal(props){ 
     const dispatch = useDispatch()

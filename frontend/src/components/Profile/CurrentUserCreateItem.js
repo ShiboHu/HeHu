@@ -28,22 +28,6 @@ function CreateNewItem(){
     const [subcategoryId, setSubcategoryId] = useState(null);
     const [errors, setError] = useState([]);
         
-    useEffect(() => { 
-        
-        if(name.length > 15 && name.length < 3){ 
-            setError('Name must be between 3-15 characters!')
-        }
-        if(description.length < 15 && description.length > 500){ 
-            setError('Description must be between 15-500 characters!')
-        }
-        if(!parseInt(price)){ 
-            setError('Price must be a number!')
-        }
-        if(!parseInt(stocks)){ 
-            setError('Stocks must be a number!')
-        }
-
-    },[name, description, price, stocks])
         
         const submit = async (e) => { 
         e.preventDefault();

@@ -49,6 +49,9 @@ function CurrentUserItems() {
     setEditItemIndex(null);
   };
 
+  if(!allItems.length){ 
+    <h1>No Products</h1>
+  }
   return (
     <div>
       <ul className="profile-content-ul">
@@ -60,7 +63,7 @@ function CurrentUserItems() {
               <form onSubmit={(e) => handleSaveEdit(e, index)}>
               <li>
                 Name:
-                <input type="text" name="name" defaultValue={item.name} />
+                <input type="text" name="name" defaultValue={item.name} required/>
               </li>
               <li>
                 Description:
@@ -68,11 +71,12 @@ function CurrentUserItems() {
                   type="text"
                   name="description"
                   defaultValue={item.description}
+                  required
                 />
               </li>
               <li>
                 Price:
-                <input type="number" name="price" defaultValue={item.price} />
+                <input type="number" name="price" defaultValue={item.price} required/>
               </li>
               <li>
                 Stocks:
@@ -80,11 +84,12 @@ function CurrentUserItems() {
                   type="number"
                   name="stocks"
                   defaultValue={item.stocks}
+                  required
                 />
               </li>
               <li>
                 Image URL:
-                <input type="text" name="image" defaultValue={item.image} />
+                <input type="text" name="image" defaultValue={item.image} required />
               </li>
               <button type="submit" className='button-5'>Save</button>
               <button type="button" onClick={handleCancelEdit} className='button-5'>

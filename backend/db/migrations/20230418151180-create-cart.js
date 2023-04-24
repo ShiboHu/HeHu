@@ -22,6 +22,11 @@ module.exports = {
           model: 'Users',
         }
       },
+      purchased: { 
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+      },
       // itemId: {
       //   type: Sequelize.INTEGER,
       //   allowNull: false,

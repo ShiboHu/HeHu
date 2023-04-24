@@ -7,6 +7,7 @@ import itemReducer from './item';
 import subCategoryReducer from './subcategory';
 import commentReducer from './comment';
 import cartItemReducer from './cart_item';
+import orderReducer from './order';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   // carts: cartReducer,
   subCategories: subCategoryReducer,
   comments: commentReducer,
-  cartItems: cartItemReducer
+  cartItems: cartItemReducer,
+  orders: orderReducer
 });
 
 let enhancer;
