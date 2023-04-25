@@ -114,13 +114,13 @@ router.delete('/:itemId', requireAuth, async (req, res) => {
     })  
 
 
-    // if(!cartItem){ 
-    //     res.status(404);
-    //     return res.json({ 
-    //         message: 'Item not in cart, not found!',
-    //         statusCode: 404,
-    //     })
-    // }
+    if(!cartItem){ 
+        res.status(404);
+        return res.json({ 
+            message: 'Item not in cart, not found!',
+            statusCode: 404,
+        })
+    }
 
     await cartItem.destroy(); 
 

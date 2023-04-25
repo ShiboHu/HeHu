@@ -15,21 +15,6 @@ module.exports = {
         itemId: 1,
         quantity: 2
       },
-      { 
-        cartId: 1,
-        itemId: 2,
-        quantity: 2
-      },
-      { 
-        cartId: 1,
-        itemId: 3,
-        quantity: 2
-      },
-      { 
-        cartId: 2,
-        itemId: 1,
-        quantity: 2
-      },
     ], {});
   },
 
