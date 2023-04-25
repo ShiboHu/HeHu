@@ -1,9 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCartItem } from "../../store/cart";
 import './cartpage.css'
 import { allCartItem, deleteCartItem, updateCartItem } from "../../store/cart_item";
-import { createNewOrder, getAllOrders } from "../../store/order";
+import { createNewOrder } from "../../store/order";
 import { useHistory } from "react-router-dom";
 
 
@@ -37,7 +36,7 @@ function CartPage(){
 
     const submit = async (id) => { 
         await dispatch(deleteCartItem(id))
-        .then(dispatch(getAllCartItem()))
+        .then(dispatch(allCartItem()))
    }
 
    const orderSubmit = async() => { 
