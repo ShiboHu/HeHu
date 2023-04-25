@@ -16,7 +16,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       comment: {
-        type: Sequelize.STRING(255),
+        type: Sequelize.STRING,
         allowNull: false
       },
       image: {

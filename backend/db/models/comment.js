@@ -19,9 +19,6 @@ module.exports = (sequelize, DataTypes) => {
     comment: { 
       type: DataTypes.STRING,
       allowNull: false,
-      validate: { 
-        len: [1, 255]
-      }
     },
     image: { 
       type: DataTypes.STRING,
