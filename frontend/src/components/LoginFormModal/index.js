@@ -22,6 +22,7 @@ function LoginFormModal() {
         }
       );
   };
+
   const demoLogin = () => {
     dispatch(sessionActions.login(
       {credential:'hushibo123', password:'hushibo123'}
@@ -56,9 +57,9 @@ function LoginFormModal() {
             required
           />
         </label>
-        <button type="submit">Log In</button>
-        <button onClick={demoLogin}>Demo</button>
+        <button className="user-circle-button" type="submit">Log In</button>
       </form>
+        <button className="user-circle-button" onClick={demoLogin}>Demo</button>
     </>
   );
 }

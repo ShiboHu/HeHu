@@ -2,15 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllItems, refreshItems } from "../../store/item";
 import { useEffect } from "react";
 import './landingpage.css'
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { addCartItem, allCartItem } from "../../store/cart_item";
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 function LandingPage(){ 
+  const history = useHistory()
   const dispatch = useDispatch();
   const allItems = useSelector(state => state.items.items);
-  
+  const currentUser = useSelector(state => state.session.user);
+
   useEffect(() => { 
         dispatch(getAllItems())
         dispatch(refreshItems())
@@ -31,9 +33,13 @@ function LandingPage(){
       }
 
     const submit = async (id) => { 
+      if(!currentUser){
+        history.push('/login')
+      }else {
         await dispatch(addCartItem(id));
         dispatch(allCartItem());
       }
+    }
       
       return ( 
         <div>

@@ -69,7 +69,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        <button type="submit">Sign Up</button>
+        <button className="user-circle-button" type="submit">Sign Up</button>
       </form>
     </>
   );

@@ -12,6 +12,7 @@ import CurrentUserItems from "./components/Profile/CurrentUserItems";
 import CurrentUserComment from "./components/Profile/CurrentUserComment";
 import CreateNewItem from "./components/Profile/CurrentUserCreateItem";
 import SingleOrderPage from "./components/OrderPage";
+import LoginFormPage from "./components/LoginFormPage";
 
 function App() {
   const location = useLocation()
@@ -69,6 +70,10 @@ function App() {
             <SingleOrderPage />
           </Route>
 
+
+          <Route path='/login'>
+            <LoginFormPage />
+          </Route>
         </Switch>
     </>
   );
