@@ -37,8 +37,7 @@ function CartNavBar(){
             <ul className="cartnavbar-container">
                 <div className='cartnavbar-buttons'>
                 <h2 >${allItemInCart.totalPrice === 0? '0.00' : allItemInCart.totalPrice}</h2>
-                <button className='button-71'>Checkout</button>
-                <button className='button-710'
+                <button className='button-71'
                 onClick={() => history.push('/carts')}
                 >Go to cart</button>
                 </div>

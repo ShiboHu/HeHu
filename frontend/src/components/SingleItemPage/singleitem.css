@@ -18,6 +18,7 @@
     gap: 30px;
     list-style-type: none;
     width: 100%;
+    margin-top: 1.5%;
 }
 
 .singleitem-rightpage-container { 
@@ -26,7 +27,6 @@
     margin-right: 18%;
     position:sticky;
     height: 100%;
-    top: 1px;
 }
 
 

@@ -29,8 +29,30 @@ function CreateNewItem(){
     const [errors, setError] = useState([]);
         
         
-        const submit = async (e) => { 
+    const submit = async (e) => { 
         e.preventDefault();
+
+        let validationErrors = [];
+        if (!name) {
+            validationErrors.push("Name is required");
+        }
+        if (!description) {
+            validationErrors.push("Description is required");
+        }
+        if (!price || isNaN(price)) {
+            validationErrors.push("Price must be a valid number");
+        }
+        if (!stocks || isNaN(stocks)) {
+            validationErrors.push("Stocks must be a valid number");
+        }
+        if (!subcategoryId) {
+            validationErrors.push("Category is required");
+        }
+
+        setError(validationErrors);
+        if (validationErrors.length > 0) {
+            return;
+        }
 
         const payload = { 
             name,

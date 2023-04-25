@@ -12,9 +12,11 @@ module.exports = {
     return queryInterface.bulkInsert(options, [
       { 
         userId: 1,
+        purchased: false
       },
       { 
         userId: 2,
+        purchased: false
       },
     ], {});
   },

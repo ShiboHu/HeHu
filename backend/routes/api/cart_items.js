@@ -9,7 +9,8 @@ const { Cart_Item, Cart, Item } = require('../../db/models')
 router.get('/current', requireAuth, async (req, res) => { 
     const cart = await Cart.findOne({ 
         where: { 
-            userId: req.user.id
+            userId: req.user.id,
+            purchased: false
         },
         include: { 
             model: Item,
@@ -43,7 +44,7 @@ router.get('/current', requireAuth, async (req, res) => {
       return res.json({ 
         totalPrice, 
         items,
-        id: cart.id
+        cartId: cart.id
       });
 })
 
@@ -52,13 +53,15 @@ router.get('/current', requireAuth, async (req, res) => {
 router.post('/:itemId', requireAuth, async (req, res) => { 
     let cart = await Cart.findOne({ 
         where: { 
-            userId: req.user.id
+            userId: req.user.id,
+            purchased: false
         }
     })
 
     if(!cart){ 
         cart = await Cart.create({ 
-            userId: req.user.id
+            userId: req.user.id,
+            purchased: false
         })
     }
 
@@ -133,7 +136,8 @@ router.put('/:itemId', requireAuth, async (req, res) => {
 
     const cart = await Cart.findOne({ 
         where: { 
-            userId: req.user.id
+            userId: req.user.id,
+            purchased: false
         }
     })
 

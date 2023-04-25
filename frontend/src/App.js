@@ -11,6 +11,7 @@ import CartPage from "./components/CartPage";
 import CurrentUserItems from "./components/Profile/CurrentUserItems";
 import CurrentUserComment from "./components/Profile/CurrentUserComment";
 import CreateNewItem from "./components/Profile/CurrentUserCreateItem";
+import SingleOrderPage from "./components/OrderPage";
 
 function App() {
   const location = useLocation()
@@ -62,6 +63,10 @@ function App() {
   
           <Route path='/carts'>
             <CartPage />
+          </Route>
+
+          <Route path='/orders/:orderId'>
+            <SingleOrderPage />
           </Route>
 
         </Switch>

@@ -5,6 +5,7 @@ import CurrentUserComment from './CurrentUserComment';
 import CurrentUserProfile from './CurrentUserProfile';
 import CreateNewItem from './CurrentUserCreateItem';
 import { useSelector } from 'react-redux';
+import CurrentUserOrders from './CurrentUserOrder';
 
 function Profile(){ 
     const currentUser = useSelector(state => state.session.user)
@@ -94,6 +95,7 @@ function Profile(){
             {reviewpage && <CurrentUserComment />}
             {profilepage && <CurrentUserProfile />}
             {createItem && <CreateNewItem />}
+            {orderPage && <CurrentUserOrders />}
         </div>
         </div>
     )

@@ -3,13 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllCartItem } from "../../store/cart";
 import './cartpage.css'
 import { allCartItem, deleteCartItem, updateCartItem } from "../../store/cart_item";
-import { createNewOrder } from "../../store/order";
+import { createNewOrder, getAllOrders } from "../../store/order";
+import { useHistory } from "react-router-dom";
 
 
 function CartPage(){ 
+    const history = useHistory();
     const dispatch = useDispatch();
     const allItems = useSelector(state => state.cartItems.cart_items);
-    
+
     useEffect(()=> {
         dispatch(allCartItem())
     }, [dispatch])
@@ -39,7 +41,10 @@ function CartPage(){
    }
 
    const orderSubmit = async() => { 
-        await dispatch(createNewOrder(allItems.id))
+        let newOrder = await dispatch(createNewOrder(allItems.cartId))
+        if(newOrder){
+            history.push(`/orders/${allItems.cartId}`)
+        }
    }
 
 

@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from 'react-router-dom'
+import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { createAComment } from "../../store/comment";
 import { useModal } from "../../context/Modal";
 import { getSingleItem } from "../../store/item";
 
 function CreateNewComment({ itemId }){ 
-    const history = useHistory();
     const dispatch = useDispatch();
     const { closeModal } = useModal();
 
     const [comment, setComment] = useState('');
     const [image, setImage] = useState('');
     const [rating, setRating] = useState(1);
+    const [hoverRating, setHoverRating] = useState(null);
+
     console.log(itemId)
     
     const submit = async (e) => { 
@@ -45,12 +45,21 @@ function CreateNewComment({ itemId }){
             </label>
             <label>
                 rating:
-                <input 
-                type='text'
-                value={rating}
-                onChange={(e) => setRating(e.target.value)}
-                required
-                />
+                <div className="stars">
+                    {[...Array(5)].map((star, index) => {
+                        const ratingValue = index + 1;
+                        return (
+                            <span 
+                                key={ratingValue} 
+                                onClick={() => setRating(ratingValue)} 
+                                onMouseEnter={() => setHoverRating(ratingValue)}
+                                onMouseLeave={() => setHoverRating(null)}
+                            >
+                                <i className={ratingValue <= (hoverRating || rating) ? "fas fa-star" : "far fa-star"}></i>
+                            </span>
+                        );
+                    })}
+                </div>
             </label>
             <label>
                 image:
