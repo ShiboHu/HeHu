@@ -3,6 +3,7 @@ const router = express.Router();
 const { requireAuth } = require('../../utils/auth');
 
 const { Item, User, Comment,} = require('../../db/models');
+const { singleFileUpload, singleMulterUpload } = require('../../awsS3');
 
 
 
@@ -77,23 +78,26 @@ router.get('/:itemId', async (req, res) => {
 
 
 //current user create item
-router.post('/', requireAuth, async (req, res) => { 
+router.post('/', requireAuth, singleMulterUpload('image'), async (req, res) => { 
     const {
            name, 
            description, 
            price, 
-           image, 
            stocks, 
            subcategoryId
           } = req.body;
+
+    const image = req.file ? 
+          await singleFileUpload({file: req.file, public: true}): 
+          null
 
     const newItem = await Item.create({ 
         name,
         sellerId: req.user.id,
         description, 
-        price, 
-        image, 
+        price,  
         stocks, 
+        image,
         subcategoryId  
     })
 

@@ -58,17 +58,19 @@ function CurrentUserItems() {
         <h1>Products</h1>
         {allItems?.map((item, index) => (
           <div className="profile-items-container" key={item.id}>
-          <img className="profile-itemimages" src={item.image}></img>
+          <img className="profile-itemimages" src={item.image} alt="itemimage"></img>
             {editItemIndex === index ? (
-              <form onSubmit={(e) => handleSaveEdit(e, index)}>
+              <form onSubmit={(e) => handleSaveEdit(e, index)} className="edit-item-form">
               <li>
                 Name:
                 <input type="text" name="name" defaultValue={item.name} required/>
               </li>
               <li>
                 Description:
-                <input
+                <textarea
                   type="text"
+                  rows="5"
+                  cols="33"
                   name="description"
                   defaultValue={item.description}
                   required
@@ -88,7 +90,7 @@ function CurrentUserItems() {
                 />
               </li>
               <li>
-                Image URL:
+                Image:
                 <input type="text" name="image" defaultValue={item.image} required />
               </li>
               <button type="submit" className='button-5'>Save</button>

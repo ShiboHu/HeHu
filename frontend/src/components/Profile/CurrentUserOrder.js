@@ -18,8 +18,8 @@ function CurrentUserOrders() {
 
     return( 
         <div>
+            <ul className="profilepage-user-container">
             <h1>Orders</h1>
-            <ul>
                 {allOrder.map(order => (
                     <div>
                     <h3>Order: #{order.id}</h3>

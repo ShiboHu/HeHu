@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { Comment } = require('../../db/models');
 const { requireAuth } = require('../../utils/auth');
+const { singleMulterUpload, singleFileUpload } = require('../../awsS3');
 
 
 //get comment by current user
@@ -25,8 +26,12 @@ router.get('/current', requireAuth, async (req, res) => {
 
 
 //create comment
-router.post('/:itemId', requireAuth, async (req, res) => { 
-    const { comment, image, rating } = req.body
+router.post('/:itemId', requireAuth, singleMulterUpload('image'), async (req, res) => { 
+    const { comment, rating } = req.body
+
+    const image = req.file? 
+        await singleFileUpload({file:req.file, public: true}):
+        null
 
     let newComment = await Comment.create({ 
         comment, 
@@ -36,6 +41,7 @@ router.post('/:itemId', requireAuth, async (req, res) => {
         userId: req.user.id
     })
 
+    res.status(201);
     return res.json(newComment)
 })
 

@@ -52,9 +52,9 @@ function CurrentUserComment(){
             <h1>Reviews</h1>
                 {comments?.map((comment, index )=> ( 
                     <div className="profile-items-container">
-                    <img className="profile-itemimages" src={comment.image}></img>
+                    <img className="profile-itemimages" src={comment.image} alt="itemimage"></img>
                     {editCommentIndex === index ? (
-                    <form onSubmit={(e) => handleSaveEdit(e, index)}>
+                    <form onSubmit={(e) => handleSaveEdit(e, index)} className="edit-item-form">
                         <li>
                             Comment:
                             <input type='text' name="comment" defaultValue={comment.comment}/>

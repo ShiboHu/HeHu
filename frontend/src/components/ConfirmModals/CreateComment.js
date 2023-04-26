@@ -9,7 +9,7 @@ function CreateNewComment({ itemId }){
     const { closeModal } = useModal();
 
     const [comment, setComment] = useState('');
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState(null);
     const [rating, setRating] = useState(1);
     const [hoverRating, setHoverRating] = useState(null);
 
@@ -31,11 +31,15 @@ function CreateNewComment({ itemId }){
         }
     }
 
+    const uploadImage = e => { 
+        const file = e.target.files[0];
+        if(file) setImage(file)
+    }
 
     return (
         <form onSubmit={submit}>
             <label>
-                comment:
+                Comment:
                 <input 
                 type='text'
                 value={comment}
@@ -44,7 +48,7 @@ function CreateNewComment({ itemId }){
                 />
             </label>
             <label>
-                rating:
+                Rating:
                 <div className="stars">
                     {[...Array(5)].map((star, index) => {
                         const ratingValue = index + 1;
@@ -62,16 +66,15 @@ function CreateNewComment({ itemId }){
                 </div>
             </label>
             <label>
-                image:
+                Image:
                 <input 
-                type='text'
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
+                type='file'
+                onChange={uploadImage}
                 required
                 />
             </label>
            
-            <button type="submit" onClick={submit}>Create</button>
+            <button type="submit" onClick={submit} className="user-circle-button">Create</button>
         </form>
     )
 }

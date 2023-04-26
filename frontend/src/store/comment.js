@@ -70,10 +70,16 @@ export const updateAComment = (payload,commentId) => async dispatch => {
     return res
 }
 export const createAComment = (payload,storyId) => async dispatch => { 
+    const {comment, image, rating} = payload;
+    const formData = new FormData();
+    formData.append('comment', comment)
+    formData.append('rating', rating)
+
+    if(image) formData.append('image', image);
+
     const res =await csrfFetch(`/api/comments/${storyId}`, { 
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(payload)
+        body: formData
     })
 
     if(res.ok){ 

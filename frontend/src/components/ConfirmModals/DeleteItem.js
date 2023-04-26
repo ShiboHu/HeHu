@@ -18,10 +18,10 @@ function DeleteItemModal(props){
             <div>
              <h1>Confirm Delete</h1>
             <h3>Are you sure you want to delete this Item?</h3>
-            <button className="delete-button"
+            <button className="user-circle-button"
             onClick={submit}
             >Yes(Delete Item)</button>
-            <button className="delete-button"
+            <button className="user-circle-button"
             onClick={closeModal}
             >No(Keep Item)</button>
             </div>

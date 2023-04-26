@@ -6,6 +6,7 @@ import CurrentUserProfile from './CurrentUserProfile';
 import CreateNewItem from './CurrentUserCreateItem';
 import { useSelector } from 'react-redux';
 import CurrentUserOrders from './CurrentUserOrder';
+import CurrentUserWishList from './CurrentUserWishList';
 
 function Profile(){ 
     const currentUser = useSelector(state => state.session.user)
@@ -15,7 +16,7 @@ function Profile(){
     const [reviewpage, setReviewpage] = useState(false)
     const [orderPage, setOrderPage] = useState(false)
     const [createItem, setCreateItem] = useState(false)
-    
+    const [wishList, setWishList] = useState(false)
     
     const toItemPage = () => { 
         setItempage(true)
@@ -23,6 +24,7 @@ function Profile(){
         setprofilePage(false)
         setCreateItem(false)
         setOrderPage(false)
+        setWishList(false)
     }
     
     const toProfilePage = () => { 
@@ -31,6 +33,7 @@ function Profile(){
         setReviewpage(false)
         setCreateItem(false)
         setOrderPage(false)
+        setWishList(false)
     }
     
     const toReviewPage = () => { 
@@ -39,6 +42,7 @@ function Profile(){
         setprofilePage(false)
         setCreateItem(false)
         setOrderPage(false)
+        setWishList(false)
     }
     
     const toCreateItemPage = () => { 
@@ -47,10 +51,21 @@ function Profile(){
         setItempage(false)
         setprofilePage(false)
         setReviewpage(false)
+        setWishList(false)
     }
     
     const toOrderPage = () => { 
         setOrderPage(true)
+        setItempage(false)
+        setprofilePage(false)
+        setReviewpage(false)
+        setCreateItem(false)
+        setWishList(false)
+    }
+
+    const toWishList = () => { 
+        setWishList(true)
+        setOrderPage(false)
         setItempage(false)
         setprofilePage(false)
         setReviewpage(false)
@@ -89,6 +104,11 @@ function Profile(){
                 Your Orders
             </button>
 
+            <button className={wishList?'button-53':'button-52'} onClick={toWishList}>
+                <i class="fa-solid fa-heart"></i>
+                Wish List
+            </button>
+
         </div>
         <div className='profile-contents'>
             {itempage && <CurrentUserItems />}
@@ -96,6 +116,7 @@ function Profile(){
             {profilepage && <CurrentUserProfile />}
             {createItem && <CreateNewItem />}
             {orderPage && <CurrentUserOrders />}
+            {wishList && <CurrentUserWishList />}
         </div>
         </div>
     )

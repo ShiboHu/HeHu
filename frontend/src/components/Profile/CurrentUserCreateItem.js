@@ -23,7 +23,7 @@ function CreateNewItem(){
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [price, setPrice] = useState('');
-    const [image, setImage] = useState('');
+    const [image, setImage] = useState(null);
     const [stocks, setStocks] = useState('');
     const [subcategoryId, setSubcategoryId] = useState(null);
     const [errors, setError] = useState([]);
@@ -48,6 +48,9 @@ function CreateNewItem(){
         if (!subcategoryId) {
             validationErrors.push("Category is required");
         }
+        if (!image) {
+            validationErrors.push("Image is required");
+        }
 
         setError(validationErrors);
         if (validationErrors.length > 0) {
@@ -70,18 +73,21 @@ function CreateNewItem(){
         }
     }
 
+    const updateFile = e => { 
+        const file = e.target.files[0];
+        if(file) setImage(file)
+    }
 
     return (
-        <div className="create-item-container">
+        <div>
+            <ul className="profilepage-user-container">
         <form onSubmit={submit} className="create-item-form">
             <h1>Post Item</h1>
-            <ul>
                 {errors.map(error => (
                     <li>{error}</li>
                 ))}
-            </ul>
             <label>
-                name:
+                Name:
                 <input 
                 type='text'
                 value={name}
@@ -90,16 +96,18 @@ function CreateNewItem(){
                 />
             </label>
             <label>
-                description:
-                <input 
+                Description:
+                <textarea 
                 type='text'
+                rows="5"
+                cols="33"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
                 />
             </label>
             <label>
-                price:
+                Price:
                 <input 
                 type='text'
                 value={price}
@@ -108,7 +116,7 @@ function CreateNewItem(){
                 />
             </label>
             <label>
-                stocks:
+                Stocks:
                 <input 
                 type='text'
                 value={stocks}
@@ -117,11 +125,10 @@ function CreateNewItem(){
                 />
             </label>
             <label>
-                image:
+                Image:
                 <input 
-                type='text'
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
+                type='file'
+                onChange={updateFile}
                 required
                 />
             </label>
@@ -131,7 +138,7 @@ function CreateNewItem(){
                 value={subcategoryId}
                 onChange={(e) => setSubcategoryId(e.target.value)}
                 required
-                 >
+                >
                 <option value="">Select a category</option>
                 {categoryOptions.map((option) => (
                 <option key={option.value} value={option.value}>{option.label}</option>
@@ -140,6 +147,7 @@ function CreateNewItem(){
             </label>
             <button type="submit" className="button-5" onClick={submit}>Create</button>
         </form>
+                </ul>
         </div>
     )
 }

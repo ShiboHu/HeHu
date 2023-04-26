@@ -68,11 +68,20 @@ export const getAllItems = () => async dispatch => {
     return res
 }
 
-export const createNewItem = (payload) => async dispatch => { 
+export const createNewItem = payload => async dispatch => { 
+    const { name, description, price, image, stocks, subcategoryId } = payload
+    const formData = new FormData();
+    formData.append('name', name);
+    formData.append('description', description);
+    formData.append('price', price);
+    formData.append('stocks', stocks);
+    formData.append('subcategoryId', subcategoryId);
+
+    if(image) formData.append('image', image)
+
     const res = await csrfFetch('/api/items', { 
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(payload)
+        body: formData
     })
 
     if(res.ok){ 

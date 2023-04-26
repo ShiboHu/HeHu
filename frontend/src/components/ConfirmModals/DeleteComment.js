@@ -18,10 +18,10 @@ function DeleteCommentModal(props){
             <div>
              <h1>Confirm Delete</h1>
             <h3>Are you sure you want to delete this Comment?</h3>
-            <button className="delete-button"
+            <button className="user-circle-button"
             onClick={submit}
             >Yes(Delete Comment)</button>
-            <button className="delete-button"
+            <button className="user-circle-button"
             onClick={closeModal}
             >No(Keep Comment)</button>
             </div>
