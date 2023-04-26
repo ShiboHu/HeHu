@@ -8,6 +8,7 @@ const subCatRouter = require('./sub_categories.js')
 const commentRouter = require('./comment.js');
 const cartItemRouter = require('./cart_items.js');
 const ordersRouter = require('./orders.js');
+const likesRouter = require('./likes.js')
 
 const { restoreUser } = require("../../utils/auth.js");
 
@@ -21,6 +22,6 @@ router.use('/subcategories', subCatRouter);
 router.use('/comments', commentRouter);
 router.use('/cart-items', cartItemRouter);
 router.use('/orders', ordersRouter);
-
+router.use('/likes', likesRouter)
 
 module.exports = router;

@@ -19,6 +19,7 @@
     list-style-type: none;
     width: 100%;
     margin-top: 1.5%;
+    height: 100%;
 }
 
 .singleitem-rightpage-container { 
@@ -26,19 +27,26 @@
     margin-left: 3%;
     margin-right: 18%;
     position:sticky;
-    height: 100%;
+    height: 500px;
+    top: 0;
 }
 
+.singleitem-image-like-container { 
+  position: relative;
+}
 
+.singleitem-like-button {
+  position: absolute; 
+  top: 10px;
+  right: 10px;
+  background-color: white;
+  border-radius: 50%;
+}
 
-
-
-
-
-
-
-
-
+.singleitem-like-button:hover {
+  cursor: pointer;
+  border-radius: 43%;
+}
 
 
 

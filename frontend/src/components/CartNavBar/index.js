@@ -17,8 +17,6 @@ function CartNavBar(){
 
     }, [dispatch])
 
-
-    console.log(allItemInCart.items)
     
    const submit = async (id) => { 
         await dispatch(deleteCartItem(id))
