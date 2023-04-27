@@ -5,11 +5,13 @@
     width: 100%;
     padding: 0;
     margin: 0;
+    justify-content: center;
 }
 
 .cartnavbar-image { 
     width: 80px;
     height: 80px;
+    border-radius: 10px;
 }
 
 /* .main-navbar-container { 
@@ -23,9 +25,12 @@
 } */
 
 .main-navbar-container {
-  width: 10.5%;
+  width: 15%;
   border-left: 1px solid #cac8c8;
   height: 100vh;
+  text-align: center;
+  position: sticky;
+  top: 0;
 }
 
 .cartnavbar-buttons { 
@@ -49,10 +54,14 @@
   z-index: 1;
   background-color: transparent;
   border-style: none;
+  color: #ff2626
 }
 
 .cartnavbar-delete-button:hover{ 
   cursor: pointer;
+  background-color: #ff7426;
+  border-radius: 60%;
+  color: black;
 }
 
 

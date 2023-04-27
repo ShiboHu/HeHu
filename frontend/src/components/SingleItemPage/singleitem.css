@@ -1,6 +1,7 @@
 .singleitem-image { 
     height: 510px;
     width: 510px;
+    border-radius: 10px;
 }
 
 .singleitem-comment-image { 
@@ -27,7 +28,7 @@
     margin-left: 3%;
     margin-right: 18%;
     position:sticky;
-    height: 500px;
+    height: 100%;
     top: 0;
 }
 
@@ -47,6 +48,7 @@
   cursor: pointer;
   border-radius: 43%;
 }
+
 
 
 

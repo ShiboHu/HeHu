@@ -33,7 +33,7 @@ function LoginFormPage() {
 }
 
   return (
-    <>
+    <div className='login-form-main-container'>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <ul>
@@ -66,7 +66,7 @@ function LoginFormPage() {
               itemText="Sign Up"
               modalComponent={<SignupFormModal />}
             />
-    </>
+    </div>
   );
 }
 

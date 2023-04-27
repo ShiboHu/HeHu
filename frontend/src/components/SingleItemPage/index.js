@@ -128,10 +128,11 @@ function SingleItem(){
         <h2>{item?.Comments?.length} review(s) | {renderStars(item.avgRating)} stars</h2>
         <h2>Item Review    {createCommentModal()}</h2> 
         {item?.Comments.map(comment => ( 
-            <div>
-            <h3>{comment.User.username}</h3>
+            <div className="singleitem-comment-section">
+            <h3>User:{comment.User.username}</h3>
             <img className='singleitem-comment-image' src={comment.image}></img>
-            <li>{comment.comment}</li>
+            <li>Comment:{comment.comment}</li>
+            <li>Rating: {renderStars(comment.rating)}</li>
             </div>
         ))}
         </div>

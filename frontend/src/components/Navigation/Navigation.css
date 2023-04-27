@@ -5,7 +5,7 @@
 .hehu-logo { 
     width: 100px;
     height: 80px;
-    border-radius: 30%;
+    border-radius: 35%;
 }
 
 ul { 
@@ -15,6 +15,7 @@ ul {
 body { 
   margin: 0;
   padding: 0;
+  background-color: #f5f1f1;
 }
 
 .navbar-container { 
@@ -26,6 +27,7 @@ body {
     justify-content: space-around;
     align-items: center;
     border-bottom: 1px solid #333;
+    background-color: #f5f1f1;
 
 }
 
@@ -76,7 +78,7 @@ body {
 }
 
 .user-circle-button:hover {
-  background-color: #fa6400;
+  background-color: #f78b26;
 }
 
 .user-circle-button:focus {

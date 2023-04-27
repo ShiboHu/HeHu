@@ -6,6 +6,7 @@ import { NavLink, useHistory } from "react-router-dom";
 import { addCartItem, allCartItem } from "../../store/cart_item";
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
+import Slider from "../SubCatSlider/Slider";
 
 function LandingPage(){ 
   const history = useHistory()

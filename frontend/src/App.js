@@ -40,9 +40,9 @@ function App() {
               </Route>
             </Switch>
   
-            {currentUser && (location.pathname === "/" || location.pathname.startsWith('/items/')) && <CartNavBar />}
           </>
         )}
+        {currentUser && (location.pathname === "/" || location.pathname.startsWith('/items/')) && <CartNavBar />}
         </div>
         <Switch>
 

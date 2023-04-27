@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
-import hehu from './hehu.png'
+import hehu from './logoo.PNG'
 
 
 function Navigation({ isLoaded }){

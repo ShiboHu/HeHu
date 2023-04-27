@@ -27,7 +27,7 @@ function SignupFormModal() {
   };
 
   return (
-    <>
+    <div className="signup-form-main-container">
       <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <ul>
@@ -71,7 +71,7 @@ function SignupFormModal() {
         </label>
         <button className="user-circle-button" type="submit">Sign Up</button>
       </form>
-    </>
+    </div>
   );
 }
 

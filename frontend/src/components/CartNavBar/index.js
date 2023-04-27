@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useHistory } from 'react-router-dom';
 import { allCartItem, deleteCartItem, updateCartItem } from '../../store/cart_item';
 import ClearIcon from '@mui/icons-material/Clear';
+import { Skeleton } from '@mui/material';
 
 function CartNavBar(){ 
     const history = useHistory()
@@ -22,7 +23,20 @@ function CartNavBar(){
         await dispatch(deleteCartItem(id))
    }
     
-   if(!allItemInCart.items) return null
+   if(!allItemInCart.items) { 
+        return(
+            <div className="main-navbar-container">
+                <ul className="cartnavbar-container">
+                    <div className='cartnavbar-buttons'>
+                    <h2 >$0.00</h2>
+                    <button className='button-71'
+                    onClick={() => history.push('/carts')}
+                    >Go to cart</button>
+                    </div>
+                </ul>
+            </div>
+        )
+   }
 
 
    const quantityOptions = [];

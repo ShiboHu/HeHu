@@ -37,7 +37,8 @@ function CreateNewComment({ itemId }){
     }
 
     return (
-        <form onSubmit={submit}>
+        <form onSubmit={submit} className="commentmodal-main-container">
+            <h1>Post A Review</h1>
             <label>
                 Comment:
                 <input 
@@ -48,7 +49,6 @@ function CreateNewComment({ itemId }){
                 />
             </label>
             <label>
-                Rating:
                 <div className="stars">
                     {[...Array(5)].map((star, index) => {
                         const ratingValue = index + 1;
