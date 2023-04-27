@@ -15,7 +15,7 @@ function Navigation({ isLoaded }){
         <NavLink exact to="/"><img src={hehu} className='hehu-logo' alt='hehu-logo'></img></NavLink>
       </li>
       <li>
-        <input placeholder='serach'></input>
+        <input onClick={() => window.alert('comming soon')} placeholder='serach'></input>
       </li>
       {isLoaded && (
         <li>

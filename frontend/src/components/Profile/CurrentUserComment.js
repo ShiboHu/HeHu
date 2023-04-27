@@ -61,7 +61,7 @@ function CurrentUserComment(){
                         </li>
                         <li>
                             Rating:
-                            <input type='text' name="rating" defaultValue={comment.rating}/>
+                            <input type='number' name="rating" defaultValue={comment.rating} min={1} max={5} step={1}/>
                         </li>
                         <li>
                             Image:

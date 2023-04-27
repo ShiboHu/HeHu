@@ -12,12 +12,26 @@ function CreateNewComment({ itemId }){
     const [image, setImage] = useState(null);
     const [rating, setRating] = useState(1);
     const [hoverRating, setHoverRating] = useState(null);
+    const [errors, setError] = useState([]);
 
     console.log(itemId)
     
     const submit = async (e) => { 
         e.preventDefault();
 
+        let validationErrors = [];
+
+
+        if(!comment) validationErrors.push("Comment is required");
+
+        if(!image) validationErrors.push("Image is required");
+
+        if(comment.length > 20) validationErrors.push("Comment must be less than 20 characters");
+
+        setError(validationErrors);
+        if (validationErrors.length > 0) {
+            return;
+        }
         const payload = { 
             image,
             comment,
@@ -39,6 +53,9 @@ function CreateNewComment({ itemId }){
     return (
         <form onSubmit={submit} className="commentmodal-main-container">
             <h1>Post A Review</h1>
+            <ul className="errors">
+                {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            </ul>
             <label>
                 Comment:
                 <input 

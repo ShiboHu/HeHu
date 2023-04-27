@@ -31,6 +31,8 @@ function CurrentUserItems() {
   const handleSaveEdit = (e, index) => {
     e.preventDefault();
 
+    
+
     const payload = {
       id: allItems[index].id,
       name: e.target.name.value,
@@ -78,7 +80,7 @@ function CurrentUserItems() {
               </li>
               <li>
                 Price:
-                <input type="number" name="price" defaultValue={item.price} required/>
+                <input type="number" name="price" defaultValue={item.price} required min={1}/>
               </li>
               <li>
                 Stocks:

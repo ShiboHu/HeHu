@@ -33,6 +33,7 @@ function CreateNewItem(){
         e.preventDefault();
 
         let validationErrors = [];
+
         if (!name) {
             validationErrors.push("Name is required");
         }
@@ -45,6 +46,8 @@ function CreateNewItem(){
         if (!stocks || isNaN(stocks)) {
             validationErrors.push("Stocks must be a valid number");
         }
+        if(stocks <= 0) validationErrors.push("Stocks must be a positive number");
+        if (price <= 0) validationErrors.push("Price must be a positive number"  );
         if (!subcategoryId) {
             validationErrors.push("Category is required");
         }
@@ -109,7 +112,8 @@ function CreateNewItem(){
             <label>
                 Price:
                 <input 
-                type='text'
+                type='number'
+                min={1}
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 required
