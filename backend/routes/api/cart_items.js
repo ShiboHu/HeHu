@@ -96,7 +96,8 @@ router.post('/:itemId', requireAuth, async (req, res) => {
 router.delete('/:itemId', requireAuth, async (req, res) => { 
     const cart = await Cart.findOne({ 
         where: { 
-            userId: req.user.id
+            userId: req.user.id,
+            purchased: false
         }
     })
 
@@ -113,7 +114,7 @@ router.delete('/:itemId', requireAuth, async (req, res) => {
         }
     })  
 
-
+    console.log(cartItem)
     if(!cartItem){ 
         res.status(404);
         return res.json({ 
