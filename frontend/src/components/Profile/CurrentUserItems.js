@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCurrentUserItems, updateUserItem } from "../../store/item";
 import DeleteItemModal from "../ConfirmModals/DeleteItem";
 import OpenModalButton from "../OpenModalButton";
+import { useHistory } from 'react-router-dom'
 
 function CurrentUserItems() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const allItems = useSelector((state) => state.items.currentItem);
   const [editItemIndex, setEditItemIndex] = useState(null);
@@ -60,7 +62,7 @@ function CurrentUserItems() {
         <h1>Products</h1>
         {allItems?.map((item, index) => (
           <div className="profile-items-container" key={item.id}>
-          <img className="profile-itemimages" src={item.image} alt="itemimage"></img>
+          <img className="profile-itemimages" src={item.image} alt="itemimage" onClick={() => history.push(`/items/${item.id}`)}></img>
             {editItemIndex === index ? (
               <form onSubmit={(e) => handleSaveEdit(e, index)} className="edit-item-form">
               <li>

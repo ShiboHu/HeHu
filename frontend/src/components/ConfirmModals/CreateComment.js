@@ -26,7 +26,7 @@ function CreateNewComment({ itemId }){
 
         if(!image) validationErrors.push("Image is required");
 
-        if(comment.length > 20) validationErrors.push("Comment must be less than 20 characters");
+        if(comment.length > 30) validationErrors.push("Comment must be less than 20 characters");
 
         setError(validationErrors);
         if (validationErrors.length > 0) {

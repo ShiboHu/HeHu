@@ -15,6 +15,10 @@ function CurrentUserOrders() {
         dispatch(getAllOrders());
     },[dispatch])
     
+    const toDate = (date) => { 
+        return new Date(date).toLocaleString()
+    }
+
 
     return( 
         <div>
@@ -23,8 +27,8 @@ function CurrentUserOrders() {
                 {allOrder.map(order => (
                     <div>
                     <h3>Order: #{order.id}</h3>
-                    <h3>Ordered Date: {order.createdAt}</h3>
-                    <button onClick={() => history.push(`/orders/${order.cartId}`)}>Details</button>
+                    <h3>Ordered Date: {toDate(order.createdAt)}</h3>
+                    <button className="button-5" onClick={() => history.push(`/orders/${order.cartId}`)}>Details</button>
                     </div>
                 ))}
             </ul>

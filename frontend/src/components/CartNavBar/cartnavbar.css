@@ -52,9 +52,10 @@
   display: block;
   position: absolute;
   z-index: 1;
-  background-color: transparent;
   border-style: none;
-  color: #ff2626
+  font-size: 16px;
+  background-color: white;
+  border-radius: 20px;
 }
 
 .cartnavbar-delete-button:hover{ 

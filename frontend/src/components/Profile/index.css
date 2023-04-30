@@ -18,6 +18,10 @@
     border-radius: 5px;
 }
 
+.profile-itemimages:hover { 
+  cursor: pointer;
+}
+
 .profile-items-container{ 
     display: flex;
     gap: 25px;

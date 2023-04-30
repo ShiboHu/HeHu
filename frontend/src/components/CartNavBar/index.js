@@ -60,7 +60,7 @@ function CartNavBar(){
                     <button className='cartnavbar-delete-button'
                     onClick={() => submit(item.id)}
                     >
-                    <ClearIcon />
+                    <i class="fa-sharp fa-solid fa-trash"></i>
                     </button>
 
                     <select

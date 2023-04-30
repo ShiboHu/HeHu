@@ -17,13 +17,14 @@ function CurrentUserWishList() {
     if(!allLikes.length) return null
     return (
         <div>
-            <ul className="profilepage-user-container">
+            <ul className="profile-content-ul">
                 <h1>Wish List</h1>
                 {allLikes?.map(like => (
-                    <div className="profile-items-container">
+                <div className="profile-items-container">
                         <img src={like?.Item?.image} className="profile-itemimages"></img>
                         <h3>Name: {like?.Item?.name}</h3>
                         <h3>description: {like?.Item?.description}</h3>
+                        <h3>Price: ${like?.Item?.price}</h3>
                     </div>
                 ))}
             </ul>

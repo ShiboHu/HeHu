@@ -17,6 +17,7 @@ function SingleOrderPage(){
 
     if(!Object.values(currentOrder).length) return null
 
+    console.log(currentOrder)
 
     return (
         <div className="singleorder-main-container">
@@ -24,8 +25,9 @@ function SingleOrderPage(){
             <ul>
                 {currentOrder?.items?.map(order => (
                     <div className="singleorder-content">
+                   <img src={order.image} className="profile-itemimages"></img>
                         <li>name:{order.name}</li>
-                        <li>${order.price}</li>
+                        <li>price: ${order.price}</li>
                         <li>qty:{order.quantity}</li>
                     </div>
                 ))}

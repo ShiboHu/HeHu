@@ -13,7 +13,7 @@ router.get('/current', async (req, res) => {
         },
         include: {
             model: Item,
-            attributes:['image', 'name','description']
+            attributes:['image', 'name','description','price']
         }
     })
 
