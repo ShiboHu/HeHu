@@ -43,7 +43,7 @@ function LandingPage(){
     }
       
       return ( 
-        <div>
+        <div className="landing-main-content">
             <ul className="items-container"> 
              {allItems && allItems.map(item => ( 
                
