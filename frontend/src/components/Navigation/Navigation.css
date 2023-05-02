@@ -15,7 +15,6 @@ ul {
 body { 
   margin: 0;
   padding: 0;
-  background-color: #f5f1f1;
 }
 
 .navbar-container { 
@@ -27,7 +26,6 @@ body {
     justify-content: space-around;
     align-items: center;
     border-bottom: 1px solid #333;
-    background-color: #f5f1f1;
 
 }
 

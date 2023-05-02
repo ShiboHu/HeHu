@@ -4,10 +4,21 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import hehu from './logoo.PNG'
-
+import { useDispatch } from 'react-redux';
+import * as sessionActions from '../../store/session';
+import { useHistory } from "react-router-dom";
 
 function Navigation({ isLoaded }){
+  const history = useHistory(); 
+  const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
+
+
+  const logout = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.logout());
+    history.push('/')
+  };
 
   return (
     <ul className='navbar-container'>
@@ -22,6 +33,7 @@ function Navigation({ isLoaded }){
           <ProfileButton user={sessionUser} />
         </li>
       )}
+      {sessionUser? <button className="user-circle-button" onClick={logout}>Logouut</button> : null}
     </ul>
   );
 }

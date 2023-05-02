@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { NavLink, Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
+import hehu from '../Navigation/logoo.PNG'
 
 function SignupFormPage() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -29,52 +31,123 @@ function SignupFormPage() {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
+  const demoLogin = () => {
+    dispatch(sessionActions.login(
+      {credential:'hushibo117', password:'hushibo117'}
+      ))
+    }
+
+    console.log(errors)
+
   return (
-    <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
+    <div className='login-form-main-container'>
+
+        <div className='loginpage-logo-container'>
+        <img className='loginpage-logo' src={hehu} alt="logo" onClick={() => history.push('/')}></img>
+        </div>
+  
+      <form onSubmit={handleSubmit} className='loginpage-form'>
+      <div className='loginpage-form-container'>
+      <h2>Sign Up</h2>
+
         <label>
+        <div className='username'>
           Email
           <input
+          className='input-username'
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+        {errors.map((error, idx) => (
+        <div className="signuppage-errors" key={idx}>
+         {error.includes('email') && <li>{error}</li>}
+        </div>
+        ))}
+          </div>
         </label>
+
         <label>
+          <div className='username'>
           Username
           <input
+          className='input-username'
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
+        {errors.map((error, idx) => (
+         <div className="signuppage-errors" key={idx}>
+         {error.includes('username') && <li>{error}</li>}
+        </div>
+        ))}
+          </div>
         </label>
+
         <label>
+          <div className='username'>
           Password
           <input
+          className='input-username'
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+
+
+          {errors.map((error, idx) => (
+          <div className="signuppage-errors" key={idx}>
+            {error.includes('6') && <li>{error}</li>}
+          </div>
+          ))}
+
+
+          </div>
         </label>
+
+        
         <label>
-          Confirm Password
+          <div className='username'>
+          Re-enter Password
           <input
+          className='input-username'
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
+
+          {errors.map((error, idx) => (
+            <div className="signuppage-errors" key={idx}>
+           {error.includes('Confirm Password') && <li>{error}</li>}
+         </div>
+          ))}
+          </div>
+
         </label>
-        <button type="submit">Sign Up</button>
+
+        <div className='loginpage-buttons'>
+        <button className='button-17' type="submit">Sign Up</button>
+        <button className='button-17'  onClick={demoLogin}>Demo</button>
+        </div>
+
+        <p>By creating an account  you agree to HeHu's Conditions of Use and Privacy Notice</p>
+
+        </div>
+
       </form>
-    </>
+
+      <div className='loginpage-signup-div'>
+        <h5>Already have an account?</h5>
+      </div>
+      
+      <div className='loginpage-signup-button'>
+        <button className='button-17' onClick={() => history.push('/login')}>Login in here</button>
+       </div>
+    </div>
   );
 }
 

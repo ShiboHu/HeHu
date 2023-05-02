@@ -13,6 +13,7 @@ import CurrentUserComment from "./components/Profile/CurrentUserComment";
 import CreateNewItem from "./components/Profile/CurrentUserCreateItem";
 import SingleOrderPage from "./components/OrderPage";
 import LoginFormPage from "./components/LoginFormPage";
+import SignupFormPage from "./components/SignupFormPage";
 
 function App() {
   const location = useLocation()
@@ -26,7 +27,7 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
+      {location.pathname !== '/login' && location.pathname !== '/signup' && <Navigation isLoaded={isLoaded} />}
       <div className="page-main-container">
         {isLoaded && (
           <>
@@ -70,10 +71,14 @@ function App() {
             <SingleOrderPage />
           </Route>
 
-
           <Route path='/login'>
             <LoginFormPage />
           </Route>
+
+          <Route path='/signup'>
+            <SignupFormPage />
+          </Route>
+
         </Switch>
     </>
   );
