@@ -18,16 +18,16 @@ body {
 }
 
 .navbar-container { 
-    width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
     overflow: hidden;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #333;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
 
-}
 
 .navbar-container li { 
   display: block;
@@ -36,6 +36,8 @@ body {
   text-decoration: none;
   margin-left: 5%;
 }
+
+
 
 
 
@@ -86,4 +88,15 @@ body {
 
 .user-circle-button:focus-visible {
   box-shadow: none;
+}
+
+.checkbox-wrapper-54 input[type="checkbox"] {
+  visibility: hidden;
+  display: none;
+}
+
+.checkbox-wrapper-54 *,
+.checkbox-wrapper-54 ::after,
+.checkbox-wrapper-54 ::before {
+  box-sizing: border-box;
 }

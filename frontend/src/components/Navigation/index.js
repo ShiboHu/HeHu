@@ -14,13 +14,9 @@ function Navigation({ isLoaded }){
   const sessionUser = useSelector(state => state.session.user);
 
 
-  const logout = (e) => {
-    e.preventDefault();
-    dispatch(sessionActions.logout());
-    history.push('/')
-  };
 
   return (
+    <div className='navbar-main-container'>
     <ul className='navbar-container'>
       <li>
         <NavLink exact to="/"><img src={hehu} className='hehu-logo' alt='hehu-logo'></img></NavLink>
@@ -28,13 +24,14 @@ function Navigation({ isLoaded }){
       <li>
         <input onClick={() => window.alert('comming soon')} placeholder='serach'></input>
       </li>
+
       {isLoaded && (
         <li>
           <ProfileButton user={sessionUser} />
         </li>
       )}
-      {sessionUser? <button className="user-circle-button" onClick={logout}>Logouut</button> : null}
     </ul>
+    </div>
   );
 }
 

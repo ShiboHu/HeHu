@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import hehu from '../Navigation/logoo.PNG'
+import { faker } from '@faker-js/faker';
+
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -10,8 +12,6 @@ function SignupFormPage() {
   const sessionUser = useSelector((state) => state.session.user);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -22,7 +22,7 @@ function SignupFormPage() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, firstName, lastName, password }))
+      return dispatch(sessionActions.signup({ email, username, password }))
         .catch(async (res) => {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
@@ -31,13 +31,19 @@ function SignupFormPage() {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
-  const demoLogin = () => {
+  const demoLogin = (e) => {
+    e.preventDefault();
+
+    setEmail(faker.internet.email());
+    setUsername(faker.lorem.word({length: {min: 4, max: 7}}));
+    setPassword('hushibo123');
+    setConfirmPassword('hushibo123');
+
     dispatch(sessionActions.login(
-      {credential:'hushibo117', password:'hushibo117'}
+      {credential:'hushibo123', password:'hushibo123'}
       ))
     }
 
-    console.log(errors)
 
   return (
     <div className='login-form-main-container'>

@@ -27,9 +27,14 @@ function LoginFormPage() {
       });
   }
 
-  const demoLogin = () => {
+  const demoLogin = (e) => {
+    e.preventDefault();
+
+    setCredential('hushibo123');
+    setPassword('hushibo123');
+
     dispatch(sessionActions.login(
-      {credential:'hushibo117', password:'hushibo117'}
+      {credential:'hushibo123', password:'hushibo123'}
       ))
     }
     

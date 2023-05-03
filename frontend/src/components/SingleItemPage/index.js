@@ -99,6 +99,9 @@ function SingleItem(){
     console.log(currentLike, '!!!!!!!!!!!')
 
     const likeItem = async () => { 
+      if(!currentUser){
+        history.push('/login')
+      }
       if(liked){ 
         await dispatch(deleteALike(item.id))
         setLiked(false)
