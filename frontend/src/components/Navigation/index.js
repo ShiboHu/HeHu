@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import hehu from './logoo.PNG'
-import { useDispatch } from 'react-redux';
-import * as sessionActions from '../../store/session';
-import { useHistory } from "react-router-dom";
+import HoverFilter from '../HoverFilter';
+
 
 function Navigation({ isLoaded }){
-  const history = useHistory(); 
-  const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
+  const [showHoverFilter, setShowHoverFilter] = useState(false)
 
+  const showHover = () => { 
+    setShowHoverFilter(true)
+  }
 
+  const hideHover = () => {
+    setShowHoverFilter(false)
+  }
 
   return (
     <div className='navbar-main-container'>
@@ -21,9 +25,17 @@ function Navigation({ isLoaded }){
       <li>
         <NavLink exact to="/"><img src={hehu} className='hehu-logo' alt='hehu-logo'></img></NavLink>
       </li>
+
+    <div className='navbar-filters-container'>
+      <div className='navabar-categories' onMouseEnter={showHover} onMouseLeave={hideHover}> 
+        <h4>Categories</h4>
+        {showHoverFilter && <HoverFilter />}
+      </div>
+
       <li>
-        <input onClick={() => window.alert('comming soon')} placeholder='serach'></input>
+        <input placeholder='serach'></input>
       </li>
+    </div>
 
       {isLoaded && (
         <li>

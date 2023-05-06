@@ -21,7 +21,7 @@ function CurrentUserWishList() {
                 <h1>Wish List</h1>
                 {allLikes?.map(like => (
                 <div className="profile-items-container">
-                        <img src={like?.Item?.image} className="profile-itemimages"></img>
+                        <img onClick={() => history.push(`/items/${like?.itemId}`)} src={like?.Item?.image} className="profile-itemimages"></img>
                         <h3>Name: {like?.Item?.name}</h3>
                         <h3>description: {like?.Item?.description}</h3>
                         <h3>Price: ${like?.Item?.price}</h3>

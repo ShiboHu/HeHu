@@ -6,7 +6,9 @@ const { Item, Sub_Category, Like, User, Main_Category, Cart, Comment, Cart_Item 
 
 //get all main_cateogries;
 router.get('/', async (req, res) => { 
-    const allMain = await Main_Category.findAll({ attributes: ['id', 'name'] });
+    const allMain = await Main_Category.findAll({ 
+        attributes: ['id', 'name'],
+     });
 
     return res.json(allMain);
  })

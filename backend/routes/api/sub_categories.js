@@ -13,4 +13,18 @@ router.get('/', async (req, res) => {
 })
 
 
+//get all sub categories by main category id 
+router.get('/:mainId', async (req, res) => {    
+    const allSub = await Sub_Category.findAll({
+        where: {
+            maincategoryId: req.params.mainId
+        },
+        attributes: ['id', 'name']
+    });
+
+    return res.json(allSub);
+    
+})
+
+
 module.exports = router;

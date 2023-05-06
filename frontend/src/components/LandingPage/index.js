@@ -7,6 +7,7 @@ import { addCartItem, allCartItem } from "../../store/cart_item";
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import Slider from "../SubCatSlider/Slider";
+import FilterItem from "../FitlerItemPage";
 
 function LandingPage(){ 
   const history = useHistory()

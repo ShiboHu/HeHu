@@ -14,6 +14,8 @@ import CreateNewItem from "./components/Profile/CurrentUserCreateItem";
 import SingleOrderPage from "./components/OrderPage";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+import HoverFilter from "./components/HoverFilter";
+import FilterItem from "./components/FitlerItemPage";
 
 function App() {
   const location = useLocation()
@@ -39,11 +41,15 @@ function App() {
               <Route path='/items/:itemId'>
                 <SingleItem />
               </Route>
+
+             <Route path='/subcategories/:subId'>
+               <FilterItem />
+              </Route>
             </Switch>
   
           </>
         )}
-        {currentUser && (location.pathname === "/" || location.pathname.startsWith('/items/')) && <CartNavBar />}
+        {currentUser && (location.pathname === "/" || location.pathname.startsWith('/items/')  || location.pathname.startsWith('/subcategories/')) && <CartNavBar />}
         </div>
         <Switch>
 
@@ -78,6 +84,7 @@ function App() {
           <Route path='/signup'>
             <SignupFormPage />
           </Route>
+
 
         </Switch>
     </>

@@ -8,8 +8,6 @@ function CurrentUserProfile(){
     const dispatch = useDispatch();
     const currentUser = useSelector(state => state.session.user);
 
-    console.log(currentUser)
-
     const logout = (e) => {
         e.preventDefault();
         dispatch(sessionActions.logout());

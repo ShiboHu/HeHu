@@ -4,8 +4,10 @@ import { getCurrentUserComment, updateAComment } from "../../store/comment";
 import OpenModalButton from '../OpenModalButton'
 import DeleteCommentModal from "../ConfirmModals/DeleteComment";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function CurrentUserComment(){ 
+    const history = useHistory();
     const dispatch = useDispatch();
     const comments = useSelector(state => state.comments.comments)
     const [editCommentIndex, setEditCommentIndex] = useState(null)
@@ -52,7 +54,7 @@ function CurrentUserComment(){
             <h1>Reviews</h1>
                 {comments?.map((comment, index )=> ( 
                     <div className="profile-items-container">
-                    <img className="profile-itemimages" src={comment.image} alt="itemimage"></img>
+                    <img className="profile-itemimages" src={comment.image} alt="itemimage" onClick={() => history.push(`/items/${comment?.itemId}`)}></img>
                     {editCommentIndex === index ? (
                     <form onSubmit={(e) => handleSaveEdit(e, index)} className="edit-item-form">
                         <li>

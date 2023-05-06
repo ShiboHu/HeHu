@@ -7,6 +7,7 @@ const GET_CURRENTUSERITEMS = 'items/CURRENTUSER'
 const UPDATE_ITEM = 'items/UPDATE'
 const DELETE_ITEM = 'items/DELETE'
 const REFRESH_ITEM = 'items/REFRESH'
+const GET_SUBCATEGORYITEMS = 'items/SUBCATEGORY'
 
 
 const allItems = (payload) => { 
@@ -56,6 +57,13 @@ const deleteItem = (itemId) => {
         type: REFRESH_ITEM
     }
  }
+
+const subcategoryItems = (payload) => {
+     return {
+         type: GET_SUBCATEGORYITEMS,
+         payload
+    }
+}
 
 export const getAllItems = () => async dispatch => { 
     const res = await csrfFetch('/api/items')
@@ -139,6 +147,18 @@ export const updateUserItem = (payload, itemId) => async dispatch => {
 }
 
 
+export const getSubcategoryItems = (subcategoryId) => async dispatch => {
+    const res = await csrfFetch(`/api/items/subcategory/${subcategoryId}`)
+    
+    if(res.ok){
+        const data = await res.json()
+        dispatch(subcategoryItems(data))
+    }
+    return res
+}
+
+
+
 const initialState = {items: [], item: {}, currentItem: []}
 const itemReducer = (state = initialState, action) => { 
     switch(action.type){ 
@@ -182,6 +202,11 @@ const itemReducer = (state = initialState, action) => {
             return { 
                 ...state, 
                 item: {}
+            }
+        case GET_SUBCATEGORYITEMS:
+            return {
+                ...state,
+                items: action.payload
             }
         default: 
             return state

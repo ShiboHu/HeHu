@@ -31,12 +31,21 @@ body {
 
 .navbar-container li { 
   display: block;
-  color: white;
   padding: 10px 10px;
   text-decoration: none;
   margin-left: 5%;
 }
 
+.navabar-categories:hover { 
+  cursor: pointer;
+}
+
+.navbar-filters-container { 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 5%;
+}
 
 
 
