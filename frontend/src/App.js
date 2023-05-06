@@ -85,6 +85,9 @@ function App() {
             <SignupFormPage />
           </Route>
 
+          <Route path='/hover'>
+            <HoverFilter />
+          </Route>
 
         </Switch>
     </>

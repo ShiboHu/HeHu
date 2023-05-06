@@ -20,11 +20,17 @@ function SingleItem(){
     const currentUser = useSelector(state => state.session.user)
     const currentLike = useSelector(state => state.likes.like)
     const [liked, setLiked] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => { 
       dispatch(getSingleItem(itemId))
       dispatch(getSingleLike(itemId))
       
+      setTimeout(() => {
+        setIsLoaded(true)
+      }
+      , 500)
+
     },[dispatch, itemId])
     
     
@@ -38,31 +44,31 @@ function SingleItem(){
     },[currentLike, currentUser])
 
 
-    if(!Object.values(item).length){ 
-        return (
-            <div className="singleitem-main-container">
-                <div className="singleitem-leftpage-container">
-                    <Skeleton height={500} width={500}/>
-                    <Skeleton height={30} width={300} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "50px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={40} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={30} width={100} />
-                </div>
-                <div className="singleitem-rightpage-container">
-                    <Skeleton height={30} width={300} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "50px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={40} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={50} width={150} />
-                </div>
-            </div>
-        )
-    }
+    // if(!Object.values(item).length){ 
+    //     return (
+    //         <div className="singleitem-main-container">
+    //             <div className="singleitem-leftpage-container">
+    //                 <Skeleton height={500} width={500}/>
+    //                 <Skeleton height={30} width={300} style={{ marginBottom: "10px" }} />
+    //                 <Skeleton height={20} width={200} style={{ marginBottom: "50px" }} />
+    //                 <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+    //                 <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+    //                 <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+    //                 <Skeleton height={40} width={200} style={{ marginBottom: "10px" }} />
+    //                 <Skeleton height={30} width={100} />
+    //             </div>
+    //             <div className="singleitem-rightpage-container">
+    //                 <Skeleton height={30} width={300} style={{ marginBottom: "10px" }} />
+    //                 <Skeleton height={20} width={200} style={{ marginBottom: "50px" }} />
+    //                 <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+    //                 <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+    //                 <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+    //                 <Skeleton height={40} width={200} style={{ marginBottom: "10px" }} />
+    //                 <Skeleton height={50} width={150} />
+    //             </div>
+    //         </div>
+    //     )
+    // }
 
 
     const createCommentModal = () => {
@@ -112,6 +118,8 @@ function SingleItem(){
     }
 
     return (
+      <>
+      { isLoaded ? (
         <div className="singleitem-main-container">
         <div className="singleitem-leftpage-container">
         <div className='singleitem-image-like-container'>
@@ -160,6 +168,31 @@ function SingleItem(){
 
         </div>
         </div>
+       ) : ( 
+               <div className="singleitem-main-container">
+                <div className="singleitem-leftpage-container">
+                    <Skeleton height={500} width={500}/>
+                    <Skeleton height={30} width={300} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "50px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={40} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={30} width={100} />
+                </div>
+                <div className="singleitem-rightpage-container">
+                    <Skeleton height={30} width={300} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "50px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={40} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton height={50} width={150} />
+                </div>
+            </div>
+
+       ) }
+        </>
     )
 }
 

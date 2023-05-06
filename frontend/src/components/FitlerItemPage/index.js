@@ -20,7 +20,7 @@ function FilterItem(){
         setTimeout(() => {
           setIsLoaded(true)
         }
-        , 500)
+        , 400)
       
     },[dispatch, subId]
 )

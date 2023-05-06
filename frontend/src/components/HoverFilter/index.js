@@ -17,6 +17,7 @@ function HoverFilter(){
         dispatch(getOneSubCategory(hoverMaincat))
     },[dispatch, hoverMaincat])
 
+    console.log(subcat)
     return(
         <div className="categorie-filter-main-container">
             <div className="categories-container">
@@ -35,6 +36,7 @@ function HoverFilter(){
                 <div className="sub-categories-container">
                     {subcat?.map((cat, index) => (
                         <ul key={index} className="sub-cat-name">
+                            <img className="subcat-image" src={cat.image} alt='subcat'></img>
                             <li onClick={() => history.push(`/subcategories/${cat.id}`)}>{cat.name}</li>
                         </ul>
                     ))}

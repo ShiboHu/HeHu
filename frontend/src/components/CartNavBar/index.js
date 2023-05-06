@@ -10,7 +10,7 @@ function CartNavBar(){
     const history = useHistory()
     const dispatch = useDispatch();
     const allItemInCart = useSelector(state => state.cartItems.cart_items);
-   
+
     const [quantity, setQuantity] = useState(0);
 
     useEffect(() => { 
@@ -55,7 +55,7 @@ function CartNavBar(){
                 </div>
                 {allItemInCart && allItemInCart?.items?.map(item =>( 
                     <div className='cartnavbar-items-container'>    
-                    <img className='cartnavbar-image'src={item.image}></img>
+                    <img className='cartnavbar-image'src={item.image || <Skeleton />}></img>
 
                     <button className='cartnavbar-delete-button'
                     onClick={() => submit(item.id)}
