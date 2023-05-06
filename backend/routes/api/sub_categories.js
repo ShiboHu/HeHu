@@ -19,7 +19,7 @@ router.get('/:mainId', async (req, res) => {
         where: {
             maincategoryId: req.params.mainId
         },
-        attributes: ['id', 'name']
+        attributes: ['id', 'name', 'image']
     });
 
     return res.json(allSub);

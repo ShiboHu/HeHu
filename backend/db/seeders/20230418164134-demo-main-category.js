@@ -10,21 +10,11 @@ module.exports = {
     options.tableName = 'Main_Categories';
     return queryInterface.bulkInsert(options, [
       { 
-        name: 'Clothing'
+        name: 'Clothing & Accessories'
       },
       { 
         name: 'Electronics'
-      },
-      { 
-        name: 'Home & Goods'
-      },
-      { 
-        name: 'Kitchen'
-      },
-      { 
-        name: 'Sporting Goods'
-      },
-     
+      }   
     ], {});
   },
 

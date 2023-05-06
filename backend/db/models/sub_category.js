@@ -22,6 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     maincategoryId:{ 
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {
     sequelize,
