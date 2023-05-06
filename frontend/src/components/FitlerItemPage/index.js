@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory, NavLink } from 'react-router-dom';
 import { getSubcategoryItems } from "../../store/item";
@@ -11,25 +11,33 @@ function FilterItem(){
     const dispatch = useDispatch();
     const items = useSelector(state => state.items.items);
     const currentUser = useSelector(state => state.session.user);
+    const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         dispatch(getSubcategoryItems(subId))
+        .then(() => setIsLoaded(false))
+        
+        setTimeout(() => {
+          setIsLoaded(true)
+        }
+        , 500)
+      
     },[dispatch, subId]
 )
 
-if (!items) { 
-    return (
-      <div className="landingpage-container">
-        <ul className="items-container"> 
-          {[...Array(items.length)].map((_, index) => (
-            <li className="items-card" key={index}>
-              <Skeleton height={280} />
-            </li>
-          ))}
-        </ul>
-      </div>
-    )
-  }
+// if (!items) { 
+//     return (
+//       <div className="landingpage-container">
+//         <ul className="items-container"> 
+//           {[...Array(items.length)].map((_, index) => (
+//             <li className="items-card" key={index}>
+//               <Skeleton height={280} />
+//             </li>
+//           ))}
+//         </ul>
+//       </div>
+//     )
+//   }
 
 const submit = async (id) => { 
   if(!currentUser){
@@ -41,30 +49,48 @@ const submit = async (id) => {
 }
 
 return ( 
-    <div className="landing-main-content">
-        <ul className="items-container"> 
-         {items && items.map(item => ( 
-           
-           <div className="items-card">
-              <NavLink exact to={`/items/${item.id}`} className='NavLink'>
-                <img className='landingpage-item-image' src={item.image} alt='itemimage' />
-                <li className='landingpage-item-name'>{item.name} {item.stocks} left</li>
-              </NavLink>
-                <li className='landingpage-price'>${item.price}
-                <button className="landingpage-addtocart-button" 
-                onClick={() => submit(item.id)}>
-                  <i class="fa-solid fa-cart-plus"></i>
-                </button>
-                </li>
+  <>
+  {isLoaded ? (
+  <div className="landing-main-content">
+      <ul className="items-container"> 
+       {items && items.map(item => ( 
+         
+         <div className="items-card">
+            <NavLink exact to={`/items/${item.id}`} className='NavLink'>
+              <img className='landingpage-item-image' src={item.image} alt='itemimage' />
+              <li className='landingpage-item-name'>{item.name} {item.stocks} left</li>
+            </NavLink>
+              <li className='landingpage-price'>${item.price}
+              <button className="landingpage-addtocart-button" 
+              onClick={() => submit(item.id)}>
+                <i class="fa-solid fa-cart-plus"></i>
+              </button>
+              </li>
 
-              <li>{renderStars(item.avgRating)}({item?.commentLength})</li>
+            <li>{renderStars(item.avgRating)}({item?.commentLength})</li>
 
-            </div>
-            
-                ))}
-                
+          </div>
+          
+              ))} 
+      </ul>
+      
+      </div>
+      ) : ( 
+        <div className="landing-main-content">
+        <ul className="items-container">
+        {[...Array(20)].map((_, index) => (
+          <li className="items-card" key={index}>
+              <Skeleton height={270} width={295}/>
+              <Skeleton height={20} width={270}/>
+              <Skeleton height={20} width={270}/>
+              <Skeleton height={20} width={270}/>
+            </li>
+        ))}
         </ul>
-    </div>
+        </div>
+      )}
+
+</>
 )
 }
 

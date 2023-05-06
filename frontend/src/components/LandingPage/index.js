@@ -1,38 +1,42 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getAllItems, refreshItems } from "../../store/item";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import './landingpage.css'
 import { NavLink, useHistory } from "react-router-dom";
 import { addCartItem, allCartItem } from "../../store/cart_item";
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-import Slider from "../SubCatSlider/Slider";
-import FilterItem from "../FitlerItemPage";
 
 function LandingPage(){ 
   const history = useHistory()
   const dispatch = useDispatch();
   const allItems = useSelector(state => state.items.items);
   const currentUser = useSelector(state => state.session.user);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => { 
         dispatch(getAllItems())
         dispatch(refreshItems())
+
+        setTimeout(() => {
+          setIsLoaded(true)
+        }
+        , 500)
       }, [dispatch])
       
-      if (!allItems) { 
-        return (
-          <div className="landingpage-container">
-            <ul className="items-container"> 
-              {[...Array(allItems.length)].map((_, index) => (
-                <li className="items-card" key={index}>
-                  <Skeleton height={280} />
-                </li>
-              ))}
-            </ul>
-          </div>
-        )
-      }
+      // if (!allItems) { 
+      //   return (
+      //     <div className="landingpage-container">
+      //       <ul className="items-container"> 
+      //         {[...Array(allItems.length)].map((_, index) => (
+      //           <li className="items-card" key={index}>
+      //             <Skeleton height={280} width={90} />
+      //           </li>
+      //         ))}
+      //       </ul>
+      //     </div>
+      //   )
+      // }
 
     const submit = async (id) => { 
       if(!currentUser){
@@ -44,6 +48,8 @@ function LandingPage(){
     }
       
       return ( 
+        <>
+        {isLoaded ? (
         <div className="landing-main-content">
             <ul className="items-container"> 
              {allItems && allItems.map(item => ( 
@@ -64,11 +70,27 @@ function LandingPage(){
 
                 </div>
                 
-                    ))}
-                    
+                    ))} 
             </ul>
-        </div>
-    )
+            
+            </div>
+            ) : ( 
+              <div className="landing-main-content">
+              <ul className="items-container">
+              {[...Array(20)].map((_, index) => (
+                <li className="items-card" key={index}>
+                    <Skeleton height={270} width={295}/>
+                    <Skeleton height={20} width={270}/>
+                    <Skeleton height={20} width={270}/>
+                    <Skeleton height={20} width={270}/>
+                  </li>
+              ))}
+              </ul>
+              </div>
+            )}
+    
+    </>
+  )
 }
 
 
