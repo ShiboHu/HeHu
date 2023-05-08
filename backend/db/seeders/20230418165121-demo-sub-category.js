@@ -13,32 +13,32 @@ module.exports = {
       { 
         name: 'Hoodies',
         maincategoryId: 1,
-        image: '../../images/hoodie.jpg'
+        image: 'https://cdn.shopify.com/s/files/1/0190/1390/products/U501994-CTT-ABL_Organic_Cotton_Terry_Hoodie_Air_Blue_073_XhqH7gG_1800x.jpg?v=1675263910'
       },
       { 
         name: 'T-shirts',
         maincategoryId: 1,
-        image: '../images/tshirt.jpg'
+        image: 'https://moodle.com/wp-content/uploads/2021/06/22087-11.jpg'
       },
       { 
         name: 'Pants',
         maincategoryId: 1,
-        image: '.././images/pants.jpg'
+        image: 'https://www.helikon-tex.com/media/catalog/product/cache/6/image/9df78eab33525d08d6e5fb8d27136e95/s/p/sp-pgm-dc-11.jpg'
       },
       { 
         name: 'Dresses',
         maincategoryId: 1,
-        image: './images/dresses.jpg'
+        image: 'https://ae01.alicdn.com/kf/H84b30d84986a4fb9ba779c2c0eb7b639w/5-Designs-Burgundy-Evening-Dresses-Long-Elegant-Spaghetti-Celebrity-Dresses-Women-Sexy-Prom-Dresses-Crystals-Vestidos.jpg_640x640.jpg'
       },
       { 
         name: 'Hats',
         maincategoryId: 1,
-        image: '../images/hat.jpg'
+        image: 'https://www.byrdie.com/thmb/sBKAT2BYjG7XPHE2MIXwp92LoFc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/byrdie-best-trucker-hats-tout-2c2455fad4484cb79224f9f985d6a75a.jpg'
       },
       { 
         name: 'Jewlry',
         maincategoryId: 1,
-        image: '/images/jew.jpg'
+        image: 'https://cache.net-a-porter.com/content/images/story-head-content-15thAugust2022-1660549922781.jpeg/w1900_q65.jpeg'
       },
       { 
         name: 'Phone',

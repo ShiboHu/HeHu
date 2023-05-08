@@ -33,6 +33,7 @@
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
+    "node-fetch": "^3.3.1",
     "per-env": "^1.0.2",
     "pg": "^8.10.0",
     "sequelize": "^6.31.0",
