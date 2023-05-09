@@ -16,6 +16,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import HoverFilter from "./components/HoverFilter";
 import FilterItem from "./components/FitlerItemPage";
+import SearchForKeyWord from "./components/SearchFilter";
 
 function App() {
   const location = useLocation()
@@ -47,9 +48,13 @@ function App() {
               </Route>
             </Switch>
   
+          <Route path='/search/:keyword'>
+            <SearchForKeyWord />
+          </Route>
+
           </>
         )}
-        {currentUser && (location.pathname === "/" || location.pathname.startsWith('/items/')  || location.pathname.startsWith('/subcategories/')) && <CartNavBar />}
+        {currentUser && (location.pathname === "/" || location.pathname.startsWith('/items/') || location.pathname.startsWith('/search/') || location.pathname.startsWith('/subcategories/')) && <CartNavBar />}
         </div>
         <Switch>
 

@@ -45,10 +45,20 @@ body {
   justify-content: space-between;
   align-items: center;
   margin-right: 5%;
+  gap: 20px;
 }
 
+.searchinput { 
+  font-size: 20px;
+  width: 300px;
+  border-radius: 5px;
+  height: 39px;
+}
 
-
+.search-input-container { 
+  display: flex;
+  align-items: center;
+}
 
 .profile-dropdown { 
     position: fixed;
@@ -108,4 +118,9 @@ body {
 .checkbox-wrapper-54 ::after,
 .checkbox-wrapper-54 ::before {
   box-sizing: border-box;
+}
+
+.fa-magnifying-glass { 
+
+  cursor: pointer;
 }

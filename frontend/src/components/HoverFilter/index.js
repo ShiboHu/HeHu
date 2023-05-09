@@ -48,7 +48,7 @@ function HoverFilter(){
               <div className="sub-categories-container">
                     { subcat?.map((cat, index) => (
                         <ul key={index} className="sub-cat-name">
-                            {isLoaded ? <img onClick={() => history.push(`/subcategories/${cat.id}`)} className="subcat-image" src={cat.image} alt='subcat'></img> : <Skeleton className="subcat-image"/>}
+                            {isLoaded ? <img onClick={() => history.push(`/subcategories/${cat.id}`)} className="subcat-image" src={cat.image} alt='subcat'></img> : <Skeleton style={{width: '80px', height:'60px', borderRadius: '50%'}}/>}
                             {isLoaded ? <li>{cat.name}</li> : <Skeleton /> }
                         </ul>
                     )) 

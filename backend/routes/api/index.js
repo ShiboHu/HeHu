@@ -10,6 +10,8 @@ const cartItemRouter = require('./cart_items.js');
 const ordersRouter = require('./orders.js');
 const likesRouter = require('./likes.js');
 const mainCatRouter = require('./main_categories.js');
+const searchRouter = require('./search.js');
+
 
 const { restoreUser } = require("../../utils/auth.js");
 
@@ -25,5 +27,8 @@ router.use('/cart-items', cartItemRouter);
 router.use('/orders', ordersRouter);
 router.use('/likes', likesRouter)
 router.use('/maincategories', mainCatRouter);
+router.use('/search', searchRouter);
+
+
 
 module.exports = router;

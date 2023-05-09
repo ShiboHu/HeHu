@@ -10,6 +10,7 @@ import cartItemReducer from './cart_item';
 import orderReducer from './order';
 import likeReducer from './like';
 import mainCategoryReducer from './maincategory';
+import searchReducer from './search';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -20,7 +21,8 @@ const rootReducer = combineReducers({
   cartItems: cartItemReducer,
   orders: orderReducer,
   likes: likeReducer,
-  mainCategories: mainCategoryReducer
+  mainCategories: mainCategoryReducer,
+  search: searchReducer
 });
 
 let enhancer;
