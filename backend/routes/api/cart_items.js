@@ -17,7 +17,8 @@ router.get('/current', requireAuth, async (req, res) => {
             through: { 
                 model: Cart_Item,
                 attributes: ['quantity']
-            }
+            },
+            order: ['createdAt', 'ASC']
         },
     })
 
