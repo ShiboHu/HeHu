@@ -37,7 +37,70 @@ module.exports = {
         state: faker.address.state(),
         city: faker.address.city(),
         zipCode: 34212
-      }
+      },
+      {
+        email: 'FakeUser44@user.io',
+        username: 'FakeUser54',
+        hashedPassword: bcrypt.hashSync('password3'),
+        address: faker.address.streetAddress(),
+        state: faker.address.state(),
+        city: faker.address.city(),
+        zipCode: 34212
+      },
+      {
+        email: 'FakeUser45@user.io',
+        username: 'FakeUser55',
+        hashedPassword: bcrypt.hashSync('password3'),
+        address: faker.address.streetAddress(),
+        state: faker.address.state(),
+        city: faker.address.city(),
+        zipCode: 34212
+      },
+      {
+        email: 'FakeUser46@user.io',
+        username: 'FakeUser56',
+        hashedPassword: bcrypt.hashSync('password3'),
+        address: faker.address.streetAddress(),
+        state: faker.address.state(),
+        city: faker.address.city(),
+        zipCode: 34212
+      },
+      {
+        email: 'FakeUser47@user.io',
+        username: 'FakeUser57',
+        hashedPassword: bcrypt.hashSync('password3'),
+        address: faker.address.streetAddress(),
+        state: faker.address.state(),
+        city: faker.address.city(),
+        zipCode: 34212
+      },
+      {
+        email: 'FakeUser49@user.io',
+        username: 'FakeUser59',
+        hashedPassword: bcrypt.hashSync('password3'),
+        address: faker.address.streetAddress(),
+        state: faker.address.state(),
+        city: faker.address.city(),
+        zipCode: 34212
+      },
+      {
+        email: 'FakeUser72@user.io',
+        username: 'FakeUser72',
+        hashedPassword: bcrypt.hashSync('password3'),
+        address: faker.address.streetAddress(),
+        state: faker.address.state(),
+        city: faker.address.city(),
+        zipCode: 34212
+      },
+      {
+        email: 'FakeUser35@user.io',
+        username: 'FakeUser35',
+        hashedPassword: bcrypt.hashSync('password3'),
+        address: faker.address.streetAddress(),
+        state: faker.address.state(),
+        city: faker.address.city(),
+        zipCode: 34212
+      },
     ], {});
   },
 

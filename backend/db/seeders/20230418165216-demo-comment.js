@@ -11,25 +11,193 @@ module.exports = {
     options.tableName = 'Comments';
     return queryInterface.bulkInsert(options, [
       { 
-        userId: 1,
-        image: "https://media.istockphoto.com/id/1254474165/photo/tropical-leaves-abstract-green-leaves-texture-nature-background.jpg?s=612x612&w=0&k=20&c=UQ7bV5XZ5Zeg4Lj5uQlg1FOlhZfmZpJirot754UVXWU=",
-        itemId: 2,
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
         comment: faker.lorem.sentence(),
-        rating: 2
+        rating: faker.datatype.number({min:1, max:5})
       },
       { 
-        userId: 2,
-        image: "https://media.istockphoto.com/id/1254474165/photo/tropical-leaves-abstract-green-leaves-texture-nature-background.jpg?s=612x612&w=0&k=20&c=UQ7bV5XZ5Zeg4Lj5uQlg1FOlhZfmZpJirot754UVXWU=",
-        itemId: 1,
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
         comment: faker.lorem.sentence(),
-        rating: 2
+        rating: faker.datatype.number({min:1, max:5})
       },
       { 
-        userId: 1,
-        image: "https://media.istockphoto.com/id/1254474165/photo/tropical-leaves-abstract-green-leaves-texture-nature-background.jpg?s=612x612&w=0&k=20&c=UQ7bV5XZ5Zeg4Lj5uQlg1FOlhZfmZpJirot754UVXWU=",
-        itemId: 3,
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
         comment: faker.lorem.sentence(),
-        rating: 4
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
+      },    
+      { 
+        userId: faker.datatype.number({min:1, max:10}),
+        image: "https://farmingsmiles.com/wp-content/uploads/2017/09/photo-placeholder.jpg",
+        itemId: faker.datatype.number({min:1, max:10}),
+        comment: faker.lorem.sentence(),
+        rating: faker.datatype.number({min:1, max:5})
       },    
     ], {});
   },

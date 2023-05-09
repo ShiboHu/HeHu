@@ -19,7 +19,6 @@ router.get('/current', requireAuth, async (req, res) => {
                 attributes: ['quantity']
             }
         },
-        order: [['createdAt', 'ASC']]
     })
 
     if(!cart){ 
