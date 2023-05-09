@@ -14,6 +14,10 @@ function LandingPage(){
   const currentUser = useSelector(state => state.session.user);
   const [isLoaded, setIsLoaded] = useState(false);
 
+  const [itemToShow, setItemToShow] = useState(15);
+  const [itemToLoad, setItemToLoad] = useState(15);
+
+
   useEffect(() => { 
         dispatch(getAllItems())
         dispatch(refreshItems())
@@ -23,20 +27,31 @@ function LandingPage(){
         }
         , 500)
       }, [dispatch])
+
+
+      //load only 15 at once
+      useEffect(() => {
+        function handleScroll() {
+          // detect when the user has scrolled to the bottom of the page
+          const scrolledToBottom = window.innerHeight + window.pageYOffset >= document.body.offsetHeight;
+          if (scrolledToBottom) {
+            // load more items
+            setItemToShow(itemToShow + itemToLoad);
+          }
+        }
+    
+        // add event listener for scroll events
+        window.addEventListener('scroll', handleScroll);
+    
+        // remove event listener when component unmounts
+        return () => {
+          window.removeEventListener('scroll', handleScroll);
+        };
+      }, [itemToShow, itemToLoad]);
       
-      // if (!allItems) { 
-      //   return (
-      //     <div className="landingpage-container">
-      //       <ul className="items-container"> 
-      //         {[...Array(allItems.length)].map((_, index) => (
-      //           <li className="items-card" key={index}>
-      //             <Skeleton height={280} width={90} />
-      //           </li>
-      //         ))}
-      //       </ul>
-      //     </div>
-      //   )
-      // }
+
+
+
 
     const submit = async (id) => { 
       if(!currentUser){
@@ -52,7 +67,7 @@ function LandingPage(){
         {isLoaded ? (
         <div className="landing-main-content">
             <ul className="items-container"> 
-             {allItems && allItems.map(item => ( 
+             {allItems && allItems.slice(0, itemToShow).map(item => ( 
                
                <div className="items-card">
                   <NavLink exact to={`/items/${item.id}`} className='NavLink'>

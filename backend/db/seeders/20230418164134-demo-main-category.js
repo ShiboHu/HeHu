@@ -14,6 +14,12 @@ module.exports = {
       },
       { 
         name: 'Electronics'
+      },
+      { 
+        name: 'Books & Movies'
+      }, 
+      { 
+        name: 'Food & Groceries'
       }   
     ], {});
   },

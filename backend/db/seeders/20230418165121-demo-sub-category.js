@@ -70,6 +70,66 @@ module.exports = {
         maincategoryId: 2,
         image: 'https://www.esferize.com/wp-content/uploads/2021/11/metaball_3d-retro-tv-2.jpg'
       },
+      { 
+        name: 'Action',
+        maincategoryId: 3,
+        image: 'https://www.rollingstone.com/wp-content/uploads/2021/06/ACTION-FMOIVES_WEB-1.jpg'
+      },
+      { 
+        name: 'Horror',
+        maincategoryId: 3,
+        image: 'https://www.themarysue.com/wp-content/uploads/2022/06/scream-5-promo-poster.jpg?resize=1200%2C675'
+      },
+      { 
+        name: 'Funny',
+        maincategoryId: 3,
+        image: 'https://dictionaryblog.cambridge.org/wp-content/uploads/2019/11/funny.jpg'
+      },
+      { 
+        name: 'Drama',
+        maincategoryId: 3,
+        image: 'https://www.teachwire.net/wp-content/uploads/2019/04/Drama-games.jpg'
+      },
+      { 
+        name: 'Adventure',
+        maincategoryId: 3,
+        image: 'https://thecinemaholic.com/wp-content/uploads/2017/08/jurassic-fallen-kingdom-trailer-1-970.jpg'
+      },
+      { 
+        name: 'Science fiction',
+        maincategoryId: 3,
+        image: 'https://cdn.britannica.com/09/92009-050-122EC720/Enterprise-from-Star-Trek-III-The-Search.jpg'
+      },
+      { 
+        name: 'Groceries ',
+        maincategoryId: 4,
+        image: 'https://www.bankrate.com/2020/08/01170557/How-to-save-money-on-groceries.jpeg'
+      },
+      { 
+        name: 'Burgers',
+        maincategoryId: 4,
+        image: 'https://www.tastingtable.com/img/gallery/what-makes-restaurant-burgers-taste-different-from-homemade-burgers-upgrade/l-intro-1662064407.jpg'
+      },
+      { 
+        name: 'Pizza',
+        maincategoryId: 4,
+        image: 'https://popmenucloud.com/cdn-cgi/image/width=640,height=640,format=png,fit=scale-down/yndcmrjo/f863f9ac-54ba-4c74-8253-0297e22eda16.jpg'
+      },
+      { 
+        name: 'Chips',
+        maincategoryId: 4,
+        image: 'https://www.eatthis.com/wp-content/uploads/sites/4/2021/05/chips-2.jpg?quality=82&strip=1'
+      },
+      { 
+        name: 'IceCream',
+        maincategoryId: 4,
+        image: 'https://cdn.britannica.com/50/80550-050-5D392AC7/Scoops-kinds-ice-cream.jpg'
+      },
+      { 
+        name: 'Chocolate',
+        maincategoryId: 4,
+        image: 'https://www.thespruceeats.com/thmb/FhHcgQni8lgV0griUeDJMTAszxI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/chocolate_hero1-d62e5444a8734f8d8fe91f5631d51ca5.jpg'
+      },
     ], {});
   },
 

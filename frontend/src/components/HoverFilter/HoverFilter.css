@@ -3,7 +3,7 @@
     left: 0;
     z-index: 999;
     width: 30%;
-    padding: 20px;
+    padding: 60px;
     box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.1);
     background-color: #fff;
     border-radius: 5px;
@@ -42,7 +42,7 @@
   }
   
   .sub-cat-name li {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     font-size: 14px;
     cursor: pointer;
   }
@@ -52,11 +52,23 @@
   }
 
   .subcat-image { 
-    width: 65px;
-    height: 50px;
-    max-width: 65px;
-    max-height: 50px;
-    min-width: 65px;
-    min-height: 50px;
-    border-radius: 10px;
+    width: 80px;
+    height: 60px;
+    max-width: 80px;
+    max-height: 60px;
+    min-width: 80px;
+    min-height: 60px;
+    border-radius: 50%;
+    border-color: #c7c4c4;
+    border-style: solid;
+  }
+
+  .subcat-image:hover{ 
+    border-radius: 45%;
+  }
+
+  .skelethover{ 
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
