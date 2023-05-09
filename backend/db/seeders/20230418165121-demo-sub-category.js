@@ -86,7 +86,7 @@ module.exports = {
         image: 'https://dictionaryblog.cambridge.org/wp-content/uploads/2019/11/funny.jpg'
       },
       { 
-        name: 'Drama',
+        name: 'Inspirational ',
         maincategoryId: 3,
         image: 'https://www.teachwire.net/wp-content/uploads/2019/04/Drama-games.jpg'
       },

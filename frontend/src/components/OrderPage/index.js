@@ -1,15 +1,17 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { getsingleOrder } from "../../store/order";
 import './orderpage.css'
 
 
 function SingleOrderPage(){ 
+    const history = useHistory();
     const { orderId } = useParams();
     const dispatch = useDispatch();
     const currentOrder = useSelector(state => state.orders.order);
     
+    console.log(currentOrder)
     useEffect(() => { 
         dispatch(getsingleOrder(orderId))
     },[dispatch])
@@ -25,7 +27,7 @@ function SingleOrderPage(){
             <ul>
                 {currentOrder?.items?.map(order => (
                     <div className="singleorder-content">
-                   <img src={order.image} className="profile-itemimages"></img>
+                   <img onClick={() => history.push(`/items/${order.id}`)} src={order.image} className="profile-itemimages"></img>
                         <li>name:{order.name}</li>
                         <li>price: ${order.price}</li>
                         <li>qty:{order.quantity}</li>

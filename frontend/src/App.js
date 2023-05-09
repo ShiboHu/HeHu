@@ -17,6 +17,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import HoverFilter from "./components/HoverFilter";
 import FilterItem from "./components/FitlerItemPage";
 import SearchForKeyWord from "./components/SearchFilter";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 function App() {
   const location = useLocation()
