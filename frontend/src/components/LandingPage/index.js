@@ -7,6 +7,7 @@ import { addCartItem, allCartItem } from "../../store/cart_item";
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import ScrollToTopButton from "../ScrollToTopButton";
+import FeaturedItems from "./featureItem";
 
 function LandingPage(){ 
   const history = useHistory()
@@ -67,6 +68,8 @@ function LandingPage(){
         <>
         {isLoaded ? (
         <div className="landing-main-content">
+          <FeaturedItems />
+          <h1 className="landing-h1">Featured</h1>
             <ul className="items-container"> 
              {allItems && allItems.slice(0, itemToShow).map(item => ( 
                
@@ -91,6 +94,41 @@ function LandingPage(){
             </div>
             ) : ( 
               <div className="landing-main-content">
+
+              <div className="featured-items">
+                <ul className="feature-ul-container"> 
+                
+                <div>
+                <Skeleton className="feature-item-image" style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
+                <Skeleton className="feature-item-text" width={110} height={40}/>
+                </div>
+                
+                <div>
+                <Skeleton className="feature-item-image" style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
+                <Skeleton className="feature-item-text" width={110} height={40}/>
+                </div>
+                
+                <div>
+                <Skeleton className="feature-item-image" style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
+                <Skeleton className="feature-item-text" width={110} height={40}/>
+                </div>
+                
+                <div>
+                <Skeleton className="feature-item-image" style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
+                <Skeleton className="feature-item-text" width={110} height={40}/>
+                </div>
+                
+                <div>
+                <Skeleton className="feature-item-image" style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
+                <Skeleton className="feature-item-text" width={110} height={40}/>
+                </div>
+                
+                </ul>
+            </div>
+
+            <div className="landing-main-content" style={{ margin: "0 auto", textAlign: "center" }}>
+            <Skeleton width={200} height={40} style={{marginBottom:'30px'}}/>
+            
               <ul className="items-container">
               {[...Array(20)].map((_, index) => (
                 <li className="items-card" key={index}>
@@ -101,6 +139,7 @@ function LandingPage(){
                   </li>
               ))}
               </ul>
+              </div>
               </div>
             )}
     

@@ -58,3 +58,31 @@
 
 
   /* Change the color of the skeleton's animation */
+
+  .feature-item-image { 
+    width: 250px;
+    height: 200px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .feature-ul-container { 
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .featured-items { 
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+
+  .feature-item-text { 
+   font-weight: bold;
+  }
+
+  
+.landing-h1{ 
+    text-align: center;
+    margin-bottom: 30px;
+}
