@@ -70,10 +70,10 @@ function HoverFilter(){
               {[...Array(6)].map((_, index) => (
                 <ul className="sub-cat-name" key={index}>
                     <div style={{marginBottom: '4px'}}>
-                    <Skeleton className="subcat-image" style={{width: '100px', height:'80px', borderRadius:'50%'}}/>
+                    <Skeleton duration={0.8} baseColor="grey" highlightColor="white" className="subcat-image" style={{width: '100px', height:'80px', borderRadius:'50%'}}/>
                     </div>
                     <li>
-                    <Skeleton className="cat-name-li"/>
+                    <Skeleton duration={0.8} baseColor="grey" highlightColor="white" className="cat-name-li"/>
                     </li>
               </ul>
               ))}

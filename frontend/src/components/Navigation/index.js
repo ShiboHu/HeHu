@@ -31,20 +31,26 @@ function Navigation({ isLoaded }){
 
   return (
     <div className='navbar-main-container'>
-    <ul className='navbar-container'>
+
+
+     <ul className='navbar-container'>
+
+      <div>
       <li>
         <NavLink exact to="/"><img src={hehu} className='hehu-logo' alt='hehu-logo'></img></NavLink>
       </li>
+      </div>
 
+
+      <div className='search-input-container'>
     <div className='navbar-filters-container'>
+
       <div className='navabar-categories' onMouseEnter={showHover} onMouseLeave={hideHover}> 
         <i class="fa-solid fa-chevron-down">Categories</i>
       
         {showHoverFilter && <HoverFilter />}
       
       </div>
-
-      <div className='search-input-container'>
         <input 
         className='searchinput'
         placeholder='serach'
@@ -55,15 +61,32 @@ function Navigation({ isLoaded }){
         <i class="fa-solid fa-magnifying-glass" ></i>
         </button>
       </div>
-
     </div>
+
+ 
+ <div className='personal-profile-navbar'>
+  
+        {/* <div className='personal-contact'>
+          <li><a href="https://www.linkedin.com/in/shibo-hu-b4712323a/" ><i class="fa-brands fa-linkedin">Linkedin</i></a></li>
+          </div>
+
+        <div className='personal-contact'>
+						<li><a href="https://github.com/ShiboHu"><i class="fa-brands fa-github">GitHub</i></a></li>
+            </div>
+            
+            <div className='personal-contact'>
+						<li><a href="mailto: hushibo456@gmail.com" ><i class="fa-solid fa-envelope">Email</i></a></li>
+            </div> */}
 
       {isLoaded && (
         <li>
           <ProfileButton user={sessionUser} />
         </li>
       )}
+</div>
     </ul>
+
+
     </div>
   );
 }

@@ -27,7 +27,7 @@ function LandingPage(){
         setTimeout(() => {
           setIsLoaded(true)
         }
-        , 800)
+        , 1000)
       }, [dispatch])
 
 
@@ -99,32 +99,32 @@ function LandingPage(){
                 <ul className="feature-ul-container"> 
                 
                 <div>
-                <Skeleton className="feature-item-image" style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
-                <Skeleton className="feature-item-text" width={110} height={40}/>
+                <Skeleton className="feature-item-image"  baseColor="grey" highlightColor="white"  style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
+                <Skeleton className="feature-item-text"  baseColor="grey" highlightColor="white"  width={110} height={40}/>
                 </div>
                 
                 <div>
-                <Skeleton className="feature-item-image" style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
-                <Skeleton className="feature-item-text" width={110} height={40}/>
+                <Skeleton className="feature-item-image"  baseColor="grey" highlightColor="white"  style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
+                <Skeleton className="feature-item-text"  baseColor="grey" highlightColor="white"  width={110} height={40}/>
                 </div>
                 
                 <div>
-                <Skeleton className="feature-item-image" style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
-                <Skeleton className="feature-item-text" width={110} height={40}/>
+                <Skeleton className="feature-item-image"  baseColor="grey" highlightColor="white"  style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
+                <Skeleton className="feature-item-text"  baseColor="grey" highlightColor="white"  width={110} height={40}/>
                 </div>
                 
                 <div>
-                <Skeleton className="feature-item-image" style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
-                <Skeleton className="feature-item-text" width={110} height={40}/>
+                <Skeleton className="feature-item-image"  baseColor="grey" highlightColor="white"  style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
+                <Skeleton className="feature-item-text"  baseColor="grey" highlightColor="white"  width={110} height={40}/>
                 </div>
                 
                 <div>
-                <Skeleton className="feature-item-image" style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
-                <Skeleton className="feature-item-text" width={110} height={40}/>
+                <Skeleton className="feature-item-image" s baseColor="grey" highlightColor="white"  style={{width:'250px', height: '200px', borderRadius:'50%'}}/>
+                <Skeleton className="feature-item-text"  baseColor="grey" highlightColor="white"  width={110} height={40}/>
                 </div>
                 
                 </ul>
-            <Skeleton width={200} height={45} style={{textAlign:'center', marginTop:'20px'}}/> 
+            <Skeleton width={200} height={45} baseColor="grey" highlightColor="white"  style={{textAlign:'center', marginTop:'20px'}}/> 
             </div>
 {/* 
             <div className="landing-main-content" style={{ margin: "0 auto", textAlign: "center" }}>
@@ -133,10 +133,10 @@ function LandingPage(){
               <ul className="items-container">
               {[...Array(20)].map((_, index) => (
                 <li className="items-card" key={index}>
-                    <Skeleton className="skeleton" height={295} width={270} borderRadius={5}/>
-                    <Skeleton className="skeleton" height={20} width={260}/>
-                    <Skeleton className="skeleton" height={20} width={50}/>
-                    <Skeleton height={20} width={180}/>
+                    <Skeleton className="skeleton" height={295} width={270} borderRadius={5} baseColor="grey" highlightColor="white"  />
+                    <Skeleton className="skeleton" height={20} width={260}  baseColor="grey" highlightColor="white" />
+                    <Skeleton className="skeleton" height={20} width={50}  baseColor="grey" highlightColor="white" />
+                    <Skeleton height={20} width={180}  baseColor="grey" highlightColor="white" />
                   </li>
               ))}
               </ul>

@@ -28,12 +28,20 @@ body {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
-
+.personal-profile-navbar { 
+  display: flex;
+  align-items: center;
+}
 .navbar-container li { 
   display: block;
   padding: 10px 10px;
   text-decoration: none;
 
+}
+
+.personal-contact { 
+  display: flex;
+  flex-direction: column;
 }
 
 .navabar-categories:hover { 

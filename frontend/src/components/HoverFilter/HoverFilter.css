@@ -4,6 +4,7 @@
   padding: 50px;
   width: 40%;
   left: 25%;
+  z-index: 1;
   }
   .categories-main-container {
 

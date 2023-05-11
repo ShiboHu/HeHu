@@ -170,23 +170,23 @@ function SingleItem(){
        ) : ( 
                <div className="singleitem-main-container">
                 <div className="singleitem-leftpage-container">
-                    <Skeleton height={500} width={500}/>
-                    <Skeleton height={30} width={300} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "50px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={40} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={30} width={100} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={500} width={500}/>
+                    <Skeleton  baseColor="grey" highlightColor="white" height={30} width={300} style={{ marginBottom: "10px" }} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={20} width={200} style={{ marginBottom: "50px" }} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={40} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={30} width={100} />
                 </div>
                 <div className="singleitem-rightpage-container">
-                    <Skeleton height={30} width={300} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "50px" }} />
-                    <Skeleton height={40} width={500} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={40} width={500} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={40} width={500} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={20} width={200} style={{ marginBottom: "10px" }} />
-                    <Skeleton height={50} width={150} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={30} width={300} style={{ marginBottom: "10px" }} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={20} width={200} style={{ marginBottom: "50px" }} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={40} width={500} style={{ marginBottom: "10px" }} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={40} width={500} style={{ marginBottom: "10px" }} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={40} width={500} style={{ marginBottom: "10px" }} />
+                    <Skeleton  baseColor="grey" highlightColor="white"height={20} width={200} style={{ marginBottom: "10px" }} />
+                    <Skeleton  baseColor="grey" highlightColor="white" height={50} width={150} />
                 </div>
             </div>
 
