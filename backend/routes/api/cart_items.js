@@ -18,7 +18,7 @@ router.get('/current', requireAuth, async (req, res) => {
                 model: Cart_Item,
                 attributes: ['quantity']
             },
-            order: [['createdAt', 'ASC']],
+            order: [['createdAt', 'ASC'], ['updatedAt', 'DESC']],
         },
     })
 
@@ -114,7 +114,7 @@ router.delete('/:itemId', requireAuth, async (req, res) => {
         }
     })  
 
-    console.log(cartItem)
+    
     if(!cartItem){ 
         res.status(404);
         return res.json({ 

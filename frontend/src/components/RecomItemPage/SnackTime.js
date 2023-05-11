@@ -13,7 +13,6 @@ function SnackTimeItems(){
     const [isLoaded, setisLoaded] = useState(false)
     const currentUser = useSelector(state => state.session.user);
 
-    console.log(allitems)
     useEffect(() => { 
         dispatch(getSnackTimeItems())
 

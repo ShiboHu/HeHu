@@ -9,7 +9,6 @@ function CurrentUserOrders() {
     const dispatch = useDispatch();
     const allOrder = useSelector(state => state.orders.orders)
     
-    console.log(allOrder)
 
     useEffect(() => { 
         dispatch(getAllOrders());

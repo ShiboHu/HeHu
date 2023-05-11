@@ -14,7 +14,7 @@ function CreateNewComment({ itemId }){
     const [hoverRating, setHoverRating] = useState(null);
     const [errors, setError] = useState([]);
 
-    console.log(itemId)
+
     
     const submit = async (e) => { 
         e.preventDefault();

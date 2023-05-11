@@ -11,7 +11,6 @@ function SingleOrderPage(){
     const dispatch = useDispatch();
     const currentOrder = useSelector(state => state.orders.order);
     
-    console.log(currentOrder)
     useEffect(() => { 
         dispatch(getsingleOrder(orderId))
     },[dispatch])
@@ -19,7 +18,6 @@ function SingleOrderPage(){
 
     if(!Object.values(currentOrder).length) return null
 
-    console.log(currentOrder)
 
     return (
         <div className="singleorder-main-container">

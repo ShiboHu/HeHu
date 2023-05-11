@@ -124,15 +124,16 @@ function LandingPage(){
                 </div>
                 
                 </ul>
+            <Skeleton width={200} height={45} style={{textAlign:'center', marginTop:'20px'}}/> 
             </div>
-
+{/* 
             <div className="landing-main-content" style={{ margin: "0 auto", textAlign: "center" }}>
-            <Skeleton width={200} height={40} style={{marginBottom:'30px'}}/>
+            <Skeleton width={200} height={40} style={{marginBottom:'30px'}}/> */}
             
               <ul className="items-container">
               {[...Array(20)].map((_, index) => (
                 <li className="items-card" key={index}>
-                    <Skeleton className="skeleton" height={270} width={270}/>
+                    <Skeleton className="skeleton" height={295} width={270} borderRadius={5}/>
                     <Skeleton className="skeleton" height={20} width={260}/>
                     <Skeleton className="skeleton" height={20} width={50}/>
                     <Skeleton height={20} width={180}/>
@@ -140,7 +141,7 @@ function LandingPage(){
               ))}
               </ul>
               </div>
-              </div>
+    
             )}
     
     </>

@@ -102,7 +102,6 @@ function SingleItem(){
         quantityOptions.push({ value: i, label: i });
       }
 
-    console.log(currentLike, '!!!!!!!!!!!')
 
     const likeItem = async () => { 
       if(!currentUser){

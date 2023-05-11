@@ -8,7 +8,6 @@ function CurrentUserWishList() {
     const dispatch = useDispatch();
     const allLikes = useSelector(state => state.likes.likes)
 
-    console.log(allLikes)
 
     useEffect(() => {
         dispatch(getAllLikes())

@@ -13,7 +13,7 @@ function SearchForKeyWord(){
     const items = useSelector(state => state.search.filtered)
     const currentUser = useSelector(state => state.session.user);
     const [isLoaded, setIsLoaded] = useState(false); 
-console.log(items)
+    
     useEffect(() => { 
         dispatch(searchFilter(keyword))
         .then(() => setIsLoaded(false))

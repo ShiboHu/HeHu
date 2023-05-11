@@ -29,7 +29,7 @@ function HoverFilter(){
         setIsFilterOpen(false);
     }
 
-    console.log(subcat)
+    
     return (
         isFilterOpen &&
         <div className="categorie-filter-main-container">
@@ -70,7 +70,7 @@ function HoverFilter(){
               {[...Array(6)].map((_, index) => (
                 <ul className="sub-cat-name" key={index}>
                     <div style={{marginBottom: '4px'}}>
-                    <Skeleton className="subcat-image" />
+                    <Skeleton className="subcat-image" style={{width: '100px', height:'80px', borderRadius:'50%'}}/>
                     </div>
                     <li>
                     <Skeleton className="cat-name-li"/>

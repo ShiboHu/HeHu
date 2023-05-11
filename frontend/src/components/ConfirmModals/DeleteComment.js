@@ -5,7 +5,7 @@ import { deleteAcomment } from "../../store/comment";
 function DeleteCommentModal(props){ 
     const dispatch = useDispatch()
     const { closeModal } = useModal();
-    console.log(props.props)
+    
     const submit = e => { 
         e.preventDefault()
 

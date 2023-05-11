@@ -52,7 +52,6 @@ function CartPage(){
      quantityOptions.push({ value: i, label: i });
    }
 
-    console.log(allItems)
     return( 
         <div className="cartpage-main-container">
         <div className="cartpage-leftside-container">

@@ -5,7 +5,6 @@ import { deleteSingleItem, getCurrentUserItems } from "../../store/item";
 function DeleteItemModal(props){ 
     const dispatch = useDispatch()
     const { closeModal } = useModal();
-    console.log(props.props)
     const submit = e => { 
         e.preventDefault()
 
