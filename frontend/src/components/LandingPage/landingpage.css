@@ -1,14 +1,13 @@
 .items-container{ 
     display: flex;
     flex-wrap: wrap;
-    gap: 50px;
-    margin-left: 3%;
+    justify-content: space-evenly;
+    row-gap: 40px;
 }
 
 .landing-main-content { 
-  width: 90%;
+  
 }
-
 .landingpage-item-image { 
     width: 270px;
     height: 295px;

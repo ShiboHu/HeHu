@@ -38,7 +38,7 @@ function App() {
       {location.pathname !== '/login' && location.pathname !== '/signup' && <Navigation isLoaded={isLoaded} />}
       <div className="page-main-container">
         {isLoaded && (
-          <>
+          <div className="page-main-left-container">
             <Switch>
               <Route exact path='/'>
                 <LandingPage />
@@ -77,7 +77,7 @@ function App() {
   
 
           
-          </>
+          </div>
         )}
         {currentUser && (
         location.pathname === "/" || 
@@ -87,7 +87,12 @@ function App() {
         location.pathname.startsWith('/products') || 
         location.pathname.startsWith('/maincategories')
         ) 
-        && <CartNavBar />}
+        && 
+        <div className="page-main-right-container">
+        <CartNavBar />
+        </div>
+        }
+
         </div>
         <Switch>
 

@@ -2,3 +2,13 @@
 .page-main-container { 
     display: flex;
 }
+
+.page-main-left-container { 
+    width: 100%;
+
+}
+
+.page-main-right-container { 
+    width: 12%;
+
+}

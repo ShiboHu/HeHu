@@ -46,13 +46,16 @@ function CartNavBar(){
 
     return(
         <div className="main-navbar-container">
+            
             <ul className="cartnavbar-container">
+
                 <div className='cartnavbar-buttons'>
                 <h2 >${allItemInCart.totalPrice === 0? '0.00' : allItemInCart.totalPrice}</h2>
                 <button className='button-71'
                 onClick={() => history.push('/carts')}
                 >Go to cart</button>
                 </div>
+
                 {allItemInCart && allItemInCart?.items?.map(item =>( 
                     <div className='cartnavbar-items-container'>    
                     <img className='cartnavbar-image'src={item.image || <Skeleton />}></img>
@@ -76,8 +79,10 @@ function CartNavBar(){
                       </select>
                     
                     </div>
+
                 ))}
             </ul>
+
         </div>
     )
 }
