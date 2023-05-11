@@ -10,11 +10,15 @@ function SingleOrderPage(){
     const { orderId } = useParams();
     const dispatch = useDispatch();
     const currentOrder = useSelector(state => state.orders.order);
-    
+    const currentUser = useSelector(state => state.session.user)
+
     useEffect(() => { 
         dispatch(getsingleOrder(orderId))
     },[dispatch])
     
+    if(!currentUser){ 
+        history.push('/login')
+    }
 
     if(!Object.values(currentOrder).length) return null
 

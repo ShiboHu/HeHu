@@ -10,11 +10,16 @@ function CartPage(){
     const history = useHistory();
     const dispatch = useDispatch();
     const allItems = useSelector(state => state.cartItems.cart_items);
+    const currentUser = useSelector(state => state.session.user)
 
     useEffect(()=> {
         dispatch(allCartItem())
     }, [dispatch])
 
+
+    if(!currentUser){ 
+        history.push('/login')
+    }
 
     if(!Object.values(allItems).length){ 
         return ( 

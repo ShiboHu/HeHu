@@ -72,8 +72,9 @@ function Profile(){
         setCreateItem(false)
     }
     
-    if(!currentUser)return <h1>Please Login First</h1>
-
+    if(!currentUser ){ 
+        history.push('/login')
+    }
     return (
         <div>
         <div className="profile-sidebar">
