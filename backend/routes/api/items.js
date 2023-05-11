@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const { requireAuth } = require('../../utils/auth');
 
+const { Op } = require('sequelize')
 const { Item, User, Comment,} = require('../../db/models');
 const { singleFileUpload, singleMulterUpload } = require('../../awsS3');
 
@@ -213,6 +214,106 @@ router.get('/subcategory/:subcategoryId', async (req, res) => {
     return res.json(itemData);
 })
 
+
+//get trending items
+router.get('/trendings/item', async (req,res) => { 
+    const allItems = await Item.findAll({
+        include: { 
+            model: Comment,
+        }
+    })
+
+    const itemData = await Promise.all(allItems.map(async (item) => { 
+        const comments = item.Comments.filter(comment => comment.rating > 3)
+
+        const sumRating = comments.reduce((acc, comment) => acc + comment.rating, 0)
+        const avgRating = comments.length > 0 ? sumRating / comments.length : 0
+
+        return {
+            id: item.id,
+            name: item.name,
+            description: item.description,
+            image: item.image,
+            price: item.price,
+            stocks: item.stocks,
+            commentLength: comments.length,
+            avgRating,
+        };
+    }))
+
+    const filteredData = itemData.filter(item => item.avgRating > 3)
+
+    return res.json(filteredData)
+})
+
+
+//snake time items
+router.get('/product/snacktime', async (req, res) => { 
+    const allItems = await Item.findAll({ 
+        where: { 
+            subcategoryId: { 
+                [Op.between]: [22, 24]
+            }
+        }
+    })
+
+    const itemData = await Promise.all(allItems.map(async (item) => {
+
+        const comments = await Comment.findAll({
+           where:{ 
+              itemId: item.id 
+          } 
+      });
+        const avgRating = comments.reduce((acc, comment) => acc + comment.rating, 0) / comments.length || 0;
+    
+        return {
+          id: item.id,
+          name: item.name,
+          description: item.description,
+          image: item.image,
+          price: item.price,
+          stocks: item.stocks,
+          commentLength:comments.length,
+          avgRating,
+        };
+      }));
+    
+      return res.json(itemData);
+})
+
+//item under $100
+router.get('/product/under100', async (req, res) => { 
+    const allItems = await Item.findAll({ 
+        where: { 
+           price: { 
+             [Op.lte]: 100
+           }
+        }
+    })
+
+    const itemData = await Promise.all(allItems.map(async (item) => {
+
+        const comments = await Comment.findAll({
+           where:{ 
+              itemId: item.id 
+          } 
+      });
+        const avgRating = comments.reduce((acc, comment) => acc + comment.rating, 0) / comments.length || 0;
+    
+        return {
+          id: item.id,
+          name: item.name,
+          description: item.description,
+          image: item.image,
+          price: item.price,
+          stocks: item.stocks,
+          commentLength:comments.length,
+          avgRating,
+        };
+      }));
+    
+      return res.json(itemData);
+})
 
 module.exports = router;
  

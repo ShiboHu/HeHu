@@ -18,6 +18,10 @@ import HoverFilter from "./components/HoverFilter";
 import FilterItem from "./components/FitlerItemPage";
 import SearchForKeyWord from "./components/SearchFilter";
 import ScrollToTopButton from "./components/ScrollToTopButton";
+import RecommandItemByMain from "./components/RecomItemPage/RecommandByMain";
+import TrendingItems from "./components/RecomItemPage/TrendingItem";
+import SnackTimeItems from "./components/RecomItemPage/SnackTime";
+import ItemsUnderOneHundred from "./components/RecomItemPage/UnderOneHunred";
 
 function App() {
   const location = useLocation()
@@ -44,18 +48,45 @@ function App() {
                 <SingleItem />
               </Route>
 
-             <Route path='/subcategories/:subId'>
+             <Route exact path='/subcategories/:subId'>
                <FilterItem />
               </Route>
+
+              <Route path='/search/:keyword'>
+              <SearchForKeyWord />
+              </Route>
+
+              <Route path='/maincategories/:mainId'>
+                <RecommandItemByMain />
+              </Route>
+
+              <Route path='/products/trending'>
+                <TrendingItems />
+              </Route>
+
+              <Route path='/products/snacks'>
+                <SnackTimeItems />
+              </Route>
+
+              <Route path='/products/under$100'>
+                <ItemsUnderOneHundred />
+              </Route>
+
             </Switch>
   
-          <Route path='/search/:keyword'>
-            <SearchForKeyWord />
-          </Route>
 
+          
           </>
         )}
-        {currentUser && (location.pathname === "/" || location.pathname.startsWith('/items/') || location.pathname.startsWith('/search/') || location.pathname.startsWith('/subcategories/')) && <CartNavBar />}
+        {currentUser && (
+        location.pathname === "/" || 
+        location.pathname.startsWith('/items') || 
+        location.pathname.startsWith('/search') || 
+        location.pathname.startsWith('/subcategories') ||
+        location.pathname.startsWith('/products') || 
+        location.pathname.startsWith('/maincategories')
+        ) 
+        && <CartNavBar />}
         </div>
         <Switch>
 

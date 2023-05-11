@@ -43,7 +43,10 @@ function HoverFilter(){
                         }}
                         onMouseLeave={() => setHoverMaincat(null)}
                         >
-                            <li>{cat.name}</li>
+                            <li onClick={() => {
+                                history.push(`/maincategories/${cat.id}`)
+                                 closeFilter();
+                        } }>{cat.name}</li>
                         </ul>
                     ))}
                 </div>

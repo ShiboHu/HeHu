@@ -8,7 +8,7 @@ const UPDATE_ITEM = 'items/UPDATE'
 const DELETE_ITEM = 'items/DELETE'
 const REFRESH_ITEM = 'items/REFRESH'
 const GET_SUBCATEGORYITEMS = 'items/SUBCATEGORY'
-
+const FEATURED_ITEMS = 'items/FEATURE'
 
 const allItems = (payload) => { 
     return { 
@@ -41,6 +41,13 @@ const currentuserItem = (payload) => {
 const updateItem = (payload) => { 
     return { 
         type: UPDATE_ITEM,
+        payload
+    }
+}
+
+const featureitem = (payload) => { 
+    return { 
+        type: FEATURED_ITEMS,
         payload
     }
 }
@@ -157,15 +164,47 @@ export const getSubcategoryItems = (subcategoryId) => async dispatch => {
     return res
 }
 
+export const getTrendingItems = () => async dispatch => { 
+    const res = await csrfFetch(`/api/items/trendings/item`)
+
+    if(res.ok){ 
+        const data = await res.json();
+        dispatch(featureitem(data))
+    }
+    return res 
+}
 
 
-const initialState = {items: [], item: {}, currentItem: []}
+export const getSnackTimeItems = () => async dispatch => { 
+    const res = await csrfFetch(`/api/items/product/snacktime`)
+
+    if(res.ok){ 
+        const data = await res.json();
+        dispatch(featureitem(data))
+    }
+    return res
+}
+
+export const getItemUnderOneHundred = () => async dispatch => { 
+    const res = await csrfFetch(`/api/items/product/under100`)
+
+    if(res.ok){ 
+        const data = await res.json();
+        dispatch(featureitem(data))
+    }
+    return res
+}
+
+
+
+const initialState = {items: [], item: {}, currentItem: [], featureitem: []}
 const itemReducer = (state = initialState, action) => { 
     switch(action.type){ 
         case ALL_ITEMS: 
             return { 
                 ...state,
-                items: action.payload
+                items: action.payload,
+                featureitem: {}
             }
         case CREATE_ITEM:
             return { 
@@ -208,6 +247,12 @@ const itemReducer = (state = initialState, action) => {
                 ...state,
                 items: action.payload
             }
+        case FEATURED_ITEMS: { 
+            return { 
+                ...state, 
+                featureitem: action.payload
+            }
+        }
         default: 
             return state
     }

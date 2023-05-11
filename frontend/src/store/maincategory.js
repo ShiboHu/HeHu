@@ -1,7 +1,7 @@
 import { csrfFetch } from "./csrf"
 
 const SET_ALL = 'all/MAINCATEGORY'
-
+const GET_ALLITEMBYMAIN = 'all/ITEMMAIN'
 
 const setmain = (payload) => { 
     return { 
@@ -10,6 +10,12 @@ const setmain = (payload) => {
     }
 }
 
+const getall = (payload) => { 
+    return { 
+        type: GET_ALLITEMBYMAIN,
+        payload
+    }
+}
 
 
 export const getAllMainCategory = () => async dispatch => { 
@@ -22,9 +28,18 @@ export const getAllMainCategory = () => async dispatch => {
     return res
 }
 
+export const getAllItemByMain = (id) => async dispatch => {
+    const res = await csrfFetch(`/api/maincategories/${id}`)
+
+    if(res.ok){
+         const data = await res.json();
+         dispatch(getall(data))
+    }
+    return res
+}
 
 
-const initialState = {mainCategory: []}
+const initialState = {mainCategory: [], mainCateItem : {}}
 const mainCategoryReducer  = (state = initialState, action) => { 
     switch(action.type){
         case SET_ALL:
@@ -32,6 +47,12 @@ const mainCategoryReducer  = (state = initialState, action) => {
                 ...state,
                 mainCategory: action.payload
             }
+        case GET_ALLITEMBYMAIN: {
+            return { 
+                ...state,
+                mainCateItem: action.payload
+            }
+        }
         default: 
             return state
     }
