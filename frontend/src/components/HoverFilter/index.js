@@ -22,7 +22,7 @@ function HoverFilter(){
         }
         setTimeout(() => {
             setIsLoaded(true);
-        }, [350]);
+        }, [500]);
     }, [dispatch, hoverMaincat]);
 
     const closeFilter = () => {

@@ -18,7 +18,7 @@ function ItemsUnderOneHundred(){
 
         setTimeout(() => { 
             setisLoaded(true)
-        },500)
+        },800)
     },[dispatch])
 
 

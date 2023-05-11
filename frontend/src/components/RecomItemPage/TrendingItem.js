@@ -18,7 +18,7 @@ function TrendingItems(){
 
         setTimeout(() => { 
             setisLoaded(true)
-        },500)
+        },800)
     },[dispatch])
 
 

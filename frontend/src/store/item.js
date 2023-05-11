@@ -204,7 +204,6 @@ const itemReducer = (state = initialState, action) => {
             return { 
                 ...state,
                 items: action.payload,
-                featureitem: {}
             }
         case CREATE_ITEM:
             return { 

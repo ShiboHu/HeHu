@@ -20,7 +20,7 @@ function SearchForKeyWord(){
 
         setTimeout(() => { 
             setIsLoaded(true);
-        }, 400)
+        }, 800)
 
     }, [dispatch, keyword])
 
@@ -34,15 +34,6 @@ function SearchForKeyWord(){
         }
       }
       
-      
-          if(!items || !items.length){
-              return (
-                  <div className='landing-main-content'>
-                       
-                      <h1>Item Not Found</h1>
-                  </div>
-              )
-          }
     
     return (
         <>
@@ -76,10 +67,10 @@ function SearchForKeyWord(){
               <ul className="items-container">
               {[...Array(15)].map((_, index) => (
                 <li className="items-card" key={index}>
-                    <Skeleton height={270} width={295}/>
-                    <Skeleton height={20} width={270}/>
-                    <Skeleton height={20} width={270}/>
-                    <Skeleton height={20} width={270}/>
+                       <Skeleton className="skeleton" height={270} width={270}/>
+                    <Skeleton className="skeleton" height={20} width={260}/>
+                    <Skeleton className="skeleton" height={20} width={50}/>
+                    <Skeleton height={20} width={180}/>
                   </li>
               ))}
               </ul>

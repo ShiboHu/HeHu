@@ -29,7 +29,7 @@ function SingleItem(){
       setTimeout(() => {
         setIsLoaded(true)
       }
-      , 500)
+      , 600)
 
     },[dispatch, itemId])
     

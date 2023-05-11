@@ -27,7 +27,7 @@ function LandingPage(){
         setTimeout(() => {
           setIsLoaded(true)
         }
-        , 500)
+        , 800)
       }, [dispatch])
 
 
