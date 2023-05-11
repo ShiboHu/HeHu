@@ -46,7 +46,7 @@ module.exports = {
         image: 'https://m-cdn.phonearena.com/images/article/64576-wide-two_1200/The-Best-Phones-to-buy-in-2023---our-top-10-list.jpg'
       },
       { 
-        name: 'Labtop',
+        name: 'Laptop',
         maincategoryId: 2,
         image: 'https://img.freepik.com/premium-vector/labtop-monitor-mouse-isometric-vector-mockup_650923-64.jpg?w=2000'
       },

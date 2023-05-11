@@ -440,7 +440,7 @@ module.exports = {
         subcategoryId: 5
       },
       { 
-        name: 'jewelery' + faker.random.numeric(3),
+        name: 'jewelry' + faker.random.numeric(3),
         description: faker.lorem.paragraph(),
         price: faker.random.numeric(2), 
         image: 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/ae8a6228b12231026c796b749044f9bf.jpg?imageView2/2/w/800/q/70/format/webp',
@@ -449,7 +449,7 @@ module.exports = {
         subcategoryId: 6
       },
       { 
-        name: 'jewelery' + faker.random.numeric(3),
+        name: 'jewelry' + faker.random.numeric(3),
         description: faker.lorem.paragraph(),
         price: faker.random.numeric(2), 
         image: 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/3128e19ab25b8a47e7ad19aa22e845cd.jpg?imageView2/2/w/800/q/70/format/webp',
@@ -458,7 +458,7 @@ module.exports = {
         subcategoryId: 6
       },
       { 
-        name: 'jewelery' + faker.random.numeric(3),
+        name: 'jewelry' + faker.random.numeric(3),
         description: faker.lorem.paragraph(),
         price: faker.random.numeric(2), 
         image: 'https://img.kwcdn.com/product/1d14c6c0898/7bcc6b70-08c7-48c8-b834-090902ec4da5_1200x1200.jpeg?imageView2/2/w/800/q/70/format/webp',
@@ -467,7 +467,7 @@ module.exports = {
         subcategoryId: 6
       },
       { 
-        name: 'jewelery' + faker.random.numeric(3),
+        name: 'jewelry' + faker.random.numeric(3),
         description: faker.lorem.paragraph(),
         price: faker.random.numeric(2), 
         image: 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/b69112de9f16a286560eb79af3ee1e0b.jpg?imageView2/2/w/800/q/70/format/webp',
@@ -476,7 +476,7 @@ module.exports = {
         subcategoryId: 6
       },
       { 
-        name: 'jewelery' + faker.random.numeric(3),
+        name: 'jewelry' + faker.random.numeric(3),
         description: faker.lorem.paragraph(),
         price: faker.random.numeric(2), 
         image: 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/dc3400bb78203b752721b6d155400335.jpg?imageView2/2/w/800/q/70/format/webp',
@@ -485,7 +485,7 @@ module.exports = {
         subcategoryId: 6
       },
       { 
-        name: 'jewelery' + faker.random.numeric(3),
+        name: 'jewelry' + faker.random.numeric(3),
         description: faker.lorem.paragraph(),
         price: faker.random.numeric(2), 
         image: 'https://img.kwcdn.com/product/Fancyalgo/VirtualModelMatting/dc3400bb78203b752721b6d155400335.jpg?imageView2/2/w/800/q/70/format/webp',
