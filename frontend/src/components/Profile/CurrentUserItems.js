@@ -67,12 +67,14 @@ function CurrentUserItems() {
               <form onSubmit={(e) => handleSaveEdit(e, index)} className="edit-item-form">
               <li>
                 Name:
-                <input type="text" name="name" defaultValue={item.name} required/>
+                <input className="text" type="text" name="name" defaultValue={item.name} required/>
+      
               </li>
               <li>
                 Description:
                 <textarea
                   type="text"
+                  className="textarea"
                   rows="5"
                   cols="33"
                   name="description"
@@ -82,11 +84,12 @@ function CurrentUserItems() {
               </li>
               <li>
                 Price:
-                <input type="number" name="price" defaultValue={item.price} required min={1}/>
+                <input className="text"type="number" name="price" defaultValue={item.price} required min={1}/>
               </li>
               <li>
                 Stocks:
                 <input
+                className="text"
                   type="number"
                   name="stocks"
                   defaultValue={item.stocks}
@@ -95,7 +98,7 @@ function CurrentUserItems() {
               </li>
               <li>
                 Image:
-                <input type="text" name="image" defaultValue={item.image} required />
+                <input className="text" type="text" name="image" defaultValue={item.image} required />
               </li>
               <button type="submit" className='button-5'>Save</button>
               <button type="button" onClick={handleCancelEdit} className='button-5'>

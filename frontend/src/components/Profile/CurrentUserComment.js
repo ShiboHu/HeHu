@@ -59,15 +59,15 @@ function CurrentUserComment(){
                     <form onSubmit={(e) => handleSaveEdit(e, index)} className="edit-item-form">
                         <li>
                             Comment:
-                            <input type='text' name="comment" defaultValue={comment.comment}/>
+                            <input  className="text" type='text' name="comment" defaultValue={comment.comment}/>
                         </li>
                         <li>
                             Rating:
-                            <input type='number' name="rating" defaultValue={comment.rating} min={1} max={5} step={1}/>
+                            <input className="text" type='number' name="rating" defaultValue={comment.rating} min={1} max={5} step={1}/>
                         </li>
                         <li>
                             Image:
-                            <input type='text' name="image" defaultValue={comment.image}/>
+                            <input className="text" type='text' name="image" defaultValue={comment.image}/>
                         </li>
                         <button type='submit' className='button-5'>Save</button>
                         <button onClick={handleCancelEdit} className='button-5'>Cancel</button>

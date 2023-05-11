@@ -72,7 +72,7 @@ function CreateNewItem(){
         const newItem = await dispatch(createNewItem(payload));
 
         if(newItem){
-            history.push('/')
+            history.push(`/items/${newItem.id}`)
         }
     }
 
@@ -81,26 +81,36 @@ function CreateNewItem(){
         if(file) setImage(file)
     }
 
+    console.log(errors)
+
     return (
         <div>
             <ul className="profilepage-user-container">
         <form onSubmit={submit} className="create-item-form">
             <h1>Post Item</h1>
-                {errors.map(error => (
-                    <li>{error}</li>
-                ))}
+              
+
             <label>
                 Name:
+                
                 <input 
+                className="text"
                 type='text'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
                 />
+        {errors.map((error, idx) => (
+        <div className="signuppage-errors" key={idx}>
+         {error.includes('Name') && <li>{error}</li>}
+        </div>
+        ))}
+
             </label>
             <label>
                 Description:
                 <textarea 
+                className="textarea"
                 type='text'
                 rows="5"
                 cols="33"
@@ -108,34 +118,57 @@ function CreateNewItem(){
                 onChange={(e) => setDescription(e.target.value)}
                 required
                 />
+        {errors.map((error, idx) => (
+        <div className="signuppage-errors" key={idx}>
+         {error.includes('Description') && <li>{error}</li>}
+        </div>
+        ))}
             </label>
             <label>
                 Price:
                 <input 
                 type='number'
+                className="text"
                 min={1}
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 required
                 />
             </label>
+            {errors.map((error, idx) => (
+        <div className="signuppage-errors" key={idx}>
+         {error.includes('Price') && <li>{error}</li>}
+        </div>
+        ))}
             <label>
                 Stocks:
                 <input 
                 type='text'
+                className="text"
                 value={stocks}
                 onChange={(e) => setStocks(e.target.value)}
                 required
                 />
             </label>
+        {errors.map((error, idx) => (
+        <div className="signuppage-errors" key={idx}>
+         {error.includes('Stocks') && <li>{error}</li>}
+        </div>
+        ))}
             <label>
                 Image:
                 <input 
                 type='file'
+                className="text"
                 onChange={updateFile}
                 required
                 />
             </label>
+            {errors.map((error, idx) => (
+        <div className="signuppage-errors" key={idx}>
+         {error.includes('Image') && <li>{error}</li>}
+        </div>
+        ))}
             <label>
                 Category:
                 <select 
@@ -148,6 +181,11 @@ function CreateNewItem(){
                 <option key={option.value} value={option.value}>{option.label}</option>
                 ))}
                 </select>
+                {errors.map((error, idx) => (
+        <div className="signuppage-errors" key={idx}>
+         {error.includes('Category') && <li>{error}</li>}
+        </div>
+        ))}
             </label>
             <button type="submit" className="button-5" onClick={submit}>Create</button>
         </form>

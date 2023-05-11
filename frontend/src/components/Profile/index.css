@@ -56,13 +56,21 @@
 .create-item-form { 
   display: flex;
   flex-direction: column;
-  padding-left: 3%;
-  width: 30%;
-  padding-top: 8px;
-  gap: 10px
+  width: 25%;
 }
 
+.text { 
+  padding: 8px;
+  border-radius: 8px;
+  width: 250px;
+}
 
+.textarea { 
+  width: 250px;
+  padding: 8px;
+  border-radius: 8px;
+  height: 150px;
+}
 .edit-item-form { 
   display: flex;
   flex-direction: column;
@@ -75,6 +83,15 @@
   flex-direction: column;
   gap: 10px;
  
+}
+
+input::file-selector-button {
+  font-weight: bold;
+  color: #fa6400;
+  padding: 0.5em;
+  border: thin solid grey;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 
