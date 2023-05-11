@@ -7,10 +7,11 @@ import CreateNewItem from './CurrentUserCreateItem';
 import { useSelector } from 'react-redux';
 import CurrentUserOrders from './CurrentUserOrder';
 import CurrentUserWishList from './CurrentUserWishList';
+import { useHistory } from 'react-router-dom';
 
 function Profile(){ 
     const currentUser = useSelector(state => state.session.user)
-
+    const history = useHistory();
     const [profilepage, setprofilePage] = useState(true)
     const [itempage, setItempage] = useState(false)
     const [reviewpage, setReviewpage] = useState(false)
