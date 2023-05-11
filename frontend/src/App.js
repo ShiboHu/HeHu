@@ -43,7 +43,8 @@ function App() {
               <Route exact path='/'>
                 <LandingPage />
               </Route>
-  
+      
+
               <Route path='/items/:itemId'>
                 <SingleItem />
               </Route>
