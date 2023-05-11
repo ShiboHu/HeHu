@@ -16,13 +16,14 @@ function HoverFilter(){
     const [isFilterOpen, setIsFilterOpen] = useState(true);
 
     useEffect(() => {
-        dispatch(getAllMainCategory())
-        dispatch(getOneSubCategory(hoverMaincat))
-
-        setTimeout(() => { 
-            setIsLoaded(true)
-        },[350])
-    },[dispatch, hoverMaincat])
+        dispatch(getAllMainCategory());
+        if (hoverMaincat !== null) {
+            dispatch(getOneSubCategory(hoverMaincat));
+        }
+        setTimeout(() => {
+            setIsLoaded(true);
+        }, [350]);
+    }, [dispatch, hoverMaincat]);
 
     const closeFilter = () => {
         setIsFilterOpen(false);
@@ -45,25 +46,39 @@ function HoverFilter(){
                         >
                             <li onClick={() => {
                                 history.push(`/maincategories/${cat.id}`)
-                                 closeFilter();
+                                                closeFilter();
                         } }>{cat.name}</li>
                         </ul>
                     ))}
                 </div>
     
-                           
+            {isLoaded ? (            
               <div className="sub-categories-container">
                     { subcat?.map((cat, index) => (
                         <ul key={index} className="sub-cat-name">
-                            {isLoaded ? <img onClick={() => { 
+                           <img onClick={() => { 
                                 history.push(`/subcategories/${cat.id}`);
                                 closeFilter();
-                            }} className="subcat-image" src={cat.image} alt='subcat'></img> : <Skeleton style={{width: '80px', height:'60px', borderRadius: '50%'}}/>}
-                            {isLoaded ? <li>{cat.name}</li> : <Skeleton /> }
+                            }} className="subcat-image" src={cat.image} alt='subcat'></img> 
+                           <li className="cat-name-li">{cat.name}</li>
                         </ul>
                     )) 
                     } 
              </div>
+                ): (
+            <div className="sub-categories-container">
+              {[...Array(6)].map((_, index) => (
+                <ul className="sub-cat-name" key={index}>
+                    <div style={{marginBottom: '4px'}}>
+                    <Skeleton className="subcat-image" />
+                    </div>
+                    <li>
+                    <Skeleton className="cat-name-li"/>
+                    </li>
+              </ul>
+              ))}
+                    </div>
+                )}
 
             </div>
         </div>         

@@ -67,7 +67,7 @@ function LandingPage(){
       return ( 
         <>
         {isLoaded ? (
-        <div className="landing-main-content">
+          <div className="landing-main-content">
           <FeaturedItems />
           <h1 className="landing-h1">Featured</h1>
             <ul className="items-container"> 

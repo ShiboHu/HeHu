@@ -39,9 +39,9 @@ function Navigation({ isLoaded }){
     <div className='navbar-filters-container'>
       <div className='navabar-categories' onMouseEnter={showHover} onMouseLeave={hideHover}> 
         <i class="fa-solid fa-chevron-down">Categories</i>
-        <div className='categories-main-container'>
+      
         {showHoverFilter && <HoverFilter />}
-        </div>
+      
       </div>
 
       <div className='search-input-container'>

@@ -6,7 +6,7 @@
 }
 
 .landing-main-content { 
-width: 90%;
+  width: 90%;
 }
 
 .landingpage-item-image { 
@@ -58,7 +58,6 @@ width: 90%;
 
 
 /* Change the color of the skeleton's animation */
-
 .feature-item-image { 
   width: 250px;
   height: 200px;
