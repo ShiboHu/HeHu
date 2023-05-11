@@ -1,88 +1,88 @@
 .items-container{ 
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    margin-left: 3%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  margin-left: 3%;
 }
 
 .landing-main-content { 
-  width: 90%;
+width: 90%;
 }
 
 .landingpage-item-image { 
-    width: 270px;
-    height: 295px;
-    border-radius: 5px;
+  width: 270px;
+  height: 295px;
+  border-radius: 5px;
 }
 
 .landingpage-addtocart-button { 
-    width: 45px;
-    height: 35px;
-    border-radius: 30%;
-    background-color: white;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  width: 45px;
+  height: 35px;
+  border-radius: 30%;
+  background-color: white;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .landingpage-addtocart-button:hover { 
-    background-color: #f78b26;
-    cursor: pointer;
+  background-color: #f78b26;
+  cursor: pointer;
 }
 
 .landingpage-price { 
-    font-size: 20px;
-    display: flex;
-    justify-content: space-between;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .landingpage-item-name {
-    color: rgb(85, 85, 85);
-    opacity: 1;
+  color: rgb(85, 85, 85);
+  opacity: 1;
 }
 
 .items-card { 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .NavLink {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  
-
-  .fa-star { 
-    color: #f78b26;
-  }
+  text-decoration: none;
+  color: inherit;
+}
 
 
-  /* Change the color of the skeleton's animation */
 
-  .feature-item-image { 
-    width: 250px;
-    height: 200px;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+.fa-star { 
+  color: #f78b26;
+}
 
-  .feature-ul-container { 
-    display: flex;
-    justify-content: space-evenly;
-  }
 
-  .featured-items { 
-    text-align: center;
-    margin-bottom: 40px;
-    margin-top: 40px;
-  }
+/* Change the color of the skeleton's animation */
 
-  .feature-item-text { 
-   font-weight: bold;
-  }
+.feature-item-image { 
+  width: 250px;
+  height: 200px;
+  border-radius: 50%;
+  cursor: pointer;
+}
 
-  
+.feature-ul-container { 
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.featured-items { 
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
+.feature-item-text { 
+ font-weight: bold;
+}
+
+
 .landing-h1{ 
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
