@@ -17,11 +17,11 @@ router.get('/current', requireAuth, async (req, res) => {
             through: { 
                 model: Cart_Item,
                 attributes: ['quantity'],
-                order: [['createdAt', 'ASC']]
+                order: [[Item, 'createdAt', 'ASC']]
             },
-            order: [['createdAt', 'ASC']]
+      
         },
-        order: [['createdAt', 'ASC']]
+
     })
 
     if(!cart){ 
