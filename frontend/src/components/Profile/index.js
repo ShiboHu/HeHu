@@ -18,7 +18,7 @@ function Profile(){
     const [orderPage, setOrderPage] = useState(false)
     const [createItem, setCreateItem] = useState(false)
     const [wishList, setWishList] = useState(false)
-    
+
     const toItemPage = () => { 
         setItempage(true)
         setReviewpage(false)
@@ -112,6 +112,7 @@ function Profile(){
             </button>
 
         </div>
+        
         <div className='profile-contents'>
             {itempage && <CurrentUserItems />}
             {reviewpage && <CurrentUserComment />}
@@ -120,6 +121,8 @@ function Profile(){
             {orderPage && <CurrentUserOrders />}
             {wishList && <CurrentUserWishList />}
         </div>
+      
+          
         </div>
     )
 }

@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { getsingleOrder } from "../../store/order";
 import './orderpage.css'
+import ReactLoading from "react-loading";
 
 
 function SingleOrderPage(){ 
@@ -11,9 +12,16 @@ function SingleOrderPage(){
     const dispatch = useDispatch();
     const currentOrder = useSelector(state => state.orders.order);
     const currentUser = useSelector(state => state.session.user)
+    const [isLoaded, setisLoaded] = useState(false);
+
 
     useEffect(() => { 
         dispatch(getsingleOrder(orderId))
+
+        setTimeout(() => { 
+            setisLoaded(false)
+        },3000)
+     
     },[dispatch])
     
     if(!currentUser){ 
@@ -24,8 +32,12 @@ function SingleOrderPage(){
 
 
     return (
+        <>
+        {isLoaded ? (
         <div className="singleorder-main-container">
-            <h1>Order: #{orderId}</h1>
+            <h2>ORDER CONFIRMATION</h2>
+            <h4>Thank you for your purchase !</h4>
+            <p>Your order ID is : #{orderId}</p>
             <ul>
                 {currentOrder?.items?.map(order => (
                     <div className="singleorder-content">
@@ -38,6 +50,18 @@ function SingleOrderPage(){
             </ul>
             <h3>Total Price:${currentOrder.totalPrice}</h3>
         </div>
+    ) : ( 
+        <div className="loading-container">
+        <h2>Processing...</h2>
+        <ReactLoading
+          type="spinningBubbles"
+          color="#ff7426"
+          height={100}
+          width={50}
+         />
+        </div>
+    )}
+        </>
     )
 }
 

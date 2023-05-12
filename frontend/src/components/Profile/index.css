@@ -6,11 +6,9 @@
     height: 100vh;
     margin-top: 2%;
     margin-left: 5%;
+    position: static;
 }
 
-.profile-sidebar-buttons { 
-
-}
 
 .profile-itemimages { 
     width: 250px;
@@ -40,6 +38,12 @@
 
 .profile-contents {
     width: 60%;
+}
+
+.loading-profile-contents { 
+  position: absolute;
+  top: 25%;
+  left: 25%;
 }
 
 .profile-items-contents { 

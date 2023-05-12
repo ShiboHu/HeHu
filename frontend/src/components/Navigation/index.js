@@ -46,20 +46,26 @@ function Navigation({ isLoaded }){
     <div className='navbar-filters-container'>
 
       <div className='navabar-categories' onMouseEnter={showHover} onMouseLeave={hideHover}> 
+      <button className='button-87'>
         <i class="fa-solid fa-chevron-down">Categories</i>
-      
+      </button>
+  
         {showHoverFilter && <HoverFilter />}
       
       </div>
+      
+      <div className='flex-search'>
         <input 
         className='searchinput'
-        placeholder='serach'
+        placeholder="Search 'pizza' "
         value={keyword}
         onChange={(e) => setkeyword(e.target.value)}
         ></input>
         <button onClick={searchForWord} className='button-5'>
         <i class="fa-solid fa-magnifying-glass" ></i>
         </button>
+        </div>
+
       </div>
     </div>
 

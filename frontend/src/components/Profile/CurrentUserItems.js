@@ -4,15 +4,21 @@ import { getCurrentUserItems, updateUserItem } from "../../store/item";
 import DeleteItemModal from "../ConfirmModals/DeleteItem";
 import OpenModalButton from "../OpenModalButton";
 import { useHistory } from 'react-router-dom'
+import ReactLoading from "react-loading";
 
 function CurrentUserItems() {
   const history = useHistory();
   const dispatch = useDispatch();
   const allItems = useSelector((state) => state.items.currentItem);
   const [editItemIndex, setEditItemIndex] = useState(null);
+  const [isLoaded, setisLoaded] = useState(false)
 
   useEffect(() => {
     dispatch(getCurrentUserItems());
+
+    setTimeout(() => { 
+      setisLoaded(true)
+    }, 2000)
   }, [dispatch]);
 
   const deleteButton = (id) => {
@@ -57,6 +63,8 @@ function CurrentUserItems() {
     <h1>No Products</h1>
   }
   return (
+    <>
+
     <div>
       <ul className="profile-content-ul">
         <h1>Products</h1>
@@ -118,7 +126,9 @@ function CurrentUserItems() {
           </div>
         ))}
       </ul>
-    </div>
+      </div>
+
+      </>
   );
 }
 

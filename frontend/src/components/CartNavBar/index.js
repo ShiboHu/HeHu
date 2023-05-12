@@ -10,7 +10,6 @@ function CartNavBar(){
     const history = useHistory()
     const dispatch = useDispatch();
     const allItemInCart = useSelector(state => state.cartItems.cart_items);
-
     const [quantity, setQuantity] = useState(0);
 
     useEffect(() => { 

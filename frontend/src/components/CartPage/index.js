@@ -46,6 +46,7 @@ function CartPage(){
 
    const orderSubmit = async() => { 
         let newOrder = await dispatch(createNewOrder(allItems.cartId))
+
         if(newOrder){
             history.push(`/orders/${allItems.cartId}`)
         }
