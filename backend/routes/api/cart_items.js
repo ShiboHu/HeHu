@@ -24,13 +24,6 @@ router.get('/current', requireAuth, async (req, res) => {
 
     })
 
-    if(!cart){ 
-        res.status(200)
-        return res.json({ 
-            message: 'Current User does not having anything in cart',
-            statusCode: 200
-        })
-    }
 
     const items = cart.Items.map(item => ({
         id: item.id,

@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './cartpage.css'
 import { allCartItem, deleteCartItem, updateCartItem } from "../../store/cart_item";
 import { createNewOrder } from "../../store/order";
 import { useHistory } from "react-router-dom";
+import ReactLoading from "react-loading";
 
 
 function CartPage(){ 
@@ -11,9 +12,14 @@ function CartPage(){
     const dispatch = useDispatch();
     const allItems = useSelector(state => state.cartItems.cart_items);
     const currentUser = useSelector(state => state.session.user)
-
+    const [isLoaded, setIsLoaded] = useState(false);
+    
     useEffect(()=> {
         dispatch(allCartItem())
+
+        setTimeout(() => { 
+            setIsLoaded(false)
+        },2000)
     }, [dispatch])
 
 
@@ -21,9 +27,10 @@ function CartPage(){
         history.push('/login')
     }
 
-    if(!Object.values(allItems).length){ 
+    if(!allItems?.items?.length || !allItems){ 
         return ( 
             <div className="cartpage-notfound">
+                <img className='notfound-image' src="https://img.freepik.com/premium-vector/shopping-cart-with-cross-mark-wireless-paymant-icon-shopping-bag-failure-paymant-sign-online-shopping-vector_662353-912.jpg"></img>
                 <h1>
                 <i class="fa-duotone fa-shelves-empty">
                         Your Cart Is Empty
@@ -60,10 +67,12 @@ function CartPage(){
 
     return( 
         <div className="cartpage-main-container">
+        {isLoaded ? (
+            <>
         <div className="cartpage-leftside-container">
             <h1>Carts</h1>
         <ul> 
-            {allItems.items.map(item => ( 
+            {allItems && allItems?.items?.map(item => ( 
                 <div className="cartpage-item-container">
                 <img className="cartpage-item-image" src={item.image} alt='item'></img>
                 
@@ -113,7 +122,15 @@ function CartPage(){
             <h3>Total Price:${allItems.totalPrice}</h3>
             <button className="button-71" onClick={() => orderSubmit()}>Check Out</button>
         </div>
-     </div>
+        </>
+        ) : ( 
+            <div className="cart-loading">
+                <h1>Loading...</h1>
+      <ReactLoading type="spin" color="#ff7426"
+        height={400} width={100} />
+            </div>
+        )}
+        </div>
     )
 }
 

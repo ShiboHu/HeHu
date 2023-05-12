@@ -19,7 +19,7 @@ function SingleOrderPage(){
         dispatch(getsingleOrder(orderId))
 
         setTimeout(() => { 
-            setisLoaded(false)
+            setisLoaded(true)
         },3000)
      
     },[dispatch])
@@ -52,12 +52,12 @@ function SingleOrderPage(){
         </div>
     ) : ( 
         <div className="loading-container">
-        <h2>Processing...</h2>
+        <h1>Processing...</h1>
         <ReactLoading
           type="spinningBubbles"
           color="#ff7426"
-          height={100}
-          width={50}
+          height={400}
+          width={100}
          />
         </div>
     )}

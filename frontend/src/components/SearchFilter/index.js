@@ -13,7 +13,7 @@ function SearchForKeyWord(){
     const items = useSelector(state => state.search.filtered)
     const currentUser = useSelector(state => state.session.user);
     const [isLoaded, setIsLoaded] = useState(false); 
-    
+
     useEffect(() => { 
         dispatch(searchFilter(keyword))
         .then(() => setIsLoaded(false))
@@ -37,7 +37,7 @@ function SearchForKeyWord(){
       if(!items.length){ 
         return ( 
           <div className="landing-main-content" style={{textAlign:'center', marginTop:'2%'}}>
-           <i style={{fontSize:'40px'}} class="fa-solid fa-circle-xmark"></i>           
+           <img src='https://trolleymate.co.uk/assets/img/error_404.jpeg'></img>          
              <h1>'{keyword}' Not Found</h1>
             </div>
         )
