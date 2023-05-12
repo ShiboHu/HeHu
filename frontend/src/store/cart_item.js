@@ -4,7 +4,7 @@ const GET_CARTITEMS = 'cartItems/All'
 const ADD_CARTITEMS = 'cartItems/ADD'
 const DELETE_CARTITEMS = 'cartItems/DELETE'
 const UPDATE_CARTITEMS = 'cartItems/UPDATE'
-
+const CLEAR_CARTITESM = 'cartitems/CLEAR'
 
 const getItem = (payload) => { 
     return { 
@@ -34,6 +34,11 @@ const updateItem = (payload) => {
     }
 }
 
+export const clearCartItem = () => { 
+    return { 
+        type: CLEAR_CARTITESM, 
+    }
+}
 
 export const allCartItem = () => async dispatch => { 
     const res = await csrfFetch('/api/cart-items/current');
@@ -111,6 +116,12 @@ const cartItemReducer = (state = initialState, action) => {
                 ...state, 
                 cart_items: state.cart_items
             }
+        case CLEAR_CARTITESM: { 
+            return { 
+                ...state,
+                cart_items: []
+            }
+        }
         default: 
             return state
     }

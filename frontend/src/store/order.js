@@ -1,4 +1,4 @@
-import { allCartItem } from "./cart_item";
+import { allCartItem, clearCartItem } from "./cart_item";
 import { csrfFetch } from "./csrf"
 
 const GET_ALLORDER = 'orders/ALL';
@@ -59,7 +59,7 @@ export const createNewOrder = (orderId) => async dispatch => {
     if(res.ok){ 
         const data = await res.json()
         dispatch(neworder(data))
-        dispatch(allCartItem())
+        dispatch(clearCartItem())
     }
 
     return res
