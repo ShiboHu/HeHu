@@ -18,8 +18,8 @@ function CartPage(){
         dispatch(allCartItem())
 
         setTimeout(() => { 
-            setIsLoaded(false)
-        },2000)
+            setIsLoaded(true)
+        },2500)
     }, [dispatch])
 
 

@@ -20,7 +20,7 @@ function SingleOrderPage(){
 
         setTimeout(() => { 
             setisLoaded(true)
-        },3000)
+        },2500)
      
     },[dispatch])
     
