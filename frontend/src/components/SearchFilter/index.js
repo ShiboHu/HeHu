@@ -14,6 +14,7 @@ function SearchForKeyWord(){
     const currentUser = useSelector(state => state.session.user);
     const [isLoaded, setIsLoaded] = useState(false); 
 
+    
     useEffect(() => { 
         dispatch(searchFilter(keyword))
         .then(() => setIsLoaded(false))
@@ -22,10 +23,10 @@ function SearchForKeyWord(){
             setIsLoaded(true);
         }, 800)
 
-    }, [dispatch, keyword])
-
-    
-    const submit = async (id) => { 
+      }, [dispatch, keyword])
+      
+      
+      const submit = async (id) => { 
         if(!currentUser){
           history.push('/login')
         }else {
@@ -34,7 +35,7 @@ function SearchForKeyWord(){
         }
       }
       
-      if(!items.length){ 
+      if(isLoaded && items.length === 0){ 
         return ( 
           <div className="landing-main-content" style={{textAlign:'center', marginTop:'2%'}}>
            <img src='https://trolleymate.co.uk/assets/img/error_404.jpeg'></img>          
@@ -75,7 +76,7 @@ function SearchForKeyWord(){
               <ul className="items-container">
               {[...Array(15)].map((_, index) => (
                 <li className="items-card" key={index}>
-                       <Skeleton  baseColor="grey" highlightColor="white" className="skeleton" height={270} width={270}/>
+                    <Skeleton  baseColor="grey" highlightColor="white" className="skeleton" height={270} width={270}/>
                     <Skeleton  baseColor="grey" highlightColor="white" className="skeleton" height={20} width={260}/>
                     <Skeleton  baseColor="grey" highlightColor="white" className="skeleton" height={20} width={50}/>
                     <Skeleton  baseColor="grey" highlightColor="white" height={20} width={180}/>
