@@ -20,6 +20,30 @@ A full-stack e-commerce web application inspired by Temu/Esty
 - User Profile management
 - CRUD on Product/Review/Cart
 
+## Installation
+
+### 1. Clone the repository
+
+git clone https://github.com/ShiboHu/Hubnb.git
+
+### 2. Setup the backend 
+
+cd hubnb/backend
+npm install
+
+Create a PostgreSQL database and update the database configuration in the .env file.
+
+### 3. Setup the frontend 
+
+cd hubnb/frontend 
+npm install 
+
+### 4. Run the application 
+
+In 2 separate terminal windows. 
+Terminal(1-backend):npm start
+Terminal(2-frontend): npm start
+
 ## Technologies Used
  - React
  - Redux 
@@ -30,9 +54,3 @@ A full-stack e-commerce web application inspired by Temu/Esty
  - PostgreSQL
  - S3 AWS
  - etc...
-
-## Installation
-
-### 1. Clone the repository
-
-git clone https://github.com/your-username/ecommerce-site.git
