@@ -2,6 +2,9 @@
 
 A full-stack e-commerce web application inspired by Temu/Esty
 
+## Live Site
+https://hehu.onrender.com/
+
 ## Project Demo
 ![Project Demo](https://i.ibb.co/1fGfWJm/hehu.png)
 
