@@ -21,7 +21,6 @@ export const searchFilter = (keyword) => async dispatch => {
     return res
 }
 
-
 const searchReducer = (state = {}, action) => { 
     switch(action.type){ 
         case SET_ALL:
