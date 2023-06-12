@@ -72,17 +72,6 @@ function Navigation({ isLoaded }){
  
  <div className='personal-profile-navbar'>
   
-        {/* <div className='personal-contact'>
-          <li><a href="https://www.linkedin.com/in/shibo-hu-b4712323a/" ><i class="fa-brands fa-linkedin">Linkedin</i></a></li>
-          </div>
-
-        <div className='personal-contact'>
-						<li><a href="https://github.com/ShiboHu"><i class="fa-brands fa-github">GitHub</i></a></li>
-            </div>
-            
-            <div className='personal-contact'>
-						<li><a href="mailto: hushibo456@gmail.com" ><i class="fa-solid fa-envelope">Email</i></a></li>
-            </div> */}
 
       {isLoaded && (
         <li>
@@ -90,6 +79,8 @@ function Navigation({ isLoaded }){
         </li>
       )}
 </div>
+
+
     </ul>
 
 

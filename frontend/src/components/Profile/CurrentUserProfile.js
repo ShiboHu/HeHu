@@ -23,14 +23,37 @@ function CurrentUserProfile(){
             src='https://icons.veryicon.com/png/o/internet--web/prejudice/user-128.png'>
             </img>}
             <div className="profilepage-user-content">
-            <li>username: {currentUser.username}</li>
-            <li>email: {currentUser.email}</li>
-            <li>address: {currentUser.address}, {currentUser.state}, {currentUser.zipCode}</li>
-            <li>bio:{currentUser.bio}</li>
+            <li>Username: {currentUser.username}</li>
+            <li>Email: {currentUser.email}</li>
+            <li>Address: {currentUser.address}, {currentUser.state}, {currentUser.zipCode}</li>
+            <li>About:{currentUser.bio}</li>
+    <div className='personalsite' target="_blank" style={{gap:'30px', display:'flex'}}>
+      <a href='https://www.linkedin.com/in/shibo-hu-b4712323a/'>
+      <i class="fa-brands fa-linkedin">
+        LinkedIn
+        </i>
+      </a>
+
+      <a href='https://github.com/ShiboHu' target="_blank">
+      <i class="fa-brands fa-github">
+        GitHub
+        </i>
+      </a>
+
+      <a href='https://shibohu.github.io/portfolio/' target="_blank">
+      <i class="fa-solid fa-user-tag">
+        Portfolio
+        </i>
+      </a>
+</div>
             </div>
             <button className='button-87' onClick={logout}>Log Out</button>
             </ul>
+
+            
+            
         </div>
+        
     )
 }
 

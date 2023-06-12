@@ -37,6 +37,7 @@ function App() {
     <>
       {location.pathname !== '/login' && location.pathname !== '/signup' && <Navigation isLoaded={isLoaded} />}
       <div className="page-main-container">
+        
         {isLoaded && (
           <>
             <Switch>

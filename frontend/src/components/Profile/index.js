@@ -110,7 +110,7 @@ function Profile(){
                 <i class="fa-solid fa-heart"></i>
                 Wish List
             </button>
-
+        
         </div>
         
         <div className='profile-contents'>
@@ -120,6 +120,7 @@ function Profile(){
             {createItem && <CreateNewItem />}
             {orderPage && <CurrentUserOrders />}
             {wishList && <CurrentUserWishList />}
+            
         </div>
       
           
