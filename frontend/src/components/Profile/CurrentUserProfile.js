@@ -15,7 +15,9 @@ function CurrentUserProfile(){
       };
     
     return(
+      
         <div>
+
             <ul className="profilepage-user-container">
             <h1>Profile</h1>
             {currentUser.icon? currentUser.icon : 
@@ -27,6 +29,7 @@ function CurrentUserProfile(){
             <li>Email: {currentUser.email}</li>
             <li>Address: {currentUser.address}, {currentUser.state}, {currentUser.zipCode}</li>
             <li>About:{currentUser.bio}</li>
+
     <div className='personalsite' target="_blank" style={{gap:'30px', display:'flex'}}>
       <a href='https://www.linkedin.com/in/shibo-hu-b4712323a/'>
       <i class="fa-brands fa-linkedin">
@@ -34,16 +37,17 @@ function CurrentUserProfile(){
         </i>
       </a>
 
+
       <a href='https://github.com/ShiboHu' target="_blank">
       <i class="fa-brands fa-github">
         GitHub
         </i>
       </a>
 
+
       <a href='https://shibohu.github.io/portfolio/' target="_blank">
       <i class="fa-solid fa-user-tag">
         Portfolio
-        
         </i>
       </a>
 </div>
