@@ -33,17 +33,21 @@ function Navigation({ isLoaded }){
     <div className='navbar-main-container'>
 
 
+
      <ul className='navbar-container'>
 
       <div>
+
       <li>
         <NavLink exact to="/"><img src={hehu} className='hehu-logo' alt='hehu-logo'></img></NavLink>
       </li>
       </div>
 
 
+
       <div className='search-input-container'>
     <div className='navbar-filters-container'>
+
 
       <div className='navabar-categories' onMouseEnter={showHover} onMouseLeave={hideHover}> 
       <button className='button-87'>
@@ -65,14 +69,11 @@ function Navigation({ isLoaded }){
         <i class="fa-solid fa-magnifying-glass" ></i>
         </button>
         </div>
-
       </div>
     </div>
 
  
  <div className='personal-profile-navbar'>
-  
-
       {isLoaded && (
         <li>
           <ProfileButton user={sessionUser} />
