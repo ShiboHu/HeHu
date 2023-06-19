@@ -102,9 +102,12 @@ function CurrentUserItems() {
                   name="stocks"
                   defaultValue={item.stocks}
                   required
+                  
                 />
               </li>
+
               <li>
+
                 Image:
                 <input className="text" type="text" name="image" defaultValue={item.image} required />
               </li>
@@ -112,7 +115,9 @@ function CurrentUserItems() {
               <button type="button" onClick={handleCancelEdit} className='button-5'>
                 Cancel
               </button>
+
             </form>
+
             ) : (
               <div className="profile-items-contents">
                 <li>Name: {item.name}</li>
