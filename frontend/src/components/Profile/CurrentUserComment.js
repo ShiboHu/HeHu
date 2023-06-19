@@ -24,6 +24,7 @@ function CurrentUserComment(){
                 />
     }
 
+    
     const editButton = (index) => { 
         return ( 
             <button className='button-5' onClick={() => setEditCommentIndex(index)}>Edit</button>

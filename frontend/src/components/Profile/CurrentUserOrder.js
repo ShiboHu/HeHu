@@ -18,7 +18,6 @@ function CurrentUserOrders() {
         return new Date(date).toLocaleString()
     }
 
-
     return( 
         <div>
             <ul className="profilepage-user-container">

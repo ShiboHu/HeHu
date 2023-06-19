@@ -15,7 +15,7 @@ function CurrentUserProfile(){
       };
     
     return(
-      
+
         <div>
 
             <ul className="profilepage-user-container">
@@ -61,6 +61,7 @@ function CurrentUserProfile(){
         
     )
 }
+
 
 
 export default CurrentUserProfile; 

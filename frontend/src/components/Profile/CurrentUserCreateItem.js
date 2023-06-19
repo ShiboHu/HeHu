@@ -28,7 +28,6 @@ function CreateNewItem(){
     const [subcategoryId, setSubcategoryId] = useState(null);
     const [errors, setError] = useState([]);
         
-        
     const submit = async (e) => { 
         e.preventDefault();
 
