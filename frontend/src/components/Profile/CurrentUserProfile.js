@@ -43,6 +43,7 @@ function CurrentUserProfile(){
       <a href='https://shibohu.github.io/portfolio/' target="_blank">
       <i class="fa-solid fa-user-tag">
         Portfolio
+        
         </i>
       </a>
 </div>
