@@ -44,10 +44,8 @@ function Navigation({ isLoaded }){
       </div>
 
 
-
       <div className='search-input-container'>
     <div className='navbar-filters-container'>
-
 
 
       <div className='navabar-categories' onMouseEnter={showHover} onMouseLeave={hideHover}> 
