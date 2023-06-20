@@ -54,6 +54,7 @@ function Navigation({ isLoaded }){
       <button className='button-87'>
         <i class="fa-solid fa-chevron-down">Categories</i>
       </button>
+      
   
         {showHoverFilter && <HoverFilter />}
       
