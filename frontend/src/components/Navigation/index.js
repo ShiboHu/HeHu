@@ -48,6 +48,8 @@ function Navigation({ isLoaded }){
     <div className='navbar-filters-container'>
 
 
+
+
       <div className='navabar-categories' onMouseEnter={showHover} onMouseLeave={hideHover}> 
       <button className='button-87'>
         <i class="fa-solid fa-chevron-down">Categories</i>
