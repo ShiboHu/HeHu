@@ -9,16 +9,26 @@ function OpenModalMenuItem({
 }) {
   const { setModalContent, setOnModalClose } = useModal();
 
+
+
+  
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
     setModalContent(modalComponent);
     if (onItemClick) onItemClick();
   };
 
+
+
+
   return (
     <button className="user-circle-button" onClick={onClick}>{itemText}</button>
   );
 }
+
+
+
+
 
 
 
