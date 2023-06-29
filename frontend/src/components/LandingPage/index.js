@@ -137,10 +137,16 @@ function LandingPage(){
                     <Skeleton className="skeleton" height={20} width={260}  baseColor="grey" highlightColor="white" />
                     <Skeleton className="skeleton" height={20} width={50}  baseColor="grey" highlightColor="white" />
                     <Skeleton height={20} width={180}  baseColor="grey" highlightColor="white" />
+                    
                   </li>
+                  
               ))}
+              
+              
               </ul>
               </div>
+    
+
     
             )}
     
