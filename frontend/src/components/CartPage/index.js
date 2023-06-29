@@ -26,6 +26,7 @@ function CartPage(){
     if(!currentUser){ 
         history.push('/login')
     }
+    
 
     if(!allItems?.items?.length || !allItems){ 
         return ( 
@@ -39,17 +40,18 @@ function CartPage(){
         )
     }
 
+
     const countQuantity = () => { 
         return allItems.items.reduce((accum, item) => { 
             return accum + item.quantity;
           }, 0);
     }
 
-
     const submit = async (id) => { 
         await dispatch(deleteCartItem(id))
         .then(dispatch(allCartItem()))
    }
+
 
    const orderSubmit = async() => { 
         let newOrder = await dispatch(createNewOrder(allItems.cartId))
