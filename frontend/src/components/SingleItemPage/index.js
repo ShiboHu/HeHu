@@ -87,6 +87,7 @@ function SingleItem(){
           );
         }
       };
+      
 
     const handleAddToCart = async () => { 
         if(!currentUser){ 
@@ -97,11 +98,11 @@ function SingleItem(){
         }
     }
 
+
     const quantityOptions = [];
       for (let i = 1; i <= 99; i++) {
         quantityOptions.push({ value: i, label: i });
       }
-
 
     const likeItem = async () => { 
       if(!currentUser){
@@ -115,7 +116,6 @@ function SingleItem(){
         setLiked(true)
       }
     }
-
     return (
       <>
       { isLoaded ? (
