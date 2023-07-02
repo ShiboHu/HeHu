@@ -39,8 +39,6 @@ function CartPage(){
         )
     }
 
-
-
     const countQuantity = () => { 
         return allItems.items.reduce((accum, item) => { 
             return accum + item.quantity;
