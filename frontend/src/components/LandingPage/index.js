@@ -130,6 +130,7 @@ function LandingPage(){
             <div className="landing-main-content" style={{ margin: "0 auto", textAlign: "center" }}>
             <Skeleton width={200} height={40} style={{marginBottom:'30px'}}/> */}
             
+            
               <ul className="items-container">
               {[...Array(20)].map((_, index) => (
                 <li className="items-card" key={index}>
