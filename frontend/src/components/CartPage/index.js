@@ -26,8 +26,6 @@ function CartPage(){
     if(!currentUser){ 
         history.push('/login')
     }
-    
-
 
     if(!allItems?.items?.length || !allItems){ 
         return ( 
@@ -41,7 +39,7 @@ function CartPage(){
         )
     }
 
-    
+
 
     const countQuantity = () => { 
         return allItems.items.reduce((accum, item) => { 
