@@ -28,6 +28,7 @@ function CartPage(){
     }
     
 
+
     if(!allItems?.items?.length || !allItems){ 
         return ( 
             <div className="cartpage-notfound">
@@ -40,6 +41,7 @@ function CartPage(){
         )
     }
 
+    
 
     const countQuantity = () => { 
         return allItems.items.reduce((accum, item) => { 
