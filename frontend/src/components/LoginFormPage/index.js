@@ -45,6 +45,7 @@ function LoginFormPage() {
         <img className='loginpage-logo' src={hehu} onClick={() => history.push('/')} alt='logo'></img>
         </div>
 
+
         <div className='loginpage-error-container'>
          {errors.map((error, idx) => (
           <div className='loginpage-error-content'>
