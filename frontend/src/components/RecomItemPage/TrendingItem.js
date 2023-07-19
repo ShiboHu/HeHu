@@ -59,6 +59,7 @@ function TrendingItems(){
               ))} 
       </ul>
       
+      
       </div>
       ) : ( 
         <div className="landing-main-content">
