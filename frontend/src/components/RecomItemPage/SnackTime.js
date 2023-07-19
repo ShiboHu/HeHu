@@ -59,6 +59,7 @@ function SnackTimeItems(){
               ))} 
       </ul>
       
+      
       </div>
       ) : ( 
         <div className="landing-main-content">
