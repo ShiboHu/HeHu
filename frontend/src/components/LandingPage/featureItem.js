@@ -9,6 +9,7 @@ function FeaturedItems(){
         <div className="featured-items">
             <ul className="feature-ul-container">
                 
+                
                 <div>
                 <img
                 onClick={() => history.push('/products/trending')}
