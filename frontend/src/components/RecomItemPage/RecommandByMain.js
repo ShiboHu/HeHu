@@ -71,6 +71,7 @@ function RecommandItemByMain(){
                     <Skeleton  baseColor="grey" highlightColor="white" className="skeleton" height={20} width={260}/>
                     <Skeleton  baseColor="grey" highlightColor="white" className="skeleton" height={20} width={50}/>
                     <Skeleton  baseColor="grey" highlightColor="white" height={20} width={180}/>
+                    
             </li>
         ))}
         </ul>
