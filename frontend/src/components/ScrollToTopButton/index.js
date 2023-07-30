@@ -19,10 +19,12 @@ function ScrollToTopButton() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+
   return isVisible && (
     <div className='scroll-up-container'>
     <button className='button-58' onClick={scrollToTop}>
       Scroll to top
+      
     </button>
     </div>
   );
