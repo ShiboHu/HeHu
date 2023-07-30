@@ -65,9 +65,11 @@ function TrendingItems(){
         <div className="landing-main-content">
         <ul className="items-container">
         {[...Array(20)].map((_, index) => (
+
           <li className="items-card" key={index}>
                     <Skeleton  baseColor="grey" highlightColor="white" className="skeleton" height={270} width={270}/>
                     <Skeleton  baseColor="grey" highlightColor="white" className="skeleton" height={20} width={260}/>
+                    
                     <Skeleton  baseColor="grey" highlightColor="white" className="skeleton" height={20} width={50}/>
                     <Skeleton  baseColor="grey" highlightColor="white"height={20} width={180}/>
             </li>
