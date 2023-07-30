@@ -74,6 +74,7 @@ function SignupFormPage() {
           </div>
         </label>
 
+
         <label>
           <div className='username'>
           Username
@@ -88,6 +89,7 @@ function SignupFormPage() {
          <div className="signuppage-errors" key={idx}>
          {error.includes('username') && <li>{error}</li>}
         </div>
+        
         ))}
           </div>
 
