@@ -85,6 +85,7 @@ function SignupFormPage() {
             onChange={(e) => setUsername(e.target.value)}
             required
           />
+          
         {errors.map((error, idx) => (
          <div className="signuppage-errors" key={idx}>
          {error.includes('username') && <li>{error}</li>}
