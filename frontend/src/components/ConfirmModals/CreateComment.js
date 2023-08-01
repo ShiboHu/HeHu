@@ -45,6 +45,7 @@ function CreateNewComment({ itemId }){
         }
     }
 
+    
     const uploadImage = e => { 
         const file = e.target.files[0];
         if(file) setImage(file)
