@@ -65,7 +65,9 @@ function HoverFilter(){
                     )) 
                     } 
              </div>
+
                 ): (
+                    
             <div className="sub-categories-container">
               {[...Array(6)].map((_, index) => (
                 <ul className="sub-cat-name" key={index}>

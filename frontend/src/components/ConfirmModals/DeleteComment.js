@@ -13,6 +13,7 @@ function DeleteCommentModal(props){
         closeModal()
     }
 
+    
 
     return (
             <div>
