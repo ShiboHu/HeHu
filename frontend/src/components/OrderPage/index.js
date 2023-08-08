@@ -31,9 +31,11 @@ function SingleOrderPage(){
     if(!Object.values(currentOrder).length) return null
 
 
+
     return (
         <>
         {isLoaded ? (
+            
         <div className="singleorder-main-container">
             <h2>ORDER CONFIRMATION</h2>
             <h4>Thank you for your purchase !</h4>
