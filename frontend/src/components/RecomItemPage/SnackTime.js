@@ -61,7 +61,9 @@ function SnackTimeItems(){
       
       
       </div>
+
       ) : ( 
+        
         <div className="landing-main-content">
         <ul className="items-container">
         {[...Array(20)].map((_, index) => (
