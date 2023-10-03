@@ -68,7 +68,7 @@ function LandingPage(){
         <>
         {isLoaded ? (
           <div className="landing-main-content">
-          <FeaturedItems />
+          {/* <FeaturedItems /> */}
           <h1 className="landing-h1">Featured</h1>
             <ul className="items-container"> 
              {allItems && allItems.slice(0, itemToShow).map(item => ( 

@@ -26,5 +26,8 @@
   "homepage": "https://github.com/ShiboHu/HeHu#readme",
   "dependencies": {
     "@faker-js/faker": "^7.6.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.37.1"
   }
 }
